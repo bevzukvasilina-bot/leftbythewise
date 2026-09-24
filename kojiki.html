@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Кодзікі — 古事記 | WHAT THE WISE LEFT BEHIND</title>
+
+  <meta
+    name="description"
+    content="Кодзікі — найдавніша збережена японська хроніка. Міфи про походження світу, богів, смерть, очищення, Аматерасу, Сусаноо та походження японської імператорської традиції."
+  >
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+
+    :root {
+      --paper: #f3ecdc;
+      --paper-light: #faf6eb;
+      --green: #24382f;
+      --green-light: #52685a;
+      --red: #7b3030;
+      --gold: #a9864f;
+      --ink: #29251f;
+      --muted: #756e61;
+      --line: rgba(65, 54, 39, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,.45), transparent 40%),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .12;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(80,60,30,.08) 0px,
+          rgba(80,60,30,.08) 1px,
+          transparent 1px,
+          transparent 5px
+        );
+      z-index: 10;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .book-header {
+      min-height: 90vh;
+      padding: 30px 7vw 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .book-header::before {
+      content: "古";
+      position: absolute;
+      right: 7vw;
+      top: 70px;
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(180px, 28vw, 420px);
+      color: rgba(36, 56, 47, .045);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .back-link {
+      font-size: 16px;
+      letter-spacing: .08em;
+      color: var(--green);
+    }
+
+    .back-link:hover {
+      color: var(--red);
+    }
+
+    .site-name {
+      font-size: 14px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-book {
+      max-width: 1050px;
+      position: relative;
+      z-index: 2;
+      margin-top: 80px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .japanese-title {
+      margin: 0;
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(54px, 10vw, 125px);
+      line-height: 1.05;
+      font-weight: 500;
+      color: var(--green);
+    }
+
+    .roman-title {
+      margin: 10px 0 0;
+      font-size: clamp(38px, 6vw, 78px);
+      font-weight: 500;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .ukrainian-title {
+      margin: 22px 0 35px;
+      font-size: 24px;
+      color: var(--muted);
+    }
+
+    .book-description {
+      max-width: 720px;
+      font-size: 21px;
+      line-height: 1.65;
+    }
+
+    .book-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 2;
+    }
+
+    .meta-item {
+      padding: 22px 20px 22px 0;
+      border-right: 1px solid var(--line);
+      margin-right: 20px;
+    }
+
+    .meta-item:last-child {
+      border-right: none;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .meta-value {
+      font-size: 18px;
+      color: var(--green);
+    }
+
+    .content {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 100px 7vw;
+    }
+
+    .chapter {
+      margin-bottom: 110px;
+    }
+
+    .chapter-number {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: .16em;
+      margin-bottom: 8px;
+    }
+
+    .chapter h2 {
+      margin: 0 0 28px;
+      color: var(--green);
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+
+    .chapter h3 {
+      color: var(--red);
+      font-size: 27px;
+      margin-top: 45px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .chapter p {
+      max-width: 780px;
+      font-size: 20px;
+      margin: 0 0 22px;
+    }
+
+    .japanese-term {
+      display: inline-block;
+      font-family: "Noto Serif JP", serif;
+      color: var(--green);
+      font-size: 1.05em;
+    }
+
+    .quote {
+      margin: 45px 0;
+      padding: 35px 40px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.27);
+    }
+
+    .quote-japanese {
+      font-family: "Noto Serif JP", serif;
+      font-size: 26px;
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .quote-text {
+      font-size: 23px;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .meaning {
+      margin: 45px 0;
+      padding: 32px 36px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.18);
+    }
+
+    .meaning-title {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .meaning p {
+      margin: 0;
+      font-size: 21px;
+    }
+
+    .symbol-line {
+      text-align: center;
+      font-family: "Noto Serif JP", serif;
+      font-size: 55px;
+      color: var(--gold);
+      margin: 80px 0;
+    }
+
+    .final-section {
+      margin-top: 120px;
+      padding: 65px 50px;
+      background: var(--green);
+      color: var(--paper-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-section::after {
+      content: "神";
+      position: absolute;
+      right: 25px;
+      bottom: -55px;
+      font-family: "Noto Serif JP", serif;
+      font-size: 260px;
+      opacity: .06;
+    }
+
+    .final-section .eyebrow {
+      color: #d0b477;
+    }
+
+    .final-section h2 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1;
+      margin: 0 0 25px;
+      font-weight: 500;
+    }
+
+    .final-section p {
+      max-width: 760px;
+      font-size: 21px;
+      margin: 0 0 18px;
+      color: rgba(250,246,235,.86);
+    }
+
+    .footer {
+      padding: 40px 7vw;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 750px) {
+      .book-header {
+        min-height: auto;
+        padding-bottom: 60px;
+      }
+
+      .top-nav {
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .site-name {
+        text-align: right;
+      }
+
+      .book-meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .meta-item {
+        margin-right: 0;
+        padding-right: 10px;
+        border-right: none;
+      }
+
+      .content {
+        padding-top: 70px;
+      }
+
+      .chapter {
+        margin-bottom: 75px;
+      }
+
+      .quote,
+      .meaning,
+      .final-section {
+        padding: 25px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="book-header">
+
+    <div class="top-nav">
+      <a href="index.html" class="back-link">← Бібліотека</a>
+
+      <span class="site-name">
+        WHAT THE WISE LEFT BEHIND
+      </span>
+    </div>
+
+    <div class="hero-book">
+
+      <p class="eyebrow">
+        ЯПОНІЯ · МІФОЛОГІЯ · 712 РІК
+      </p>
+
+      <h1 class="japanese-title">
+        古事記
+      </h1>
+
+      <p class="roman-title">
+        Kojiki
+      </p>
+
+      <p class="ukrainian-title">
+        «Кодзікі» · «Записи давніх справ»
+      </p>
+
+      <p class="book-description">
+        Найдавніша японська книга, що збереглася до нашого часу —
+        величезний світ міфів про походження богів, землі, життя,
+        смерті, очищення, влади та самої Японії.
+      </p>
+
+    </div>
+
+    <div class="book-meta">
+
+      <div class="meta-item">
+        <span class="meta-label">Оригінал</span>
+        <span class="meta-value">古事記</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-label">Читання</span>
+        <span class="meta-value">こじき · Kojiki</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-label">Укладач</span>
+        <span class="meta-value">О но Ясумаро</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-label">Структура</span>
+        <span class="meta-value">3 сувої</span>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="content">
+
+    <section class="chapter">
+
+      <div class="chapter-number">01 · ПОЧАТОК</div>
+
+      <h2>
+        Коли ще не було нічого
+      </h2>
+
+      <p>
+        На початку немає звичного людського світу.
+        Немає держав, міст чи самої Японії.
+        Світ перебуває у первісному, невизначеному стані.
+      </p>
+
+      <p>
+        Із цього первісного стану поступово виникають
+        перші божества — <span class="japanese-term">神</span>,
+        ками.
+      </p>
+
+      <p>
+        У японській традиції ками — це не просто «боги»
+        у звичному західному розумінні. Це сакральні сили,
+        духи, явища природи та істоти, що мають особливу
+        духовну природу.
+      </p>
+
+    </section>
+
+
+    <div class="symbol-line">
+      神 · 天 · 地
+    </div>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">02 · ІДЗАНАҐІ ТА ІДЗАНАМІ</div>
+
+      <h2>
+        Створення світу
+      </h2>
+
+      <p>
+        Серед перших великих міфів «Кодзікі» — історія
+        Ідзанаґі та Ідзанамі.
+      </p>
+
+      <p>
+        伊邪那岐 — <strong>Izanagi</strong><br>
+        伊邪那美 — <strong>Izanami</strong>
+      </p>
+
+      <p>
+        Їм доручено впорядкувати первісний світ.
+        Вони стоять на Небесному Плавучому мосту
+        над первісним морем.
+      </p>
+
+      <p>
+        Ідзанаґі занурює коштовний спис у воду.
+        Краплі, що падають зі списа, стають землею.
+        Так хаос поступово набуває форми.
+      </p>
+
+      <div class="meaning">
+
+        <div class="meaning-title">
+          Образ
+        </div>
+
+        <p>
+          Світ не просто існує готовим.
+          Він поступово виникає з невизначеності
+          та набуває форми.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">03 · СМЕРТЬ</div>
+
+      <h2>
+        Ідзанаґі та земля мертвих
+      </h2>
+
+      <p>
+        Під час народження бога вогню Кагуцути
+        Ідзанамі отримує смертельні опіки й помирає.
+      </p>
+
+      <p>
+        Ідзанаґі не приймає її смерть і вирушає
+        до Йомі — <span class="japanese-term">黄泉</span>,
+        землі мертвих.
+      </p>
+
+      <p>
+        Він знаходить Ідзанамі та просить її повернутися.
+        Але вона вже належить світу мертвих.
+      </p>
+
+      <p>
+        Вона просить його не дивитися на неї.
+        Та Ідзанаґі не витримує.
+      </p>
+
+      <p>
+        Він бачить її тіло в стані смерті й розкладання.
+        І розуміє, що минуле вже неможливо повернути
+        таким, яким воно було.
+      </p>
+
+      <div class="quote">
+
+        <p class="quote-text">
+          Є речі, які ми любимо настільки сильно,
+          що готові піти за ними навіть у темряву.
+          Але любов не завжди означає можливість
+          повернути минуле.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">04 · ОЧИЩЕННЯ</div>
+
+      <h2>
+        Смерть → очищення → нове життя
+      </h2>
+
+      <p>
+        Після повернення зі світу мертвих
+        Ідзанаґі очищує себе водою.
+      </p>
+
+      <p>
+        І саме під час очищення народжуються
+        нові божества.
+      </p>
+
+      <p>
+        天照大御神 — <strong>Amaterasu Ōmikami</strong>,
+        божество сонця.
+      </p>
+
+      <p>
+        月読命 — <strong>Tsukuyomi</strong>,
+        божество місяця.
+      </p>
+
+      <p>
+        須佐之男命 — <strong>Susanoo</strong>,
+        божество, пов'язане з морем, бурями
+        та руйнівною силою.
+      </p>
+
+      <div class="meaning">
+
+        <div class="meaning-title">
+          Одна з центральних ідей
+        </div>
+
+        <p>
+          Не повернення минулого, а створення нового.
+          Після зустрічі зі смертю світ продовжується.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <div class="symbol-line">
+      天照 · 月読 · 須佐之男
+    </div>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">05 · АМАТЕРАСУ</div>
+
+      <h2>
+        Сонце і темрява
+      </h2>
+
+      <p>
+        Аматерасу — сонячне божество.
+        Її брат Сусаноо — неспокійна й руйнівна сила.
+      </p>
+
+      <p>
+        Після конфлікту Сусаноо Аматерасу ховається
+        в небесній печері.
+      </p>
+
+      <p>
+        Світ залишається без сонця.
+        Настає темрява.
+      </p>
+
+      <p>
+        Боги не витягують її силою.
+        Вони влаштовують біля печери свято,
+        сміються, танцюють і створюють життя.
+      </p>
+
+      <p>
+        Аматерасу визирає назовні, бачить своє
+        відображення в дзеркалі — і виходить.
+      </p>
+
+      <div class="meaning">
+
+        <div class="meaning-title">
+          Образ
+        </div>
+
+        <p>
+          Іноді світло повертається не через силу,
+          а через цікавість, рух, сміх і життя.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">06 · СУСАНОО</div>
+
+      <h2>
+        Хаос, який стає захистом
+      </h2>
+
+      <p>
+        Сусаноо — не просто «злий бог».
+        Він хаотичний, неспокійний і руйнівний,
+        але водночас здатний стати героєм.
+      </p>
+
+      <p>
+        На землі він зустрічає сім'ю, яка боїться
+        Ямата но Ороті — восьмиголового змія.
+      </p>
+
+      <p>
+        Сусаноо не кидається в бій бездумно.
+        Він готує вісім посудин із саке.
+        Змій випиває, засинає, і Сусаноо перемагає його.
+      </p>
+
+      <p>
+        У тілі змія він знаходить меч Кусанагі —
+        один із трьох священних скарбів японської
+        імператорської традиції.
+      </p>
+
+    </section>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">07 · ВІД БОГІВ ДО ЛЮДЕЙ</div>
+
+      <h2>
+        Міф переходить в історію
+      </h2>
+
+      <p>
+        Поступово «Кодзікі» переходить від міфічного
+        світу до легендарної історії японських правителів.
+      </p>
+
+      <p>
+        Особливо важливою стає історія
+        Нініґі-но-Мікото — онука Аматерасу,
+        який сходить із небесного світу на землю.
+      </p>
+
+      <p>
+        Разом із ним пов'язується передача трьох
+        священних предметів: дзеркала, коштовності
+        та меча.
+      </p>
+
+      <div class="meaning">
+
+        <div class="meaning-title">
+          Історичний контекст
+        </div>
+
+        <p>
+          «Кодзікі» поєднує міфологію, генеалогії
+          та традиції походження імператорської лінії.
+          Тому текст є не лише збіркою міфів, а й способом
+          пояснити походження порядку та влади.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">08 · ГОЛОВНА ДУМКА</div>
+
+      <h2>
+        Світ не був готовим.
+        Він ставав світом.
+      </h2>
+
+      <p>
+        Спочатку — хаос.
+      </p>
+
+      <p>
+        Потім — небо і земля.
+      </p>
+
+      <p>
+        Потім — боги.
+      </p>
+
+      <p>
+        Потім — життя і смерть.
+      </p>
+
+      <p>
+        Потім — очищення.
+      </p>
+
+      <p>
+        Потім — сонце і темрява.
+      </p>
+
+      <p>
+        Потім — герої, родоводи та правителі.
+      </p>
+
+      <p>
+        І зрештою міф переходить у те,
+        що люди починають називати історією.
+      </p>
+
+    </section>
+
+
+    <section class="final-section">
+
+      <p class="eyebrow">
+        КОДЗІКІ · 古事記
+      </p>
+
+      <h2>
+        Звідки ми прийшли?
+      </h2>
+
+      <p>
+        «Кодзікі» — це спроба стародавньої Японії
+        відповісти на питання про походження світу,
+        богів, людей, влади та самого японського народу.
+      </p>
+
+      <p>
+        Книга починається задовго до людини,
+        а закінчується світом людей.
+      </p>
+
+      <p>
+        Ніби весь цей шлях — від первісного хаосу
+        до людської історії — потрібен для того,
+        щоб показати, як із невизначеності народжуються
+        порядок, пам'ять і людський світ.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+
+    <span>
+      WHAT THE WISE LEFT BEHIND
+    </span>
+
+    <span>
+      古事記 · KOJIKI
+    </span>
+
+  </footer>
+
+</body>
+</html>
