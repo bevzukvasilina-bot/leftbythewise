@@ -1009,4 +1009,338 @@ a {
     gap: 15px;
   }
 
+}/* =========================================================
+   BOOK PAGES — СТОРІНКИ ОКРЕМИХ КНИГ
+   ========================================================= */
+
+.book-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 55px 35px 80px;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 55px;
+
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--wine);
+
+  transition: 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--jade);
+  letter-spacing: 0.17em;
+}
+
+.book-title {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.book-japanese {
+  margin-bottom: 25px;
+
+  font-family: "Noto Serif SC", serif;
+  font-size: 28px;
+
+  color: var(--wine);
+  letter-spacing: 0.08em;
+}
+
+.book-title h1 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(52px, 8vw, 92px);
+  font-weight: 500;
+  line-height: 0.95;
+
+  color: var(--ink);
+}
+
+.book-subtitle {
+  margin-top: 20px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+
+  color: var(--ink-soft);
+}
+
+.book-author {
+  margin-top: 15px;
+
+  font-size: 12px;
+  letter-spacing: 0.08em;
+
+  color: var(--ink-soft);
+}
+
+.book-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.book-info span {
+  padding: 8px 14px;
+
+  border: 1px solid var(--line);
+
+  font-size: 10px;
+  letter-spacing: 0.08em;
+
+  color: var(--ink-soft);
+}
+
+
+/* =========================================================
+   ОСНОВНИЙ ТЕКСТ КНИГИ
+   ========================================================= */
+
+.book-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 30px 100px;
+}
+
+.book-intro {
+  margin-bottom: 100px;
+  padding: 55px 0;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.book-page p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.75;
+
+  color: var(--ink-soft);
+}
+
+.book-intro p {
+  margin-bottom: 25px;
+}
+
+.book-intro p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   РОЗДІЛИ
+   ========================================================= */
+
+.book-section {
+  margin-bottom: 110px;
+}
+
+.book-section h2 {
+  margin-bottom: 35px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+
+  color: var(--ink);
+}
+
+.book-section p {
+  margin-bottom: 24px;
+}
+
+.book-section strong {
+  color: var(--wine);
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ЦИТАТИ
+   ========================================================= */
+
+.book-section blockquote {
+  margin: 45px 0;
+  padding: 25px 35px;
+
+  border-left: 2px solid var(--wine);
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.45;
+
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   АВТОРСЬКИЙ ПІДСУМОК
+   ========================================================= */
+
+.author-summary {
+  margin-top: 130px;
+  padding: 65px 0;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.author-summary blockquote {
+  margin: 35px 0;
+}
+
+.note {
+  margin-top: 30px;
+
+  font-family: "Inter", sans-serif !important;
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   ФІНАЛЬНА ЧАСТИНА
+   ========================================================= */
+
+.final-section {
+  text-align: center;
+
+  padding-top: 50px;
+}
+
+.final-section h2 {
+  color: var(--wine);
+}
+
+.japanese-final {
+  margin: 40px 0 !important;
+
+  font-family: "Noto Serif SC", serif !important;
+  font-size: 55px !important;
+
+  color: var(--wine) !important;
+}
+
+
+/* =========================================================
+   FOOTER КНИГИ
+   ========================================================= */
+
+.book-footer {
+  max-width: 900px;
+  margin: 0 auto;
+
+  padding: 55px 30px 70px;
+
+  border-top: 1px solid var(--line);
+
+  text-align: center;
+}
+
+.book-footer p {
+  margin-bottom: 8px;
+
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.book-footer .back-link {
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   МОБІЛЬНА ВЕРСІЯ КНИГ
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .book-header {
+    padding: 35px 20px 60px;
+  }
+
+  .back-link {
+    margin-bottom: 40px;
+  }
+
+  .book-japanese {
+    font-size: 22px;
+  }
+
+  .book-title h1 {
+    font-size: 55px;
+  }
+
+  .book-subtitle {
+    font-size: 21px;
+  }
+
+  .book-info {
+    gap: 8px;
+  }
+
+  .book-info span {
+    font-size: 9px;
+    padding: 7px 10px;
+  }
+
+  .book-page {
+    padding: 0 22px 70px;
+  }
+
+  .book-intro {
+    margin-bottom: 75px;
+    padding: 40px 0;
+  }
+
+  .book-page p {
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  .book-section {
+    margin-bottom: 80px;
+  }
+
+  .book-section h2 {
+    font-size: 40px;
+    line-height: 1.05;
+  }
+
+  .book-section blockquote {
+    margin: 35px 0;
+    padding: 20px 22px;
+
+    font-size: 23px;
+  }
+
+  .author-summary {
+    padding: 50px 0;
+  }
+
+  .japanese-final {
+    font-size: 45px !important;
+  }
+
+  .book-footer {
+    padding: 45px 20px 60px;
+  }
+
 }
