@@ -1,854 +1,1234 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Кодзікі — 古事記 | WHAT THE WISE LEFT BEHIND</title>
+  <title>《古事記》 — Кодзікі | WHAT THE WISE LEFT BEHIND</title>
 
   <meta
     name="description"
-    content="Кодзікі — найдавніша збережена японська хроніка. Міфи про походження світу, богів, смерть, очищення, Аматерасу, Сусаноо та походження японської імператорської традиції."
+    content="Кодзікі — 古事記. Найдавніша збережена японська хроніка про походження світу, богів, життя, смерті, очищення, Аматерасу, Сусаноо та походження японської імператорської традиції."
   >
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
-
-    :root {
-      --paper: #f3ecdc;
-      --paper-light: #faf6eb;
-      --green: #24382f;
-      --green-light: #52685a;
-      --red: #7b3030;
-      --gold: #a9864f;
-      --ink: #29251f;
-      --muted: #756e61;
-      --line: rgba(65, 54, 39, 0.22);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,.45), transparent 40%),
-        var(--paper);
-      color: var(--ink);
-      font-family: "Cormorant Garamond", serif;
-      line-height: 1.7;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .12;
-      background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(80,60,30,.08) 0px,
-          rgba(80,60,30,.08) 1px,
-          transparent 1px,
-          transparent 5px
-        );
-      z-index: 10;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .book-header {
-      min-height: 90vh;
-      padding: 30px 7vw 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .book-header::before {
-      content: "古";
-      position: absolute;
-      right: 7vw;
-      top: 70px;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(180px, 28vw, 420px);
-      color: rgba(36, 56, 47, .045);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .back-link {
-      font-size: 16px;
-      letter-spacing: .08em;
-      color: var(--green);
-    }
-
-    .back-link:hover {
-      color: var(--red);
-    }
-
-    .site-name {
-      font-size: 14px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hero-book {
-      max-width: 1050px;
-      position: relative;
-      z-index: 2;
-      margin-top: 80px;
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-      font-size: 13px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--red);
-      font-weight: 600;
-    }
-
-    .japanese-title {
-      margin: 0;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(54px, 10vw, 125px);
-      line-height: 1.05;
-      font-weight: 500;
-      color: var(--green);
-    }
-
-    .roman-title {
-      margin: 10px 0 0;
-      font-size: clamp(38px, 6vw, 78px);
-      font-weight: 500;
-      line-height: 1;
-      color: var(--ink);
-    }
-
-    .ukrainian-title {
-      margin: 22px 0 35px;
-      font-size: 24px;
-      color: var(--muted);
-    }
-
-    .book-description {
-      max-width: 720px;
-      font-size: 21px;
-      line-height: 1.65;
-    }
-
-    .book-meta {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      position: relative;
-      z-index: 2;
-    }
-
-    .meta-item {
-      padding: 22px 20px 22px 0;
-      border-right: 1px solid var(--line);
-      margin-right: 20px;
-    }
-
-    .meta-item:last-child {
-      border-right: none;
-    }
-
-    .meta-label {
-      display: block;
-      font-size: 12px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 5px;
-    }
-
-    .meta-value {
-      font-size: 18px;
-      color: var(--green);
-    }
-
-    .content {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 100px 7vw;
-    }
-
-    .chapter {
-      margin-bottom: 110px;
-    }
-
-    .chapter-number {
-      color: var(--gold);
-      font-size: 14px;
-      letter-spacing: .16em;
-      margin-bottom: 8px;
-    }
-
-    .chapter h2 {
-      margin: 0 0 28px;
-      color: var(--green);
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.05;
-      font-weight: 600;
-    }
-
-    .chapter h3 {
-      color: var(--red);
-      font-size: 27px;
-      margin-top: 45px;
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .chapter p {
-      max-width: 780px;
-      font-size: 20px;
-      margin: 0 0 22px;
-    }
-
-    .japanese-term {
-      display: inline-block;
-      font-family: "Noto Serif JP", serif;
-      color: var(--green);
-      font-size: 1.05em;
-    }
-
-    .quote {
-      margin: 45px 0;
-      padding: 35px 40px;
-      border-left: 3px solid var(--gold);
-      background: rgba(255,255,255,.27);
-    }
-
-    .quote-japanese {
-      font-family: "Noto Serif JP", serif;
-      font-size: 26px;
-      color: var(--green);
-      margin-bottom: 15px;
-    }
-
-    .quote-text {
-      font-size: 23px;
-      font-style: italic;
-      margin: 0;
-    }
-
-    .meaning {
-      margin: 45px 0;
-      padding: 32px 36px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.18);
-    }
-
-    .meaning-title {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-
-    .meaning p {
-      margin: 0;
-      font-size: 21px;
-    }
-
-    .symbol-line {
-      text-align: center;
-      font-family: "Noto Serif JP", serif;
-      font-size: 55px;
-      color: var(--gold);
-      margin: 80px 0;
-    }
-
-    .final-section {
-      margin-top: 120px;
-      padding: 65px 50px;
-      background: var(--green);
-      color: var(--paper-light);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .final-section::after {
-      content: "神";
-      position: absolute;
-      right: 25px;
-      bottom: -55px;
-      font-family: "Noto Serif JP", serif;
-      font-size: 260px;
-      opacity: .06;
-    }
-
-    .final-section .eyebrow {
-      color: #d0b477;
-    }
-
-    .final-section h2 {
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1;
-      margin: 0 0 25px;
-      font-weight: 500;
-    }
-
-    .final-section p {
-      max-width: 760px;
-      font-size: 21px;
-      margin: 0 0 18px;
-      color: rgba(250,246,235,.86);
-    }
-
-    .footer {
-      padding: 40px 7vw;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 750px) {
-      .book-header {
-        min-height: auto;
-        padding-bottom: 60px;
-      }
-
-      .top-nav {
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .site-name {
-        text-align: right;
-      }
-
-      .book-meta {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .meta-item {
-        margin-right: 0;
-        padding-right: 10px;
-        border-right: none;
-      }
-
-      .content {
-        padding-top: 70px;
-      }
-
-      .chapter {
-        margin-bottom: 75px;
-      }
-
-      .quote,
-      .meaning,
-      .final-section {
-        padding: 25px;
-      }
-
-      .footer {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <!-- ГОЛОВНИЙ СТИЛЬ САЙТУ -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
 
-  <header class="book-header">
+<body class="book-page">
 
-    <div class="top-nav">
-      <a href="index.html" class="back-link">← Бібліотека</a>
 
-      <span class="site-name">
-        WHAT THE WISE LEFT BEHIND
-      </span>
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <a href="index.html" class="logo">
+      WHAT THE WISE LEFT BEHIND
+    </a>
+
+    <nav class="main-nav">
+
+      <a href="index.html">
+        Головна
+      </a>
+
+      <a href="index.html#china">
+        Китай
+      </a>
+
+      <a href="index.html#japan">
+        Японія
+      </a>
+
+      <a href="index.html#stories">
+        Тексти та історії
+      </a>
+
+      <a href="index.html#about">
+        Про проєкт
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="book-hero">
+
+  <div class="book-hero-character">
+    古
+  </div>
+
+  <div class="book-hero-content">
+
+    <a href="index.html#japan" class="book-back">
+      ← Повернутися до японських текстів
+    </a>
+
+    <div class="book-original">
+      《古事記》
     </div>
 
-    <div class="hero-book">
+    <h1>
+      Кодзікі
+    </h1>
 
-      <p class="eyebrow">
-        ЯПОНІЯ · МІФОЛОГІЯ · 712 РІК
-      </p>
+    <p class="book-subtitle">
+      «Записи давніх справ»
+    </p>
 
-      <h1 class="japanese-title">
-        古事記
-      </h1>
+    <p class="book-author">
+      太安万侶 · О но Ясумаро · 712 рік
+    </p>
 
-      <p class="roman-title">
-        Kojiki
-      </p>
+  </div>
 
-      <p class="ukrainian-title">
-        «Кодзікі» · «Записи давніх справ»
-      </p>
+</section>
 
-      <p class="book-description">
-        Найдавніша японська книга, що збереглася до нашого часу —
-        величезний світ міфів про походження богів, землі, життя,
-        смерті, очищення, влади та самої Японії.
+
+<!-- =====================================================
+     INTRO
+====================================================== -->
+
+<section class="book-intro">
+
+  <p class="book-label">
+    ПРО ТЕКСТ
+  </p>
+
+  <h2>
+    Книга,
+    з якої починається пам'ять Японії
+  </h2>
+
+  <p class="book-intro-text">
+    «Кодзікі» — одна з найдавніших збережених японських
+    писемних пам'яток і найдавніша збережена японська
+    хроніка. Вона починається ще до появи людського світу —
+    з первісного стану Всесвіту, виникнення божеств,
+    створення землі та народження сакрального порядку.
+  </p>
+
+  <p class="book-intro-text">
+    Але поступово міфологічний світ переходить у світ
+    героїв, родоводів, правителів та історичної пам'яті.
+    Саме тому «Кодзікі» стоїть на межі між міфом,
+    релігійною традицією, генеалогією та історією.
+  </p>
+
+  <div class="history-box">
+
+    <p>
+      <strong>Японська назва:</strong>
+      古事記
+    </p>
+
+    <p>
+      <strong>Читання:</strong>
+      こじき · Kojiki
+    </p>
+
+    <p>
+      <strong>Українською:</strong>
+      «Кодзікі» — «Записи давніх справ»
+    </p>
+
+    <p>
+      <strong>Укладач:</strong>
+      太安万侶 — О но Ясумаро
+    </p>
+
+    <p>
+      <strong>Час:</strong>
+      712 рік, період Нара
+    </p>
+
+    <p>
+      <strong>Структура:</strong>
+      три сувої
+    </p>
+
+    <p>
+      <strong>Тема:</strong>
+      походження богів, світу, японських земель,
+      героїв, правителів та імператорської традиції
+    </p>
+
+    <p>
+      <strong>Особливість:</strong>
+      текст поєднує міфологію, генеалогії,
+      легенди та ранню історичну пам'ять Японії.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTENT
+====================================================== -->
+
+<main class="book-content">
+
+
+  <!-- 01 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      01
+    </div>
+
+    <h2>
+      Коли ще
+      не було людського світу
+    </h2>
+
+    <p>
+      На початку «Кодзікі» немає звичного нам світу.
+      Немає держав, міст, людей чи навіть самої Японії
+      як організованої землі.
+    </p>
+
+    <p>
+      Існує первісний, невизначений стан,
+      з якого поступово виникають перші божества —
+      神 <strong>kami</strong>.
+    </p>
+
+    <p>
+      Ками — це не зовсім те саме, що «бог» у західному
+      розумінні. Це сакральні сили, божества,
+      духи, природні явища та істоти,
+      пов'язані зі священним виміром світу.
+    </p>
+
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        神
+      </div>
+
+      <div class="quote-reading">
+        かみ · kami
+      </div>
+
+      <div class="quote-translation">
+        Ками — сакральна присутність,
+        що може проявлятися в богах,
+        природі та особливих силах світу.
+      </div>
+
+    </div>
+
+    <div class="wisdom-box">
+
+      <p>
+        Спочатку людина ще не є центром світу.
+        Світ існує сам по собі —
+        і людина з'явиться в ньому набагато пізніше.
       </p>
 
     </div>
 
-    <div class="book-meta">
+  </section>
 
-      <div class="meta-item">
-        <span class="meta-label">Оригінал</span>
-        <span class="meta-value">古事記</span>
+
+  <!-- 02 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      02
+    </div>
+
+    <h2>
+      Ідзанаґі
+      та Ідзанамі
+    </h2>
+
+    <p>
+      Серед найвідоміших історій «Кодзікі» —
+      міф про Ідзанаґі та Ідзанамі.
+    </p>
+
+    <p>
+      伊邪那岐 — <strong>Izanagi</strong><br>
+      伊邪那美 — <strong>Izanami</strong>
+    </p>
+
+    <p>
+      Їм доручено впорядкувати первісний світ.
+      Вони стоять на Небесному Плавучому мосту
+      над первісним морем.
+    </p>
+
+    <p>
+      Ідзанаґі занурює дорогоцінний спис у воду.
+      Краплі, що падають зі списа,
+      стають першими островами.
+    </p>
+
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        伊邪那岐 · 伊邪那美
       </div>
 
-      <div class="meta-item">
-        <span class="meta-label">Читання</span>
-        <span class="meta-value">こじき · Kojiki</span>
+      <div class="quote-reading">
+        Izanagi · Izanami
       </div>
 
-      <div class="meta-item">
-        <span class="meta-label">Укладач</span>
-        <span class="meta-value">О но Ясумаро</span>
-      </div>
-
-      <div class="meta-item">
-        <span class="meta-label">Структура</span>
-        <span class="meta-value">3 сувої</span>
+      <div class="quote-translation">
+        Двоє божественних пращурів,
+        через яких первісна невизначеність
+        поступово набуває форми.
       </div>
 
     </div>
 
-  </header>
+    <p>
+      Земля тут не просто «існує».
+      Вона формується через дію,
+      рух і взаємодію божественних сил.
+    </p>
 
-
-  <main class="content">
-
-    <section class="chapter">
-
-      <div class="chapter-number">01 · ПОЧАТОК</div>
-
-      <h2>
-        Коли ще не було нічого
-      </h2>
+    <div class="wisdom-box">
 
       <p>
-        На початку немає звичного людського світу.
-        Немає держав, міст чи самої Японії.
-        Світ перебуває у первісному, невизначеному стані.
+        Світ не просто даний.
+        Він стає світом.
       </p>
 
-      <p>
-        Із цього первісного стану поступово виникають
-        перші божества — <span class="japanese-term">神</span>,
-        ками.
-      </p>
-
-      <p>
-        У японській традиції ками — це не просто «боги»
-        у звичному західному розумінні. Це сакральні сили,
-        духи, явища природи та істоти, що мають особливу
-        духовну природу.
-      </p>
-
-    </section>
-
-
-    <div class="symbol-line">
-      神 · 天 · 地
     </div>
 
+  </section>
 
-    <section class="chapter">
 
-      <div class="chapter-number">02 · ІДЗАНАҐІ ТА ІДЗАНАМІ</div>
+  <!-- 03 -->
 
-      <h2>
-        Створення світу
-      </h2>
+  <section class="idea-section">
 
-      <p>
-        Серед перших великих міфів «Кодзікі» — історія
-        Ідзанаґі та Ідзанамі.
-      </p>
+    <div class="idea-number">
+      03
+    </div>
 
-      <p>
-        伊邪那岐 — <strong>Izanagi</strong><br>
-        伊邪那美 — <strong>Izanami</strong>
-      </p>
+    <h2>
+      Смерть
+      приходить у світ
+    </h2>
 
-      <p>
-        Їм доручено впорядкувати первісний світ.
-        Вони стоять на Небесному Плавучому мосту
-        над первісним морем.
-      </p>
+    <p>
+      Ідзанамі продовжує народжувати божеств,
+      але під час народження бога вогню Кагуцути
+      отримує смертельні опіки.
+    </p>
 
-      <p>
-        Ідзанаґі занурює коштовний спис у воду.
-        Краплі, що падають зі списа, стають землею.
-        Так хаос поступово набуває форми.
-      </p>
+    <p>
+      Вона помирає і вирушає до Йомі —
+      黄泉 <strong>Yomi</strong>,
+      землі мертвих.
+    </p>
 
-      <div class="meaning">
+    <p>
+      Ідзанаґі не приймає її смерть.
+      Він вирушає слідом за нею,
+      сподіваючись повернути її до світу живих.
+    </p>
 
-        <div class="meaning-title">
-          Образ
-        </div>
+    <p>
+      Але Ідзанамі вже належить світові мертвих.
+      Вона просить його не дивитися на неї.
+    </p>
 
-        <p>
-          Світ не просто існує готовим.
-          Він поступово виникає з невизначеності
-          та набуває форми.
-        </p>
+    <p>
+      Та він не витримує.
+      І бачить тіло Ідзанамі в стані смерті
+      та розкладання.
+    </p>
 
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        黄泉
       </div>
 
-    </section>
-
-
-    <section class="chapter">
-
-      <div class="chapter-number">03 · СМЕРТЬ</div>
-
-      <h2>
-        Ідзанаґі та земля мертвих
-      </h2>
-
-      <p>
-        Під час народження бога вогню Кагуцути
-        Ідзанамі отримує смертельні опіки й помирає.
-      </p>
-
-      <p>
-        Ідзанаґі не приймає її смерть і вирушає
-        до Йомі — <span class="japanese-term">黄泉</span>,
-        землі мертвих.
-      </p>
-
-      <p>
-        Він знаходить Ідзанамі та просить її повернутися.
-        Але вона вже належить світу мертвих.
-      </p>
-
-      <p>
-        Вона просить його не дивитися на неї.
-        Та Ідзанаґі не витримує.
-      </p>
-
-      <p>
-        Він бачить її тіло в стані смерті й розкладання.
-        І розуміє, що минуле вже неможливо повернути
-        таким, яким воно було.
-      </p>
-
-      <div class="quote">
-
-        <p class="quote-text">
-          Є речі, які ми любимо настільки сильно,
-          що готові піти за ними навіть у темряву.
-          Але любов не завжди означає можливість
-          повернути минуле.
-        </p>
-
+      <div class="quote-reading">
+        よみ · Yomi
       </div>
 
-    </section>
+      <div class="quote-translation">
+        Земля мертвих — простір,
+        після якого повернення до попереднього
+        стану вже неможливе.
+      </div>
 
+    </div>
 
-    <section class="chapter">
-
-      <div class="chapter-number">04 · ОЧИЩЕННЯ</div>
-
-      <h2>
-        Смерть → очищення → нове життя
-      </h2>
+    <div class="wisdom-box">
 
       <p>
-        Після повернення зі світу мертвих
-        Ідзанаґі очищує себе водою.
+        Є речі, які ми любимо настільки сильно,
+        що готові піти за ними навіть у темряву.
+        Але любов не завжди означає
+        можливість повернути минуле.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 04 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      04
+    </div>
+
+    <h2>
+      Смерть →
+      очищення → життя
+    </h2>
+
+    <p>
+      Після повернення зі світу мертвих
+      Ідзанаґі очищує себе водою.
+    </p>
+
+    <p>
+      І саме під час цього очищення
+      народжуються нові божества.
+    </p>
+
+    <p>
+      Серед них — три особливо важливі постаті:
+    </p>
+
+    <div class="history-box">
+
+      <p>
+        <strong>天照大御神 — Amaterasu Ōmikami</strong><br>
+        сонячне божество.
       </p>
 
       <p>
-        І саме під час очищення народжуються
-        нові божества.
-      </p>
-
-      <p>
-        天照大御神 — <strong>Amaterasu Ōmikami</strong>,
-        божество сонця.
-      </p>
-
-      <p>
-        月読命 — <strong>Tsukuyomi</strong>,
+        <strong>月読命 — Tsukuyomi</strong><br>
         божество місяця.
       </p>
 
       <p>
-        須佐之男命 — <strong>Susanoo</strong>,
-        божество, пов'язане з морем, бурями
-        та руйнівною силою.
+        <strong>須佐之男命 — Susanoo</strong><br>
+        божество, пов'язане з морем,
+        бурями та руйнівною силою.
       </p>
 
-      <div class="meaning">
-
-        <div class="meaning-title">
-          Одна з центральних ідей
-        </div>
-
-        <p>
-          Не повернення минулого, а створення нового.
-          Після зустрічі зі смертю світ продовжується.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <div class="symbol-line">
-      天照 · 月読 · 須佐之男
     </div>
 
-
-    <section class="chapter">
-
-      <div class="chapter-number">05 · АМАТЕРАСУ</div>
-
-      <h2>
-        Сонце і темрява
-      </h2>
+    <div class="wisdom-box">
 
       <p>
-        Аматерасу — сонячне божество.
-        Її брат Сусаноо — неспокійна й руйнівна сила.
+        Після смерті не повертається старий світ.
+        Замість нього виникає новий.
       </p>
 
-      <p>
-        Після конфлікту Сусаноо Аматерасу ховається
-        в небесній печері.
-      </p>
+    </div>
 
-      <p>
-        Світ залишається без сонця.
-        Настає темрява.
-      </p>
+  </section>
 
-      <p>
-        Боги не витягують її силою.
-        Вони влаштовують біля печери свято,
-        сміються, танцюють і створюють життя.
-      </p>
 
-      <p>
-        Аматерасу визирає назовні, бачить своє
-        відображення в дзеркалі — і виходить.
-      </p>
+  <!-- 05 -->
 
-      <div class="meaning">
+  <section class="idea-section">
 
-        <div class="meaning-title">
-          Образ
-        </div>
+    <div class="idea-number">
+      05
+    </div>
 
-        <p>
-          Іноді світло повертається не через силу,
-          а через цікавість, рух, сміх і життя.
-        </p>
+    <h2>
+      Аматерасу
+      і повернення світла
+    </h2>
 
+    <p>
+      Аматерасу — сонячне божество,
+      одна з центральних постатей японської міфології.
+    </p>
+
+    <p>
+      Її брат Сусаноо вступає з нею в конфлікт.
+      Його поведінка стає настільки руйнівною,
+      що Аматерасу ховається в небесній печері.
+    </p>
+
+    <p>
+      Світ залишається без сонця.
+      Настає темрява.
+    </p>
+
+    <p>
+      Інші божества намагаються повернути Аматерасу
+      не прямою силою, а хитрістю та грою.
+    </p>
+
+    <p>
+      Вони влаштовують свято біля печери:
+      сміються, танцюють і створюють шум.
+    </p>
+
+    <p>
+      Зацікавлена Аматерасу визирає назовні
+      і бачить своє відображення в дзеркалі.
+      Так вона виходить із печери,
+      і світло повертається.
+    </p>
+
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        天照大御神
       </div>
 
-    </section>
-
-
-    <section class="chapter">
-
-      <div class="chapter-number">06 · СУСАНОО</div>
-
-      <h2>
-        Хаос, який стає захистом
-      </h2>
-
-      <p>
-        Сусаноо — не просто «злий бог».
-        Він хаотичний, неспокійний і руйнівний,
-        але водночас здатний стати героєм.
-      </p>
-
-      <p>
-        На землі він зустрічає сім'ю, яка боїться
-        Ямата но Ороті — восьмиголового змія.
-      </p>
-
-      <p>
-        Сусаноо не кидається в бій бездумно.
-        Він готує вісім посудин із саке.
-        Змій випиває, засинає, і Сусаноо перемагає його.
-      </p>
-
-      <p>
-        У тілі змія він знаходить меч Кусанагі —
-        один із трьох священних скарбів японської
-        імператорської традиції.
-      </p>
-
-    </section>
-
-
-    <section class="chapter">
-
-      <div class="chapter-number">07 · ВІД БОГІВ ДО ЛЮДЕЙ</div>
-
-      <h2>
-        Міф переходить в історію
-      </h2>
-
-      <p>
-        Поступово «Кодзікі» переходить від міфічного
-        світу до легендарної історії японських правителів.
-      </p>
-
-      <p>
-        Особливо важливою стає історія
-        Нініґі-но-Мікото — онука Аматерасу,
-        який сходить із небесного світу на землю.
-      </p>
-
-      <p>
-        Разом із ним пов'язується передача трьох
-        священних предметів: дзеркала, коштовності
-        та меча.
-      </p>
-
-      <div class="meaning">
-
-        <div class="meaning-title">
-          Історичний контекст
-        </div>
-
-        <p>
-          «Кодзікі» поєднує міфологію, генеалогії
-          та традиції походження імператорської лінії.
-          Тому текст є не лише збіркою міфів, а й способом
-          пояснити походження порядку та влади.
-        </p>
-
+      <div class="quote-reading">
+        Amaterasu Ōmikami
       </div>
 
-    </section>
+      <div class="quote-translation">
+        Сонячне божество,
+        через образ якого в «Кодзікі»
+        світло стає основою порядку світу.
+      </div>
 
+    </div>
 
-    <section class="chapter">
-
-      <div class="chapter-number">08 · ГОЛОВНА ДУМКА</div>
-
-      <h2>
-        Світ не був готовим.
-        Він ставав світом.
-      </h2>
+    <div class="wisdom-box">
 
       <p>
-        Спочатку — хаос.
+        Іноді світло повертається
+        не через силу,
+        а через цікавість, рух і життя.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 06 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      06
+    </div>
+
+    <h2>
+      Сусаноо —
+      хаос, який стає героєм
+    </h2>
+
+    <p>
+      Сусаноо не можна просто звести до образу
+      «злого бога».
+    </p>
+
+    <p>
+      Він неспокійний, хаотичний і руйнівний,
+      але водночас саме він стає героєм
+      однієї з найвідоміших історій.
+    </p>
+
+    <p>
+      На землі Сусаноо зустрічає сім'ю,
+      яка боїться Ямата но Ороті —
+      величезного восьмиголового змія.
+    </p>
+
+    <p>
+      Сусаноо не вступає з ним у прямий бій.
+      Він готує вісім посудин із саке.
+      Змій випиває їх, засинає,
+      і Сусаноо перемагає його.
+    </p>
+
+    <p>
+      У тілі змія він знаходить меч Кусанагі —
+      один із трьох священних скарбів,
+      пов'язаних із японською імператорською традицією.
+    </p>
+
+    <div class="wisdom-box">
+
+      <p>
+        Сила не завжди означає
+        пряме зіткнення.
+        Іноді перемога починається
+        з розуміння противника.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 07 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      07
+    </div>
+
+    <h2>
+      Від богів
+      до людей
+    </h2>
+
+    <p>
+      Поступово «Кодзікі» переходить
+      від міфологічного світу до легендарної
+      історії японських правителів.
+    </p>
+
+    <p>
+      Особливо важливою стає постать
+      Нініґі-но-Мікото — онука Аматерасу,
+      який сходить із небесного світу на землю.
+    </p>
+
+    <p>
+      Разом із ним пов'язується передача
+      трьох священних предметів:
+      дзеркала, коштовності та меча.
+    </p>
+
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        三種の神器
+      </div>
+
+      <div class="quote-reading">
+        Sanshu no Jingi
+      </div>
+
+      <div class="quote-translation">
+        Три священні скарби:
+        дзеркало, коштовність і меч.
+      </div>
+
+    </div>
+
+    <p>
+      Таким чином міфологічне походження богів
+      поступово переходить у розповідь
+      про походження людської влади.
+    </p>
+
+  </section>
+
+
+  <!-- 08 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      08
+    </div>
+
+    <h2>
+      Міф
+      переходить в історію
+    </h2>
+
+    <p>
+      Одна з найважливіших особливостей
+      «Кодзікі» полягає в тому,
+      що книга не проводить сучасної межі
+      між міфом та історією.
+    </p>
+
+    <p>
+      Розповідь про богів, походження земель,
+      героїв, родоводи та правителів
+      поступово перетікає одна в одну.
+    </p>
+
+    <div class="history-box">
+
+      <p>
+        <strong>Міф.</strong>
+        Походження богів і світу.
       </p>
 
       <p>
-        Потім — небо і земля.
+        <strong>Генеалогія.</strong>
+        Походження родів і правителів.
       </p>
 
       <p>
-        Потім — боги.
+        <strong>Легенда.</strong>
+        Героїчні історії та подвиги.
       </p>
 
       <p>
-        Потім — життя і смерть.
+        <strong>Історична пам'ять.</strong>
+        Правителі та порядок держави.
       </p>
+
+    </div>
+
+    <div class="wisdom-box">
 
       <p>
-        Потім — очищення.
+        Для давньої людини питання
+        «звідки ми прийшли?»
+        було одночасно питанням
+        «чому ми живемо саме так?»
       </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 09 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      09
+    </div>
+
+    <h2>
+      Священне
+      походження влади
+    </h2>
+
+    <p>
+      «Кодзікі» пов'язує японську імператорську
+      традицію з божественним походженням.
+    </p>
+
+    <p>
+      Через Аматерасу, Нініґі та наступні
+      покоління формується генеалогічний ланцюг,
+      який веде до легендарних правителів.
+    </p>
+
+    <p>
+      Це важливо розуміти в історичному контексті:
+      «Кодзікі» не просто розповідає красиві міфи.
+      Воно також формує пам'ять про те,
+      звідки походить правлячий порядок.
+    </p>
+
+    <div class="wisdom-box">
 
       <p>
-        Потім — сонце і темрява.
+        Хто контролює пам'ять про походження,
+        той визначає, як суспільство
+        розуміє своє сьогодення.
       </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 10 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      10
+    </div>
+
+    <h2>
+      Життя
+      і смерть не розділені
+    </h2>
+
+    <p>
+      У «Кодзікі» життя постійно стикається
+      зі смертю.
+    </p>
+
+    <p>
+      Ідзанамі народжує нових богів,
+      але сама помирає.
+    </p>
+
+    <p>
+      Ідзанаґі входить у світ мертвих,
+      але після повернення очищується,
+      і з цього очищення народжуються
+      нові божества.
+    </p>
+
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        生 · 死 · 浄
+      </div>
+
+      <div class="quote-reading">
+        життя · смерть · очищення
+      </div>
+
+      <div class="quote-translation">
+        Смерть не просто закриває історію.
+        Вона стає частиною нового циклу.
+      </div>
+
+    </div>
+
+    <div class="wisdom-box">
 
       <p>
-        Потім — герої, родоводи та правителі.
+        Один світ закінчується,
+        щоб інший міг початися.
       </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 11 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      11
+    </div>
+
+    <h2>
+      Природа —
+      не декорація
+    </h2>
+
+    <p>
+      У «Кодзікі» море, гори, річки,
+      вогонь, сонце, місяць та земля
+      не є просто фоном для людських подій.
+    </p>
+
+    <p>
+      Природний світ сам є частиною
+      сакрального порядку.
+    </p>
+
+    <p>
+      Саме тому ками можуть бути пов'язані
+      не лише з людськими образами,
+      а й із силами та явищами природи.
+    </p>
+
+    <div class="wisdom-box">
 
       <p>
-        І зрештою міф переходить у те,
-        що люди починають називати історією.
+        Людина не стоїть окремо від природи.
+        Вона виникає всередині вже існуючого
+        сакрального світу.
       </p>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <section class="final-section">
+  <!-- 12 -->
 
-      <p class="eyebrow">
-        КОДЗІКІ · 古事記
+  <section class="idea-section">
+
+    <div class="idea-number">
+      12
+    </div>
+
+    <h2>
+      Очищення
+      як повернення до порядку
+    </h2>
+
+    <p>
+      Після контакту зі світом смерті
+      Ідзанаґі не просто повертається додому.
+      Він очищується.
+    </p>
+
+    <p>
+      Вода стає засобом переходу
+      від стану забруднення до нового стану.
+    </p>
+
+    <p>
+      Це один із важливих образів
+      японської релігійної традиції:
+      очищення не просто змиває бруд,
+      воно відновлює правильний стан.
+    </p>
+
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        禊
+      </div>
+
+      <div class="quote-reading">
+        みそぎ · misogi
+      </div>
+
+      <div class="quote-translation">
+        Очищення водою,
+        ритуальне повернення
+        до чистого стану.
+      </div>
+
+    </div>
+
+    <div class="wisdom-box">
+
+      <p>
+        Іноді для нового початку
+        потрібно не повернути минуле,
+        а очистити місце для нового.
       </p>
 
-      <h2>
+    </div>
+
+  </section>
+
+
+  <!-- 13 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      13
+    </div>
+
+    <h2>
+      Чому Аматерасу
+      така важлива
+    </h2>
+
+    <p>
+      Аматерасу займає особливе місце
+      в японській міфологічній традиції.
+    </p>
+
+    <p>
+      Вона пов'язана із сонцем,
+      світлом і небесним порядком.
+    </p>
+
+    <p>
+      Її походження від Ідзанаґі,
+      а також історія Нініґі,
+      який сходить на землю,
+      створюють важливий міфологічний
+      міст між небесним світом і людським.
+    </p>
+
+    <div class="wisdom-box">
+
+      <p>
+        Сонце тут не просто світить.
+        Воно стає символом порядку,
+        присутності та життя.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 14 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      14
+    </div>
+
+    <h2>
+      Книга
+      про походження
+    </h2>
+
+    <p>
+      Якщо подивитися на «Кодзікі» здалеку,
+      майже всі його великі історії
+      обертаються навколо одного питання:
+    </p>
+
+    <div class="wisdom-box">
+
+      <p>
         Звідки ми прийшли?
-      </h2>
+      </p>
+
+    </div>
+
+    <p>
+      Звідки походить земля?
+    </p>
+
+    <p>
+      Звідки походять боги?
+    </p>
+
+    <p>
+      Звідки взялася смерть?
+    </p>
+
+    <p>
+      Звідки походить світло?
+    </p>
+
+    <p>
+      Звідки походять правителі?
+    </p>
+
+    <p>
+      І зрештою —
+      звідки походить сама Японія
+      як спільний людський світ?
+    </p>
+
+  </section>
+
+
+  <!-- 15 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      15
+    </div>
+
+    <h2>
+      Міф як пам'ять
+    </h2>
+
+    <p>
+      Давня людина не мала сучасних підручників
+      з історії, археології чи космології.
+    </p>
+
+    <p>
+      Вона зберігала знання через розповідь,
+      пісню, родовід, ритуал і міф.
+    </p>
+
+    <p>
+      «Кодзікі» збирає ці шари пам'яті
+      в один великий текст.
+    </p>
+
+    <div class="quote-block">
+
+      <div class="quote-chinese">
+        古事記
+      </div>
+
+      <div class="quote-reading">
+        こじき · Kojiki
+      </div>
+
+      <div class="quote-translation">
+        «Записи давніх справ» —
+        пам'ять про те, як давня Японія
+        пояснювала власне походження.
+      </div>
+
+    </div>
+
+    <div class="wisdom-box">
 
       <p>
-        «Кодзікі» — це спроба стародавньої Японії
-        відповісти на питання про походження світу,
-        богів, людей, влади та самого японського народу.
+        Міф — це не лише історія про богів.
+        Це спосіб суспільства розповісти самому собі,
+        ким воно є.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- 16 -->
+
+  <section class="idea-section">
+
+    <div class="idea-number">
+      16
+    </div>
+
+    <h2>
+      Від хаосу
+      до людського світу
+    </h2>
+
+    <p>
+      Якщо пройти весь шлях «Кодзікі»
+      від початку до кінця,
+      можна побачити величезну послідовність.
+    </p>
+
+    <div class="history-box">
+
+      <p>
+        <strong>Спочатку</strong> — первісний стан.
       </p>
 
       <p>
-        Книга починається задовго до людини,
-        а закінчується світом людей.
+        <strong>Потім</strong> — перші божества.
       </p>
 
       <p>
-        Ніби весь цей шлях — від первісного хаосу
-        до людської історії — потрібен для того,
-        щоб показати, як із невизначеності народжуються
-        порядок, пам'ять і людський світ.
+        <strong>Потім</strong> — Ідзанаґі та Ідзанамі.
       </p>
 
-    </section>
+      <p>
+        <strong>Потім</strong> — земля та острови.
+      </p>
 
-  </main>
+      <p>
+        <strong>Потім</strong> — життя і смерть.
+      </p>
+
+      <p>
+        <strong>Потім</strong> — очищення.
+      </p>
+
+      <p>
+        <strong>Потім</strong> — Аматерасу,
+        Сусаноо та інші божества.
+      </p>
+
+      <p>
+        <strong>Потім</strong> — герої та родоводи.
+      </p>
+
+      <p>
+        <strong>І зрештою</strong> — людські правителі
+        та історична пам'ять.
+      </p>
+
+    </div>
+
+    <div class="wisdom-box">
+
+      <p>
+        Світ стає світом поступово.
+      </p>
+
+    </div>
+
+  </section>
 
 
-  <footer class="footer">
+</main>
 
-    <span>
-      WHAT THE WISE LEFT BEHIND
-    </span>
 
-    <span>
-      古事記 · KOJIKI
-    </span>
+<!-- =====================================================
+     FINAL
+====================================================== -->
 
-  </footer>
+<section class="book-ending">
+
+  <div class="ending-character">
+    神
+  </div>
+
+  <div class="ending-content">
+
+    <p class="book-label">
+      ЩО ЗАЛИШАЄ ПІСЛЯ СЕБЕ 《古事記》
+    </p>
+
+    <h2>
+      Звідки ми прийшли?
+    </h2>
+
+    <p>
+      «Кодзікі» починається задовго до людини.
+      У ньому немає готового світу,
+      у який просто приходить людство.
+    </p>
+
+    <p>
+      Спочатку виникають сили.
+      Потім божества.
+      Потім земля.
+      Потім життя і смерть.
+      Потім очищення.
+      Потім світло й темрява.
+    </p>
+
+    <p>
+      І лише поступово з цього величезного
+      міфологічного простору виникає людський світ —
+      із героями, родами, правителями
+      та пам'яттю про своє походження.
+    </p>
+
+    <p>
+      Саме тому «Кодзікі» — не просто збірка
+      стародавніх японських міфів.
+      Це спроба пояснити, як із невизначеності
+      виникли світ, порядок, суспільство
+      та сама пам'ять про Японію.
+    </p>
+
+    <div class="wisdom-box">
+
+      <p>
+        «Звідки я прийшла?
+        Звідки прийшов мій світ?
+        І яку історію ми розповідаємо,
+        щоб зрозуміти, ким ми є?»
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+  <div>
+    WHAT THE WISE LEFT BEHIND
+  </div>
+
+  <p>
+    Давні слова. Вічні думки.
+  </p>
+
+</footer>
+
 
 </body>
 </html>
