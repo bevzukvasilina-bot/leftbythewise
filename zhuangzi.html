@@ -4,396 +4,426 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>《莊子》 — Чжуан-цзи</title>
+    <title>《莊子》 — Чжуан-цзи | Мудрі тексти</title>
 
-    <meta name="description" content="Чжуан-цзи — давньокитайський філософський текст, пов'язаний із даоською традицією. Історії, філософські ідеї та роздуми про сприйняття, свободу, життя і смерть.">
+    <meta name="description" content="《莊子》 — Чжуан-цзи. Давньокитайський філософський текст про свободу, сприйняття, перетворення, життя і смерть.">
 
     <link rel="stylesheet" href="style.css">
+
     <style>
-
-    /* =========================
-       СТОРІНКА КНИГИ
-    ========================= */
-
-    .book-page {
-      background: var(--paper);
-      color: var(--ink);
-    }
-
-    /* =========================
-       ВЕРХ СТОРІНКИ
-    ========================= */
-
-    .book-hero {
-      position: relative;
-      min-height: 650px;
-      padding: 120px 8vw 100px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          135deg,
-          #214a43 0%,
-          #193d37 100%
-        );
-
-      color: var(--white);
-    }
-
-    .book-hero::before {
-      content: "";
-      position: absolute;
-      inset: 25px;
-      border: 1px solid rgba(196, 173, 122, 0.35);
-    }
-
-    .book-hero-character {
-      position: absolute;
-      right: 7%;
-      top: 50%;
-      transform: translateY(-50%);
-
-      font-family: "Noto Serif SC", serif;
-      font-size: 330px;
-      color: rgba(196, 173, 122, 0.10);
-      line-height: 1;
-    }
-
-    .book-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 850px;
-    }
-
-    .book-back {
-      display: inline-block;
-      margin-bottom: 50px;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(248, 244, 234, 0.55);
-    }
-
-    .book-back:hover {
-      color: var(--gold-light);
-    }
-
-    .book-original {
-      font-family: "Noto Serif SC", serif;
-      font-size: clamp(42px, 6vw, 76px);
-      color: var(--gold-light);
-      line-height: 1;
-    }
-
-    .book-hero h1 {
-      margin-top: 20px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(60px, 8vw, 105px);
-      font-weight: 500;
-      line-height: 0.9;
-      letter-spacing: -0.035em;
-    }
-
-    .book-subtitle {
-      margin-top: 25px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 27px;
-      color: rgba(248, 244, 234, 0.75);
-    }
-
-    .book-author {
-      margin-top: 35px;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: rgba(248, 244, 234, 0.60);
-    }
-
-    /* =========================
-       ІСТОРИЧНА ДОВІДКА
-    ========================= */
-
-    .book-intro {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 120px 40px;
-    }
-
-    .book-label {
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--wine);
-    }
-
-    .book-intro h2 {
-      max-width: 850px;
-      margin-top: 20px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(50px, 6vw, 78px);
-      font-weight: 500;
-      line-height: 0.95;
-    }
-
-    .book-intro-text {
-      max-width: 760px;
-      margin-top: 35px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 22px;
-      line-height: 1.55;
-      color: var(--ink-soft);
-    }
-
-    .history-box {
-      margin-top: 65px;
-      padding: 35px;
-      border-left: 3px solid var(--wine);
-      background: rgba(255,255,255,0.25);
-    }
-
-    .history-box strong {
-      font-weight: 600;
-    }
-
-    /* =========================
-       ОСНОВНИЙ КОНТЕНТ
-    ========================= */
-
-    .book-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px 40px 140px;
-    }
-
-    .idea-section {
-      position: relative;
-      padding: 90px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .idea-number {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 18px;
-      color: var(--gold);
-    }
-
-    .idea-section h2 {
-      max-width: 850px;
-      margin: 12px 0 30px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 5vw, 65px);
-      font-weight: 500;
-      line-height: 0.98;
-    }
-
-    .idea-section p {
-      max-width: 820px;
-      margin-bottom: 20px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 21px;
-      line-height: 1.65;
-      color: var(--ink-soft);
-    }
-
-    /* =========================
-       ОРИГІНАЛЬНИЙ ТЕКСТ
-    ========================= */
-
-    .quote-block {
-      margin: 45px 0;
-      padding: 45px;
-      background: var(--jade);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quote-block::after {
-      content: "";
-      position: absolute;
-      right: -40px;
-      bottom: -70px;
-      width: 180px;
-      height: 180px;
-      border: 1px solid rgba(196,173,122,0.2);
-      border-radius: 50%;
-    }
-
-    .quote-chinese {
-      position: relative;
-      z-index: 2;
-      font-family: "Noto Serif SC", serif;
-      font-size: clamp(24px, 3vw, 36px);
-      line-height: 1.8;
-      color: var(--gold-light);
-    }
-
-    .quote-pinyin {
-      position: relative;
-      z-index: 2;
-      margin-top: 25px;
-      font-family: "Inter", sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      color: rgba(248,244,234,0.6);
-    }
-
-    .quote-translation {
-      position: relative;
-      z-index: 2;
-      margin-top: 25px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
-      line-height: 1.45;
-      color: var(--white);
-    }
-
-    /* =========================
-       ВИДІЛЕНА ДУМКА
-    ========================= */
-
-    .wisdom-box {
-      margin: 55px 0;
-      padding: 45px;
-      border: 1px solid var(--gold);
-      background: rgba(173,148,97,0.07);
-    }
-
-    .wisdom-box p {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 29px;
-      line-height: 1.35;
-      color: var(--ink);
-    }
-
-    /* =========================
-       ФІНАЛ
-    ========================= */
-
-    .book-ending {
-      position: relative;
-      padding: 130px 8vw;
-
-      background:
-        linear-gradient(
-          135deg,
-          #71383d 0%,
-          #582d32 100%
-        );
-
-      color: var(--white);
-      overflow: hidden;
-    }
-
-    .book-ending::before {
-      content: "";
-      position: absolute;
-      inset: 28px;
-      border: 1px solid rgba(196,173,122,0.3);
-    }
-
-    .ending-character {
-      position: absolute;
-      right: 8%;
-      top: 50%;
-      transform: translateY(-50%);
-
-      font-family: "Noto Serif SC", serif;
-      font-size: 260px;
-      color: rgba(196,173,122,0.08);
-    }
-
-    .ending-content {
-      position: relative;
-      z-index: 2;
-      max-width: 850px;
-    }
-
-    .ending-content h2 {
-      margin: 20px 0 35px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(55px, 7vw, 90px);
-      font-weight: 500;
-      line-height: 0.9;
-    }
-
-    .ending-content p {
-      max-width: 720px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 23px;
-      line-height: 1.55;
-      color: rgba(248,244,234,0.78);
-    }
-
-    /* =========================
-       МОБІЛЬНА ВЕРСІЯ
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      .book-hero {
-        min-height: 600px;
-        padding: 90px 30px;
-      }
-
-      .book-hero::before {
-        inset: 15px;
-      }
-
-      .book-hero-character {
-        font-size: 180px;
-        right: -20px;
-      }
-
-      .book-hero h1 {
-        font-size: 65px;
-      }
-
-      .book-intro {
-        padding: 90px 25px;
-      }
-
-      .book-content {
-        padding: 10px 25px 90px;
-      }
-
-      .idea-section {
-        padding: 65px 0;
-      }
-
-      .quote-block {
-        padding: 30px 25px;
-      }
-
-      .wisdom-box {
-        padding: 30px 25px;
-      }
-
-      .wisdom-box p {
-        font-size: 24px;
-      }
-
-      .book-ending {
-        padding: 100px 30px;
-      }
-
-      .book-ending::before {
-        inset: 15px;
-      }
-
-      .ending-character {
-        font-size: 150px;
-        right: -20px;
-      }
-
-    }
-
-</style>
+        .book-page {
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .book-hero {
+            position: relative;
+            min-height: 650px;
+            padding: 120px 8vw 100px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #214a43 0%,
+                    #193d37 100%
+                );
+
+            color: var(--white);
+        }
+
+        .book-hero::before {
+            content: "";
+            position: absolute;
+            inset: 25px;
+            border: 1px solid rgba(196, 173, 122, 0.35);
+        }
+
+        .book-hero-character {
+            position: absolute;
+            right: 7%;
+            top: 50%;
+            transform: translateY(-50%);
+
+            font-family: "Noto Serif SC", serif;
+            font-size: 330px;
+            color: rgba(196, 173, 122, 0.10);
+            line-height: 1;
+        }
+
+        .book-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .book-back {
+            display: inline-block;
+            margin-bottom: 50px;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(248, 244, 234, 0.55);
+        }
+
+        .book-back:hover {
+            color: var(--gold-light);
+        }
+
+        .book-original {
+            font-family: "Noto Serif SC", serif;
+            font-size: clamp(42px, 6vw, 76px);
+            color: var(--gold-light);
+            line-height: 1;
+        }
+
+        .book-hero h1 {
+            margin-top: 20px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(60px, 8vw, 105px);
+            font-weight: 500;
+            line-height: 0.9;
+            letter-spacing: -0.035em;
+        }
+
+        .book-subtitle {
+            margin-top: 25px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 27px;
+            color: rgba(248, 244, 234, 0.75);
+        }
+
+        .book-author {
+            margin-top: 35px;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            color: rgba(248, 244, 234, 0.60);
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .book-intro {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 120px 40px;
+        }
+
+        .book-label {
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--wine);
+        }
+
+        .book-intro h2 {
+            max-width: 850px;
+            margin-top: 20px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(50px, 6vw, 78px);
+            font-weight: 500;
+            line-height: 0.95;
+        }
+
+        .book-intro-text {
+            max-width: 760px;
+            margin-top: 35px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
+            line-height: 1.55;
+            color: var(--ink-soft);
+        }
+
+        .history-box {
+            margin-top: 65px;
+            padding: 35px;
+            border-left: 3px solid var(--wine);
+            background: rgba(255,255,255,0.25);
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .book-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 40px 140px;
+        }
+
+        .idea-section {
+            position: relative;
+            padding: 90px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .idea-number {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 18px;
+            color: var(--gold);
+        }
+
+        .idea-section h2 {
+            max-width: 850px;
+            margin: 12px 0 30px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(42px, 5vw, 65px);
+            font-weight: 500;
+            line-height: 0.98;
+        }
+
+        .idea-section h3 {
+            margin: 25px 0;
+            font-family: "Noto Serif SC", serif;
+            font-size: 28px;
+            font-weight: 400;
+        }
+
+        .idea-section p {
+            max-width: 820px;
+            margin-bottom: 20px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 21px;
+            line-height: 1.65;
+            color: var(--ink-soft);
+        }
+
+        .idea-section ul {
+            max-width: 760px;
+            margin: 25px 0 30px;
+            padding-left: 25px;
+        }
+
+        .idea-section li {
+            margin-bottom: 10px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 20px;
+            line-height: 1.5;
+            color: var(--ink-soft);
+        }
+
+        /* =========================
+           ORIGINAL TEXT
+        ========================= */
+
+        .quote-block {
+            margin: 45px 0;
+            padding: 45px;
+            background: var(--jade);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-block::after {
+            content: "";
+            position: absolute;
+            right: -40px;
+            bottom: -70px;
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(196,173,122,0.2);
+            border-radius: 50%;
+        }
+
+        .quote-chinese {
+            position: relative;
+            z-index: 2;
+            font-family: "Noto Serif SC", serif;
+            font-size: clamp(24px, 3vw, 36px);
+            line-height: 1.8;
+            color: var(--gold-light);
+        }
+
+        .quote-pinyin {
+            position: relative;
+            z-index: 2;
+            margin-top: 25px;
+            font-family: "Inter", sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            color: rgba(248,244,234,0.6);
+        }
+
+        .quote-translation {
+            position: relative;
+            z-index: 2;
+            margin-top: 25px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 24px;
+            line-height: 1.45;
+            color: var(--white);
+        }
+
+        /* =========================
+           WISDOM
+        ========================= */
+
+        .wisdom-box {
+            margin: 55px 0;
+            padding: 45px;
+            border: 1px solid var(--gold);
+            background: rgba(173,148,97,0.07);
+        }
+
+        .wisdom-box p {
+            margin: 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 29px;
+            line-height: 1.35;
+            color: var(--ink);
+        }
+
+        /* =========================
+           ENDING
+        ========================= */
+
+        .book-ending {
+            position: relative;
+            padding: 130px 8vw;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #71383d 0%,
+                    #582d32 100%
+                );
+
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .book-ending::before {
+            content: "";
+            position: absolute;
+            inset: 28px;
+            border: 1px solid rgba(196,173,122,0.3);
+        }
+
+        .ending-character {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+
+            font-family: "Noto Serif SC", serif;
+            font-size: 260px;
+            color: rgba(196,173,122,0.08);
+        }
+
+        .ending-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .ending-content h2 {
+            margin: 20px 0 35px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(55px, 7vw, 90px);
+            font-weight: 500;
+            line-height: 0.9;
+        }
+
+        .ending-content p {
+            max-width: 720px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 23px;
+            line-height: 1.55;
+            color: rgba(248,244,234,0.78);
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .book-navigation {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 70px 40px;
+            text-align: center;
+        }
+
+        .book-navigation a {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--wine);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .book-hero {
+                min-height: 600px;
+                padding: 90px 30px;
+            }
+
+            .book-hero::before {
+                inset: 15px;
+            }
+
+            .book-hero-character {
+                font-size: 180px;
+                right: -20px;
+            }
+
+            .book-hero h1 {
+                font-size: 65px;
+            }
+
+            .book-intro {
+                padding: 90px 25px;
+            }
+
+            .book-content {
+                padding: 10px 25px 90px;
+            }
+
+            .idea-section {
+                padding: 65px 0;
+            }
+
+            .quote-block {
+                padding: 30px 25px;
+            }
+
+            .wisdom-box {
+                padding: 30px 25px;
+            }
+
+            .wisdom-box p {
+                font-size: 24px;
+            }
+
+            .book-ending {
+                padding: 100px 30px;
+            }
+
+            .book-ending::before {
+                inset: 15px;
+            }
+
+            .ending-character {
+                font-size: 150px;
+                right: -20px;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="book-page">
 
 <header class="site-header">
 
@@ -415,1128 +445,827 @@
 <main>
 
     <!-- =========================
-         ЗАГОЛОВОК
-    ========================== -->
+         HERO
+    ========================= -->
 
     <section class="book-hero">
 
-        <div class="section-label">
-            КИТАЙСЬКА МУДРІСТЬ
+        <div class="book-hero-character">
+            莊
         </div>
 
-        <h1>《莊子》</h1>
+        <div class="book-hero-content">
 
-        <h2>Чжуан-цзи</h2>
+            <a href="index.html#china" class="book-back">
+                ← Китайські тексти
+            </a>
 
-        <p class="book-intro">
-            Книга про свободу від вузького погляду,
-            межі людського сприйняття,
-            перетворення та складність світу.
-        </p>
+            <div class="book-original">
+                《莊子》
+            </div>
+
+            <h1>Чжуан-цзи</h1>
+
+            <div class="book-subtitle">
+                Свобода, перетворення і межі людського погляду
+            </div>
+
+            <div class="book-author">
+                莊周 · Zhuāng Zhōu · IV–III ст. до н. е.
+            </div>
+
+        </div>
 
     </section>
 
 
     <!-- =========================
-         ОСНОВНА ІНФОРМАЦІЯ
-    ========================== -->
+         INTRO
+    ========================= -->
 
-    <section class="book-section">
+    <section class="book-intro">
 
-        <div class="section-label">
+        <div class="book-label">
             ПРО ТЕКСТ
         </div>
 
-        <h2>《莊子》 — Чжуан-цзи</h2>
+        <h2>
+            Книга, яка змушує
+            сумніватися у власному погляді
+        </h2>
 
-        <div class="book-info">
+        <p class="book-intro-text">
+            《莊子》 — один із найважливіших текстів
+            давньокитайської філософії, традиційно пов’язаний
+            із Чжуан-цзи та даоською традицією.
+        </p>
+
+        <div class="history-box">
+
+            <strong>Основні відомості</strong>
 
             <p>
-                <strong>Китайська назва:</strong> 《莊子》
+                Китайська назва: 《莊子》
             </p>
 
             <p>
-                <strong>Піньїнь:</strong> Zhuāngzǐ
+                Піньїнь: Zhuāngzǐ
             </p>
 
             <p>
-                <strong>Українською:</strong> «Чжуан-цзи»
-            </p>
-
-            <p>
-                <strong>Традиційно пов’язаний автор:</strong>
+                Традиційно пов’язаний автор:
                 莊子 — Чжуан-цзи,
-                справжнє ім’я 莊周 — Чжуан Чжоу
+                справжнє ім’я 莊周 — Чжуан Чжоу.
             </p>
 
             <p>
-                <strong>Період:</strong>
-                приблизно IV–III ст. до н. е.
+                Період: приблизно IV–III ст. до н. е.
             </p>
 
             <p>
-                <strong>Філософська традиція:</strong>
-                даосизм
+                Традиція: даосизм.
             </p>
 
             <p>
-                <strong>Інша назва:</strong>
-                《南華經》 — «Канон Наньхуа»,
-                назва, яка закріпилася за текстом пізніше.
+                Сучасний текст складається з 33 розділів.
+                Традиційна редакція пов’язується з Го Сяном 郭象.
+            </p>
+
+            <p>
+                Перші сім «внутрішніх розділів»
+                вважаються найближчими до самого Чжуан-цзи,
+                тоді як інші частини мають складнішу історію
+                формування та передачі.
             </p>
 
         </div>
 
-        <p>
-            Текст у сучасній традиції складається з 33 розділів.
-            Традиційна редакція пов’язується з Го Сяном 郭象,
-            який жив приблизно у III–IV столітті н. е.
-        </p>
-
-        <p>
-            Вважається, що перші сім «внутрішніх розділів»
-            мають найтісніший зв’язок із самим Чжуан-цзи,
-            тоді як інші частини тексту мають складнішу історію
-            формування та передачі.
-        </p>
-
-        <blockquote>
-            І це дуже важливо для нашого сайту.
-        </blockquote>
-
-        <p>
-            Бо ми не будемо писати:
-            «Чжуан-цзи сказав кожне речення цієї книги».
-        </p>
-
-        <p>
-            Правильніше:
-        </p>
-
-        <blockquote>
-            Традиційний текст «Чжуан-цзи» — це багатошаровий твір,
-            який формувався протягом часу і містить матеріал,
-            пов’язаний як із самим Чжуан-цзи,
-            так і з його послідовниками та пізнішою традицією.
-        </blockquote>
-
     </section>
 
 
     <!-- =========================
-         ПЕРША ГЛАВА
-    ========================== -->
+         CONTENT
+    ========================= -->
 
-    <section class="book-section">
+    <div class="book-content">
 
-        <div class="section-label">
-            ПЕРША ГЛАВА
+
+        <!-- 01 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">01</div>
+
+            <h2>
+                Перше, що робить
+                «Чжуан-цзи» з твоєю головою
+            </h2>
+
+            <h3>《逍遙遊》 — Xiāoyáo yóu</h3>
+
+            <p>
+                Перша глава називається
+                《逍遙遊》 — Xiāoyáo yóu.
+            </p>
+
+            <p>
+                Її перекладають як «Вільне блукання»,
+                «Вільне й безтурботне блукання»
+                або «Мандри у безмежному».
+            </p>
+
+            <p>
+                І починається вона абсолютно незвично:
+            </p>
+
+            <div class="quote-block">
+
+                <div class="quote-chinese">
+                    北冥有魚，其名為鯤。
+                </div>
+
+                <div class="quote-pinyin">
+                    Běi míng yǒu yú, qí míng wéi kūn.
+                </div>
+
+                <div class="quote-translation">
+                    «У північному морі є риба,
+                    ім’я їй Кунь».
+                </div>
+
+            </div>
+
+            <p>
+                А потім ця риба перетворюється
+                на величезного птаха:
+            </p>
+
+            <div class="quote-block">
+
+                <div class="quote-chinese">
+                    鯤之大，不知其幾千里也；<br>
+                    化而為鳥，其名為鵬。
+                </div>
+
+                <div class="quote-translation">
+                    «Розмір Кунь такий великий,
+                    що невідомо, скільки тисяч лі він має;
+                    перетворившись, він стає птахом,
+                    ім’я якому Пен».
+                </div>
+
+            </div>
+
+            <p>
+                А потім цей птах злітає.
+                І його крила Чжуан-цзи порівнює
+                з хмарами, що звисають із небес.
+            </p>
+
+            <div class="quote-block">
+
+                <div class="quote-chinese">
+                    怒而飛，其翼若垂天之雲。
+                </div>
+
+                <div class="quote-translation">
+                    «Він здіймається в польоті,
+                    і його крила нагадують хмари,
+                    що звисають із небес».
+                </div>
+
+            </div>
+
+            <p>
+                І тут з’являється маленька істота,
+                яка дивиться на все це й фактично питає:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    «А навіщо так високо?»
+                </p>
+            </div>
+
+            <p>
+                Саме тут починається одна з головних
+                філософських тем Чжуан-цзи:
+                межі власної точки зору.
+            </p>
+
+        </section>
+
+
+        <!-- 02 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">02</div>
+
+            <h2>Маленька і велика птиця</h2>
+
+            <p>
+                Чжуан-цзи розповідає про маленьких істот,
+                які не можуть зрозуміти, навіщо Пэну
+                так далеко летіти.
+            </p>
+
+            <p>
+                Для маленького птаха його поведінка
+                здається безглуздою.
+            </p>
+
+            <p>
+                Він просто не бачить того,
+                що бачить Пен.
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Те, що здається безглуздим
+                    із твоєї точки зору,
+                    може бути зрозумілим
+                    з іншої.
+                </p>
+            </div>
+
+            <p>
+                Але це не означає, що кожна думка
+                автоматично однаково правильна.
+            </p>
+
+            <p>
+                Чжуан-цзи ставить інше питання:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    «А наскільки обмежена
+                    твоя власна точка зору?»
+                </p>
+            </div>
+
+            <p>
+                Ти бачиш життя з висоти свого віку.
+                Інша людина — з висоти свого.
+            </p>
+
+            <p>
+                Ти бачиш гроші одним способом.
+                Хтось інший — зовсім іншим.
+            </p>
+
+            <p>
+                Ти бачиш свободу як можливість.
+                Інша людина може бачити свободу як самотність.
+            </p>
+
+            <p>
+                Ти бачиш стабільність як безпеку.
+                Інша — як клітку.
+            </p>
+
+            <p>
+                І дуже легко сказати:
+                «Вона просто не розуміє».
+            </p>
+
+            <p>
+                А Чжуан-цзи питає:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    «А що, якщо вона бачить світ
+                    із іншого масштабу?»
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- 03 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">03</div>
+
+            <h2>
+                莊周夢蝶 —
+                сон Чжуан Чжоу про метелика
+            </h2>
+
+            <p>
+                Одна з найвідоміших історій
+                усієї китайської філософської традиції.
+            </p>
+
+            <div class="quote-block">
+
+                <div class="quote-chinese">
+                    昔者莊周夢為胡蝶，<br>
+                    栩栩然胡蝶也。
+                </div>
+
+                <div class="quote-translation">
+                    «Колись Чжуан Чжоу наснився метелик.
+                    Він був живим, легким метеликом».
+                </div>
+
+            </div>
+
+            <p>
+                Він літав. Радів. Не знав,
+                що він Чжуан Чжоу.
+                Він просто був метеликом.
+            </p>
+
+            <p>
+                А потім прокинувся.
+            </p>
+
+            <p>
+                І зрозумів:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Він — Чжуан Чжоу.
+                </p>
+            </div>
+
+            <p>
+                І тоді виникає знамените питання:
+            </p>
+
+            <div class="quote-block">
+
+                <div class="quote-chinese">
+                    不知周之夢為胡蝶與，<br>
+                    胡蝶之夢為周與？
+                </div>
+
+                <div class="quote-translation">
+                    «Не знаю: Чжуан Чжоу наснилося,
+                    що він метелик, чи метелику наснилося,
+                    що він Чжуан Чжоу?»
+                </div>
+
+            </div>
+
+            <div class="quote-block">
+
+                <div class="quote-chinese">
+                    周與胡蝶，則必有分矣。<br>
+                    此之謂物化。
+                </div>
+
+                <div class="quote-translation">
+                    «Між Чжуан Чжоу і метеликом,
+                    безперечно, є відмінність.
+                    Це і називається перетворенням речей».
+                </div>
+
+            </div>
+
+            <p>
+                Чжуан-цзи фактично запитує:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    «Звідки ти знаєш, що твій
+                    теперішній стан —
+                    остаточна реальність?»
+                </p>
+            </div>
+
+            <p>
+                Глибше питання полягає не просто в тому,
+                чи «спимо ми зараз».
+            </p>
+
+            <p>
+                Він досліджує надійність нашої впевненості
+                у власній картині світу.
+            </p>
+
+            <p>
+                І не дає зручної відповіді.
+                Він залишає читача в невизначеності.
+            </p>
+
+        </section>
+
+
+        <!-- 04 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">04</div>
+
+            <h2>
+                Коли дві людини сперечаються
+            </h2>
+
+            <h3>是非 — shìfēi</h3>
+
+            <p>
+                У внутрішніх розділах Чжуан-цзи
+                багато уваги приділяє тому,
+                що китайською називається 是非 — shìfēi:
+                «правильне і неправильне»,
+                «так і ні».
+            </p>
+
+            <p>
+                Люди сперечаються:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    «Це правильно».<br>
+                    «Ні, неправильно».<br>
+                    «Я знаю».<br>
+                    «Ти не знаєш».
+                </p>
+            </div>
+
+            <p>
+                І Чжуан-цзи ставить дуже неприємне питання:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    А чи існує позиція,
+                    з якої можна побачити
+                    всю картину одночасно?
+                </p>
+            </div>
+
+            <p>
+                Ти дивишся з одного боку.
+                Я — з іншого.
+            </p>
+
+            <p>
+                Ти бачиш частину.
+                Я — іншу.
+            </p>
+
+            <p>
+                А потім ми обидва називаємо свою частину
+                «всією правдою».
+            </p>
+
+            <p>
+                Можливо, проблема не завжди в тому,
+                що хтось бреше.
+                Іноді двоє людей бачать різні частини
+                одного цілого.
+            </p>
+
+        </section>
+
+
+        <!-- 05 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">05</div>
+
+            <h2>《齊物論》 — про єдність речей</h2>
+
+            <h3>Qíwù lùn</h3>
+
+            <p>
+                Друга велика частина книги називається
+                《齊物論》 — Qíwù lùn.
+            </p>
+
+            <p>
+                Її перекладають як
+                «Розмірковування про зрівняння речей»
+                або «Про єдність речей».
+            </p>
+
+            <p>
+                Тут Чжуан-цзи ставить питання:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Якщо кожна істота дивиться
+                    зі своєї позиції,
+                    то де знаходиться абсолютна межа
+                    між «так» і «ні»?
+                </p>
+            </div>
+
+            <p>
+                Для однієї людини тиша — прекрасна.
+                Для іншої — самотність.
+            </p>
+
+            <p>
+                Для одного життя в селі — свобода.
+                Для іншого — обмеження.
+            </p>
+
+            <p>
+                Для одного багатство — безпека.
+                Для іншого — тягар.
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Оцінка залежить
+                    від точки спостереження.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- 06 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">06</div>
+
+            <h2>А тепер — про смерть</h2>
+
+            <p>
+                Є історія про смерть дружини Чжуан-цзи.
+            </p>
+
+            <p>
+                Коли вона померла, його друг Хуей-цзи 惠子
+                прийшов до нього й побачив,
+                що Чжуан-цзи сидить і співає,
+                б’ючи по посудині.
+            </p>
+
+            <p>
+                Спочатку він теж був спустошений.
+                Але потім почав думати про те,
+                що було до її народження.
+            </p>
+
+            <p>
+                До її появи не було цієї конкретної
+                форми життя.
+            </p>
+
+            <p>
+                Потім виникло життя.
+                Потім форма.
+                Потім народження.
+                А тепер смерть.
+            </p>
+
+            <p>
+                Він порівнює це з порами року:
+                весною, літом, осінню та зимою.
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Те, що ми називаємо «смертю»,
+                    він розглядає як частину
+                    величезного процесу перетворення.
+                </p>
+            </div>
+
+            <p>
+                Це не означає, що смерть не болить.
+            </p>
+
+            <p>
+                Інша перспектива полягає в тому,
+                що ми страждаємо ще й тому,
+                що хочемо, щоб зміна не відбувалася.
+            </p>
+
+            <ul>
+                <li>щоб люди не старіли;</li>
+                <li>щоб близькі не йшли;</li>
+                <li>щоб діти не виростали;</li>
+                <li>щоб життя не змінювалося;</li>
+                <li>щоб наше тіло залишалося таким самим;</li>
+                <li>щоб стосунки залишалися такими самими.</li>
+            </ul>
+
+            <p>
+                Але життя — це перетворення.
+            </p>
+
+        </section>
+
+
+        <!-- 07 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">07</div>
+
+            <h2>«Корисне» і «безкорисне»</h2>
+
+            <p>
+                Чжуан-цзи багато разів повертається
+                до питання:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Що означає бути корисним?
+                </p>
+            </div>
+
+            <p>
+                Ми звикли оцінювати все через користь:
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Скільки заробляєш?<br>
+                    Що виробляєш?<br>
+                    Яка від тебе користь?<br>
+                    Який результат?
+                </p>
+            </div>
+
+            <p>
+                У Чжуан-цзи є знамениті історії про дерева,
+                які вважаються «непридатними»
+                для будівництва.
+            </p>
+
+            <p>
+                Одне дерево занадто криве.
+                Інше має погану деревину.
+                Третє не підходить для балок.
+            </p>
+
+            <p>
+                І через це воно залишається стояти.
+                Його не рубають.
+                І воно живе довго.
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    А що, якщо твоя «непридатність»
+                    для однієї системи — це саме те,
+                    що дозволяє тобі вижити?
+                </p>
+            </div>
+
+            <p>
+                Може існувати час, який нічого не приносить.
+                Прогулянка без мети.
+                День, коли ти нічого великого не зробила.
+                Сон. Тиша. Море. Ліс. Музика.
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Не все потрібно перетворювати
+                    на результат.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- 08 -->
+
+        <section class="idea-section">
+
+            <div class="idea-number">08</div>
+
+            <h2>Свобода від вузького погляду на себе</h2>
+
+            <p>
+                Якщо в 《道德經》 одним із центральних
+                образів можна назвати воду,
+                то в 《莊子》 одним із центральних мотивів
+                стає свобода від вузького погляду на себе.
+            </p>
+
+            <p>
+                Ти не зобов’язана назавжди бути тією людиною,
+                якою була вчора.
+            </p>
+
+            <p>
+                Ти можеш змінюватися.
+                Можеш побачити, що колишнє переконання
+                було неправильним.
+            </p>
+
+            <p>
+                Можеш перестати хотіти те,
+                чого хотіла раніше.
+            </p>
+
+            <p>
+                Можеш змінити свою думку.
+                Можеш відмовитися від ролі,
+                яку на тебе навісили.
+            </p>
+
+            <p>
+                Можеш перестати доводити щось людям.
+                Можеш перестати жити за чужою шкалою.
+            </p>
+
+            <div class="wisdom-box">
+                <p>
+                    Свобода — це не «я роблю все, що хочу».
+                    Це можливість не залишатися заручницею
+                    того, що колись вважала собою.
+                </p>
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================
+         ENDING
+    ========================= -->
+
+    <section class="book-ending">
+
+        <div class="ending-character">
+            夢
         </div>
 
-        <h2>ПЕРШЕ, ЩО РОБИТЬ «ЧЖУАН-ЦЗИ» З ТВОЄЮ ГОЛОВОЮ</h2>
+        <div class="ending-content">
 
-        <h3>《逍遙遊》 — Xiāoyáo yóu</h3>
+            <div class="book-label">
+                ВИСНОВОК
+            </div>
 
-        <p>
-            Перша глава називається:
-        </p>
+            <h2>
+                Можливо,
+                я бачу лише одну сторону
+            </h2>
 
-        <p>
-            《逍遙遊》 — Xiāoyáo yóu
-        </p>
+            <p>
+                Чжуан-цзи не вчить людину знаходити
+                одну правильну відповідь.
+                Він вчить помічати, наскільки обмеженою
+                може бути сама потреба в остаточній відповіді.
+            </p>
 
-        <p>
-            Її часто перекладають як:
-        </p>
+            <p>
+                Метелик і Чжуан Чжоу.
+                Величезний Пен і маленький птах.
+                Життя і смерть.
+                Корисне і непотрібне.
+                Правильне і неправильне.
+                Свобода і обмеження.
+            </p>
 
-        <ul>
-            <li>«Вільне й безтурботне блукання»</li>
-            <li>«Мандри у безмежному»</li>
-            <li>«Вільне блукання»</li>
-        </ul>
+            <p>
+                Усе це постійно переходить одне в одне.
+            </p>
 
-        <p>
-            І починається вона абсолютно божевільно.
-        </p>
+            <p>
+                І саме тому 《莊子》 — не просто книга
+                про даосизм.
+                Це книга про межі людського сприйняття.
+            </p>
 
-        <h3>北冥有魚</h3>
+            <div class="wisdom-box">
 
-        <p class="original-text">
-            北冥有魚，其名為鯤。
-        </p>
+                <p>
+                    «Можливо, я бачу лише одну сторону».
+                </p>
 
-        <p class="pinyin">
-            Běi míng yǒu yú, qí míng wéi kūn.
-        </p>
+            </div>
 
-        <p>
-            «У північному морі є риба, ім’я їй Кунь».
-        </p>
+            <p>
+                І не зламатися від того,
+                що світ виявився складнішим,
+                ніж твоя перша думка про нього.
+            </p>
 
-        <p>
-            А потім ця риба перетворюється на величезного птаха:
-        </p>
-
-        <p class="original-text">
-            鯤之大，不知其幾千里也；化而為鳥，其名為鵬。
-        </p>
-
-        <p>
-            «Розмір Кунь такий великий, що невідомо,
-            скільки тисяч лі він має; перетворившись,
-            він стає птахом, ім’я якому Пен.»
-        </p>
-
-        <p>
-            А потім цей птах злітає.
-        </p>
-
-        <p>
-            І Чжуан-цзи описує його так,
-            що масштаб стає майже космічним.
-        </p>
-
-        <p class="original-text">
-            怒而飛，其翼若垂天之雲。
-        </p>
-
-        <p>
-            «Він здіймається в польоті,
-            і його крила нагадують хмари,
-            що звисають із небес».
-        </p>
-
-        <p>
-            Птах летить угору,
-            використовуючи величезний рух повітря.
-        </p>
-
-        <p>
-            І тут з’являється маленька істота,
-            яка дивиться на все це і фактично думає:
-        </p>
-
-        <blockquote>
-            «А навіщо так високо?»
-        </blockquote>
-
-        <p>
-            І ось тут починається головна фішка Чжуан-цзи.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         МАЛЕНЬКА І ВЕЛИКА ПТИЦЯ
-    ========================== -->
-
-    <section class="book-section">
-
-        <h2>МАЛЕНЬКА І ВЕЛИКА ПТИЦЯ</h2>
-
-        <p>
-            Чжуан-цзи розповідає про маленьких істот,
-            які не можуть зрозуміти, навіщо Пэну так далеко летіти.
-        </p>
-
-        <p>
-            Для маленького птаха його поведінка здається безглуздою.
-        </p>
-
-        <p>
-            Він не бачить того, що бачить Пэн.
-        </p>
-
-        <p>
-            І ось тут Чжуан-цзи підкидає нам одну
-            з найважливіших ідей:
-        </p>
-
-        <blockquote>
-            Те, що здається безглуздим із твоєї точки зору,
-            може бути абсолютно зрозумілим із іншої.
-        </blockquote>
-
-        <p>
-            Це не означає, що кожна думка однаково правильна.
-        </p>
-
-        <p>
-            Оце важливо.
-        </p>
-
-        <p>
-            Чжуан-цзи не каже:
-        </p>
-
-        <blockquote>
-            «Усі мають рацію».
-        </blockquote>
-
-        <p>
-            Він ставить інше питання:
-        </p>
-
-        <blockquote>
-            «А наскільки обмежена твоя власна точка зору?»
-        </blockquote>
-
-        <p>
-            Ти бачиш життя з висоти свого віку.
-            Інша людина — з висоти свого.
-        </p>
-
-        <p>
-            Ти бачиш гроші одним способом.
-            Хтось інший — зовсім іншим.
-        </p>
-
-        <p>
-            Ти бачиш свободу як можливість.
-            Інша людина може бачити свободу як самотність.
-        </p>
-
-        <p>
-            Ти бачиш стабільність як безпеку.
-            Інша — як клітку.
-        </p>
-
-        <p>
-            І дуже легко сказати:
-        </p>
-
-        <blockquote>
-            «Та вона просто дурна, вона не розуміє».
-        </blockquote>
-
-        <p>
-            А Чжуан-цзи питає:
-        </p>
-
-        <blockquote>
-            «А що, якщо вона бачить світ із іншого масштабу?»
-        </blockquote>
-
-    </section>
-
-
-    <!-- =========================
-         МЕТЕЛИК
-    ========================== -->
-
-    <section class="book-section">
-
-        <div class="section-label">
-            НАЙВІДОМІША ІСТОРІЯ
         </div>
 
-        <h2>莊周夢蝶 — «Сон Чжуан Чжоу про метелика»</h2>
-
-        <p>
-            І ось ця історія для твого сайту має бути обов’язково.
-        </p>
-
-        <p>
-            Чжуан-цзи говорить:
-        </p>
-
-        <p class="original-text">
-            昔者莊周夢為胡蝶，栩栩然胡蝶也。
-        </p>
-
-        <p>
-            «Колись Чжуан Чжоу наснився метелик.
-            Він був живим, легким метеликом».
-        </p>
-
-        <p>
-            Він літав.
-        </p>
-
-        <p>
-            Радів.
-        </p>
-
-        <p>
-            Не знав, що він Чжуан Чжоу.
-        </p>
-
-        <p>
-            Він просто був метеликом.
-        </p>
-
-        <p>
-            А потім прокинувся.
-        </p>
-
-        <p>
-            І зрозумів:
-        </p>
-
-        <blockquote>
-            він — Чжуан Чжоу.
-        </blockquote>
-
-        <p>
-            І тоді виникає знамените питання:
-        </p>
-
-        <p class="original-text">
-            不知周之夢為胡蝶與，胡蝶之夢為周與？
-        </p>
-
-        <p>
-            «Не знаю: Чжуан Чжоу наснилося,
-            що він метелик, чи метелику наснилося,
-            що він Чжуан Чжоу?»
-        </p>
-
-        <p>
-            І далі:
-        </p>
-
-        <p class="original-text">
-            周與胡蝶，則必有分矣。此之謂物化。
-        </p>
-
-        <p>
-            «Між Чжуан Чжоу і метеликом,
-            безперечно, є відмінність.
-            Це і називається перетворенням речей».
-        </p>
-
-        <p>
-            І, бляха, це один із тих текстів,
-            які можна прочитати десять разів
-            і кожного разу винести інше.
-        </p>
-
-        <p>
-            Бо Чжуан-цзи фактично запитує:
-        </p>
-
-        <blockquote>
-            «Звідки ти знаєш, що твій теперішній стан —
-            остаточна реальність?»
-        </blockquote>
-
-        <p>
-            Не обов’язково буквально.
-        </p>
-
-        <p>
-            Він не просто говорить:
-            «Можливо, ми всі спимо».
-        </p>
-
-        <p>
-            Глибше питання:
-        </p>
-
-        <blockquote>
-            Наскільки надійна наша впевненість
-            у власній картині світу?
-        </blockquote>
-
-        <p>
-            Уві сні ти можеш бути абсолютно переконана,
-            що все реально.
-        </p>
-
-        <p>
-            Ти можеш відчувати страх.
-            Любов.
-            Біль.
-            Радість.
-        </p>
-
-        <p>
-            А прокидаєшся — і розумієш,
-            що це був сон.
-        </p>
-
-        <p>
-            Але як ти доводиш,
-            що зараз не перебуваєш у ще одному стані сприйняття?
-        </p>
-
-        <p>
-            І тут Чжуан-цзи не дає тобі зручної відповіді.
-        </p>
-
-        <p>
-            Він залишає тебе в невизначеності.
-        </p>
-
-        <p>
-            І це спеціально.
-        </p>
-
     </section>
 
 
     <!-- =========================
-         ЧОМУ ЦЕ СИЛЬНО
-    ========================== -->
-
-    <section class="book-section">
-
-        <h2>ЧОМУ ЦЕ ТАК СИЛЬНО</h2>
-
-        <p>
-            Ми дуже любимо визначеність.
-        </p>
-
-        <blockquote>
-            «Я знаю».<br>
-            «Я зрозуміла».<br>
-            «Я точно права».<br>
-            «Я знаю, що він думає».<br>
-            «Я знаю, що буде завтра».<br>
-            «Я знаю, яка ця людина».<br>
-            «Я знаю, чого хочу».
-        </blockquote>
-
-        <p>
-            А Чжуан-цзи постійно встромляє палку
-            в цю впевненість.
-        </p>
-
-        <blockquote>
-            «Ти впевнена? А звідки ти це знаєш?»
-        </blockquote>
-
-        <p>
-            І це дуже потужна інтелектуальна дисципліна.
-        </p>
-
-        <p>
-            Не сумніватися абсолютно в усьому.
-            А вміти бачити межі власного знання.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         SHIFEI
-    ========================== -->
-
-    <section class="book-section">
-
-        <h2>«КОЛИ ДВІ ЛЮДИНИ СПЕРЕЧАЮТЬСЯ»</h2>
-
-        <p>
-            У внутрішніх розділах Чжуан-цзи багато уваги
-            приділяє тому, що китайською називається:
-        </p>
-
-        <h3>是非 — shìfēi</h3>
-
-        <p>
-            Буквально приблизно:
-            «правильне і неправильне», «так і ні».
-        </p>
-
-        <p>
-            Люди сперечаються:
-        </p>
-
-        <blockquote>
-            «Це правильно».<br>
-            «Ні, неправильно».<br>
-            «Я знаю».<br>
-            «Ти не знаєш».<br>
-            «Моя позиція об’єктивна».
-        </blockquote>
-
-        <p>
-            І Чжуан-цзи ставить дуже неприємне питання:
-        </p>
-
-        <blockquote>
-            а чи існує позиція, з якої можна
-            побачити всю картину одночасно?
-        </blockquote>
-
-        <p>
-            Це одна з причин, чому його тексти
-            так цікаво читати навіть сьогодні.
-        </p>
-
-        <p>
-            Бо він не просто говорить:
-            «Не сперечайтеся».
-        </p>
-
-        <p>
-            Він досліджує сам механізм спору.
-        </p>
-
-        <p>
-            Ти дивишся з одного боку.
-            Я — з іншого.
-        </p>
-
-        <p>
-            Ти бачиш частину.
-            Я — іншу.
-        </p>
-
-        <p>
-            А потім ми обидва називаємо свою частину
-            «всією правдою».
-        </p>
-
-        <p>
-            І тут може бути найцікавіше:
-        </p>
-
-        <blockquote>
-            Можливо, проблема не завжди в тому,
-            що хтось бреше.
-            Іноді двоє людей бачать різні частини
-            одного цілого.
-        </blockquote>
-
-    </section>
-
-
-    <!-- =========================
-         QIWU LUN
-    ========================== -->
-
-    <section class="book-section">
-
-        <h2>І ТУТ З’ЯВЛЯЄТЬСЯ 《齊物論》</h2>
-
-        <h3>Qíwù lùn</h3>
-
-        <p>
-            Друга велика частина книги називається:
-        </p>
-
-        <p>
-            《齊物論》 — Qíwù lùn
-        </p>
-
-        <p>
-            Її часто перекладають як:
-            «Розмірковування про зрівняння речей»
-            або «Про єдність речей».
-        </p>
-
-        <p>
-            І це одна з найскладніших філософських
-            частин усієї китайської давнини.
-        </p>
-
-        <p>
-            Тут Чжуан-цзи ставить питання:
-        </p>
-
-        <blockquote>
-            Якщо кожна істота дивиться зі своєї позиції,
-            то де знаходиться абсолютна межа
-            між «так» і «ні»?
-        </blockquote>
-
-        <p>
-            Наприклад.
-        </p>
-
-        <p>
-            Для однієї людини тиша — прекрасна.
-            Для іншої тиша — самотність.
-        </p>
-
-        <p>
-            Для одного життя в селі — свобода.
-            Для іншого — обмеження.
-        </p>
-
-        <p>
-            Для одного багатство — безпека.
-            Для іншого — тягар.
-        </p>
-
-        <p>
-            Для одного самотність — трагедія.
-            Для іншого — необхідний простір.
-        </p>
-
-        <p>
-            І Чжуан-цзи не говорить:
-        </p>
-
-        <blockquote>
-            «Отже, всі оцінки однаково правильні».
-        </blockquote>
-
-        <p>
-            Він показує:
-        </p>
-
-        <blockquote>
-            оцінка залежить від точки спостереження.
-        </blockquote>
-
-    </section>
-
-
-    <!-- =========================
-         СМЕРТЬ
-    ========================== -->
-
-    <section class="book-section">
-
-        <h2>А ТЕПЕР ПРО СМЕРТЬ</h2>
-
-        <p>
-            Ось тут Чжуан-цзи стає особливо сильним.
-        </p>
-
-        <p>
-            Є історія про смерть його дружини.
-        </p>
-
-        <p>
-            Коли вона померла, його друг Хуей-цзи 惠子
-            прийшов до нього й побачив,
-            що Чжуан-цзи сидить і співає,
-            б’ючи по посудині.
-        </p>
-
-        <p>
-            Друг обурюється:
-        </p>
-
-        <blockquote>
-            «Ти ж прожив із нею стільки років.
-            Як ти можеш не сумувати?»
-        </blockquote>
-
-        <p>
-            І Чжуан-цзи пояснює.
-        </p>
-
-        <p>
-            Спочатку, каже він, коли вона померла,
-            він теж був спустошений.
-        </p>
-
-        <p>
-            Але потім почав думати про те,
-            що було до її народження.
-        </p>
-
-        <p>
-            До її появи не було цієї конкретної форми життя.
-        </p>
-
-        <p>
-            Потім виникло життя.
-            Потім форма.
-            Потім народження.
-            А тепер смерть.
-        </p>
-
-        <p>
-            І він порівнює це з порами року.
-        </p>
-
-        <p>
-            Весна.
-        </p>
-
-        <p>
-            Літо.
-        </p>
-
-        <p>
-            Осінь.
-        </p>
-
-        <p>
-            Зима.
-        </p>
-
-        <p>
-            Те, що ми називаємо «смертю»,
-            він розглядає як частину величезного
-            процесу перетворення.
-        </p>
-
-        <p>
-            І це не означає:
-        </p>
-
-        <blockquote>
-            «Не сумуй».
-        </blockquote>
-
-        <p>
-            Це важливо.
-        </p>
-
-        <p>
-            Чжуан-цзи не говорить, що смерть не болить.
-        </p>
-
-        <p>
-            Він пропонує іншу перспективу:
-        </p>
-
-        <blockquote>
-            ми страждаємо ще й тому,
-            що хочемо, щоб зміна не відбувалася.
-        </blockquote>
-
-        <p>
-            Ми хочемо:
-        </p>
-
-        <ul>
-            <li>щоб люди не старіли;</li>
-            <li>щоб близькі не йшли;</li>
-            <li>щоб діти не виростали;</li>
-            <li>щоб життя не змінювалося;</li>
-            <li>щоб наше тіло залишалося таким самим;</li>
-            <li>щоб наші стосунки залишалися такими самими;</li>
-            <li>щоб ми самі залишалися такими, якими були.</li>
-        </ul>
-
-        <p>
-            Але життя — це перетворення.
-        </p>
-
-        <p>
-            І тому людина, яка вимагає від життя
-            незмінності, фактично вимагає неможливого.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         КОРИСНЕ І БЕЗКОРИСНЕ
-    ========================== -->
-
-    <section class="book-section">
-
-        <h2>«КОРИСНЕ» І «БЕЗКОРИСНЕ»</h2>
-
-        <p>
-            А ось ще одна тема, яку я дуже хочу
-            залишити на твоєму сайті.
-        </p>
-
-        <p>
-            Чжуан-цзи багато разів повертається
-            до питання:
-        </p>
-
-        <blockquote>
-            що означає бути корисним?
-        </blockquote>
-
-        <p>
-            Ми звикли оцінювати все через користь.
-        </p>
-
-        <blockquote>
-            Скільки заробляєш?<br>
-            Що виробляєш?<br>
-            Яка від тебе користь?<br>
-            Скільки ти зробила?<br>
-            Який результат?
-        </blockquote>
-
-        <p>
-            А в Чжуан-цзи є знамениті історії про дерева,
-            які вважаються «непридатними» для будівництва.
-        </p>
-
-        <p>
-            Одне дерево занадто криве.
-        </p>
-
-        <p>
-            Інше має погану деревину.
-        </p>
-
-        <p>
-            Третє не підходить для балок.
-        </p>
-
-        <p>
-            І через це воно залишається стояти.
-        </p>
-
-        <p>
-            Його не рубають.
-        </p>
-
-        <p>
-            І воно живе довго.
-        </p>
-
-        <p>
-            І тут Чжуан-цзи перевертає питання:
-        </p>
-
-        <blockquote>
-            а що, якщо твоя «непридатність»
-            для однієї системи — це саме те,
-            що дозволяє тобі вижити?
-        </blockquote>
-
-        <p>
-            Це дуже сильна думка.
-        </p>
-
-        <p>
-            Бо суспільство постійно каже:
-        </p>
-
-        <blockquote>
-            «Будь корисною».<br>
-            «Будь продуктивною».<br>
-            «Роби більше».<br>
-            «Використовуй час».<br>
-            «Не марнуй час».
-        </blockquote>
-
-        <p>
-            А Чжуан-цзи питає:
-        </p>
-
-        <blockquote>
-            «А хто сказав, що все в житті повинно бути корисним?»
-        </blockquote>
-
-        <p>
-            Може існувати час, який нічого не приносить.
-        </p>
-
-        <p>
-            Розмова, яка нікуди не веде.
-        </p>
-
-        <p>
-            Прогулянка без мети.
-        </p>
-
-        <p>
-            День, коли ти нічого великого не зробила.
-        </p>
-
-        <p>
-            Сон.
-        </p>
-
-        <p>
-            Тиша.
-        </p>
-
-        <p>
-            Дивне відео з дощем.
-        </p>
-
-        <p>
-            Море.
-        </p>
-
-        <p>
-            Ліс.
-        </p>
-
-        <p>
-            Музика.
-        </p>
-
-        <p>
-            І це дуже перегукується з тим,
-            про що ти сама зі мною говорила —
-            коли дивишся на дощ, море, темний ліс
-            і в тебе виникає дивне відчуття.
-        </p>
-
-        <p>
-            Чжуан-цзи, думаю, дуже легко зрозумів би
-            таке переживання.
-        </p>
-
-        <blockquote>
-            Не все потрібно перетворювати на результат.
-        </blockquote>
-
-    </section>
-
-
-    <!-- =========================
-         НАЙСИЛЬНІША ІДЕЯ
-    ========================== -->
-
-    <section class="book-section">
-
-        <div class="section-label">
-            ГОЛОВНА ІДЕЯ
-        </div>
-
-        <h2>А ТЕПЕР — НАЙСИЛЬНІША ІДЕЯ</h2>
-
-        <p>
-            Якщо в 《道德經》 головним образом
-            можна назвати воду, то в 《莊子》
-            одним із центральних образів стає
-            свобода від вузького погляду на себе.
-        </p>
-
-        <p>
-            Ти не зобов’язана назавжди бути тією людиною,
-            якою була вчора.
-        </p>
-
-        <p>
-            Ти можеш змінюватися.
-        </p>
-
-        <p>
-            Ти можеш побачити, що твоє колишнє
-            переконання було неправильним.
-        </p>
-
-        <p>
-            Ти можеш перестати хотіти те,
-            чого хотіла десять років.
-        </p>
-
-        <p>
-            Ти можеш змінити свою думку.
-        </p>
-
-        <p>
-            Можеш відмовитися від ролі,
-            яку на тебе навісили.
-        </p>
-
-        <p>
-            Можеш перестати доводити щось людям.
-        </p>
-
-        <p>
-            Можеш перестати жити за чужою шкалою.
-        </p>
-
-        <p>
-            І тут свобода — це не:
-        </p>
-
-        <blockquote>
-            «Я роблю все, що хочу».
-        </blockquote>
-
-        <p>
-            Це набагато глибше:
-        </p>
-
-        <blockquote>
-            «Я не зобов’язана залишатися заручницею
-            того, що колись вважала собою».
-        </blockquote>
-
-    </section>
-
-
-    <!-- =========================
-         ВИСНОВОК
-    ========================== -->
-
-    <section class="book-section final-section">
-
-        <div class="section-label">
-            ВИСНОВОК
-        </div>
-
-        <h2>І ОСЬ ЩО Я Б ВИНІС НА ГОЛОВНУ СТОРІНКУ</h2>
-
-        <p>
-            Чжуан-цзи не вчить людину знаходити
-            одну правильну відповідь.
-            Він вчить її помічати, наскільки обмеженою
-            може бути сама потреба в остаточній відповіді.
-        </p>
-
-        <p>
-            Метелик і Чжуан Чжоу.
-        </p>
-
-        <p>
-            Величезний Пен і маленький птах.
-        </p>
-
-        <p>
-            Мудрець і дурень.
-        </p>
-
-        <p>
-            Життя і смерть.
-        </p>
-
-        <p>
-            Корисне і непотрібне.
-        </p>
-
-        <p>
-            Правильне і неправильне.
-        </p>
-
-        <p>
-            Свобода і обмеження.
-        </p>
-
-        <p>
-            Усе це в нього постійно переходить одне в одне.
-        </p>
-
-        <p>
-            І саме тому «Чжуан-цзи» —
-            не просто книга про даосизм.
-        </p>
-
-        <p>
-            Це книга про межі людського сприйняття.
-        </p>
-
-        <p>
-            Про те, що ми дуже часто приймаємо
-            власну точку зору за саму реальність.
-        </p>
-
-        <blockquote>
-            І, можливо, одна з найцінніших навичок
-            розумної людини — це не вміння завжди мати відповідь.
-            А вміння сказати:
-            «Можливо, я бачу лише одну сторону».
-        </blockquote>
-
-        <p>
-            І не зламатися від того, що світ виявився
-            складнішим, ніж твоя перша думка про нього.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         НАВІГАЦІЯ
-    ========================== -->
+         NAVIGATION
+    ========================= -->
 
     <section class="book-navigation">
 
-        <a href="index.html">
+        <a href="index.html#china">
             ← Повернутися до китайських текстів
         </a>
 
