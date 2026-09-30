@@ -32,6 +32,7 @@
 
     .book-hero {
       position: relative;
+
       min-height: 650px;
 
       padding: 120px 8vw 100px;
@@ -44,8 +45,8 @@
       background:
         linear-gradient(
           135deg,
-          #3f4a42 0%,
-          #29372f 100%
+          #514438 0%,
+          #30291f 100%
         );
 
       color: var(--white);
@@ -55,9 +56,12 @@
       content: "";
 
       position: absolute;
+
       inset: 25px;
 
       border: 1px solid rgba(196, 173, 122, 0.35);
+
+      pointer-events: none;
     }
 
     .book-hero-character {
@@ -72,9 +76,11 @@
 
       font-size: 330px;
 
-      color: rgba(196, 173, 122, 0.10);
-
       line-height: 1;
+
+      color: rgba(196, 173, 122, 0.09);
+
+      pointer-events: none;
     }
 
     .book-hero-content {
@@ -82,7 +88,7 @@
 
       z-index: 2;
 
-      max-width: 900px;
+      max-width: 850px;
     }
 
     .book-back {
@@ -108,7 +114,10 @@
     }
 
     .book-original {
-      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+      font-family:
+        "Noto Serif SC",
+        "Noto Serif JP",
+        serif;
 
       font-size: clamp(42px, 6vw, 76px);
 
@@ -138,9 +147,9 @@
 
       font-size: 27px;
 
-      color: rgba(248, 244, 234, 0.75);
+      line-height: 1.3;
 
-      max-width: 750px;
+      color: rgba(248, 244, 234, 0.75);
     }
 
     .book-author {
@@ -149,6 +158,8 @@
       font-size: 12px;
 
       letter-spacing: 0.08em;
+
+      line-height: 1.6;
 
       color: rgba(248, 244, 234, 0.60);
     }
@@ -216,6 +227,12 @@
 
     .history-box p {
       margin-bottom: 10px;
+
+      line-height: 1.6;
+    }
+
+    .history-box p:last-child {
+      margin-bottom: 0;
     }
 
 
@@ -245,6 +262,8 @@
       font-size: 18px;
 
       color: var(--gold);
+
+      letter-spacing: 0.08em;
     }
 
     .idea-section h2 {
@@ -277,7 +296,6 @@
 
     .idea-section strong {
       color: var(--ink);
-      font-weight: 600;
     }
 
 
@@ -286,6 +304,8 @@
     ====================================================== */
 
     .quote-block {
+      position: relative;
+
       margin: 45px 0;
 
       padding: 45px;
@@ -293,8 +313,6 @@
       background: var(--jade);
 
       color: var(--white);
-
-      position: relative;
 
       overflow: hidden;
     }
@@ -310,9 +328,11 @@
       width: 180px;
       height: 180px;
 
-      border: 1px solid rgba(196, 173, 122, 0.2);
+      border: 1px solid rgba(196, 173, 122, 0.20);
 
       border-radius: 50%;
+
+      pointer-events: none;
     }
 
     .quote-original {
@@ -320,7 +340,10 @@
 
       z-index: 2;
 
-      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+      font-family:
+        "Noto Serif SC",
+        "Noto Serif JP",
+        serif;
 
       font-size: clamp(25px, 3vw, 38px);
 
@@ -334,7 +357,7 @@
 
       z-index: 2;
 
-      margin-top: 22px;
+      margin-top: 20px;
 
       font-family: "Inter", sans-serif;
 
@@ -342,23 +365,7 @@
 
       line-height: 1.6;
 
-      letter-spacing: 0.03em;
-
-      color: rgba(248, 244, 234, 0.60);
-    }
-
-    .quote-reading {
-      position: relative;
-
-      z-index: 2;
-
-      margin-top: 22px;
-
-      font-family: "Inter", sans-serif;
-
-      font-size: 13px;
-
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
 
       color: rgba(248, 244, 234, 0.60);
     }
@@ -381,13 +388,15 @@
 
 
     /* =====================================================
-       ПРОСТА ЦИТАТА
+       ПРОСТА ВИДІЛЕНА ЦИТАТА
     ====================================================== */
 
     .simple-quote {
+      max-width: 820px;
+
       margin: 40px 0;
 
-      padding: 30px 35px;
+      padding: 25px 30px;
 
       border-left: 3px solid var(--gold);
 
@@ -395,7 +404,7 @@
 
       font-family: "Cormorant Garamond", serif;
 
-      font-size: 28px;
+      font-size: 27px;
 
       line-height: 1.4;
 
@@ -437,15 +446,15 @@
     .quote-highlight {
       position: relative;
 
-      margin: 40px 0 80px;
+      margin: 40px 0 90px;
 
-      padding: 80px 60px;
+      padding: 75px 55px;
 
       background:
         linear-gradient(
           135deg,
-          #3f4a42 0%,
-          #29372f 100%
+          #4d4233 0%,
+          #302a22 100%
         );
 
       color: var(--white);
@@ -470,19 +479,24 @@
 
       position: absolute;
 
-      right: 5%;
+      right: 3%;
 
       top: 50%;
 
       transform: translateY(-50%);
 
-      font-family: "Noto Serif SC", serif;
+      font-family:
+        "Noto Serif SC",
+        "Noto Serif JP",
+        serif;
 
       font-size: 250px;
 
       line-height: 1;
 
       color: rgba(196, 173, 122, 0.07);
+
+      pointer-events: none;
     }
 
     .quote-highlight p,
@@ -493,48 +507,50 @@
       z-index: 2;
     }
 
-    .quote-highlight p {
-      max-width: 760px;
-
-      margin: 0 0 22px;
-
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: 30px;
-
-      line-height: 1.35;
-
-      color: rgba(248, 244, 234, 0.90);
-    }
-
     .quote-highlight h2 {
-      max-width: 800px;
+      max-width: 750px;
 
-      margin-bottom: 40px;
+      margin-bottom: 35px;
 
       font-family: "Cormorant Garamond", serif;
 
-      font-size: clamp(48px, 6vw, 75px);
+      font-size: clamp(48px, 6vw, 78px);
 
       font-weight: 500;
 
       line-height: 0.95;
+    }
 
-      color: var(--gold-light);
+    .quote-highlight p {
+      max-width: 720px;
+
+      margin-bottom: 18px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 27px;
+
+      line-height: 1.45;
+
+      color: rgba(248, 244, 234, 0.86);
     }
 
     .quote-highlight small {
       display: block;
 
+      max-width: 650px;
+
       margin-top: 35px;
 
       font-family: "Inter", sans-serif;
 
-      font-size: 10px;
+      font-size: 11px;
 
-      letter-spacing: 0.08em;
+      line-height: 1.6;
 
-      color: rgba(248, 244, 234, 0.45);
+      letter-spacing: 0.03em;
+
+      color: rgba(248, 244, 234, 0.48);
     }
 
 
@@ -566,7 +582,9 @@
 
       inset: 28px;
 
-      border: 1px solid rgba(196, 173, 122, 0.3);
+      border: 1px solid rgba(196, 173, 122, 0.30);
+
+      pointer-events: none;
     }
 
     .ending-character {
@@ -577,11 +595,18 @@
 
       transform: translateY(-50%);
 
-      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+      font-family:
+        "Noto Serif SC",
+        "Noto Serif JP",
+        serif;
 
       font-size: 260px;
 
+      line-height: 1;
+
       color: rgba(196, 173, 122, 0.08);
+
+      pointer-events: none;
     }
 
     .ending-content {
@@ -604,8 +629,10 @@
       line-height: 0.9;
     }
 
-    .ending-content p {
+    .ending-content > p {
       max-width: 720px;
+
+      margin-bottom: 25px;
 
       font-family: "Cormorant Garamond", serif;
 
@@ -618,7 +645,7 @@
 
     .ending-content .quote-block {
       margin-top: 45px;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
     }
 
 
@@ -631,13 +658,15 @@
 
       text-align: center;
 
-      background: #24231f;
+      background: var(--paper);
 
-      color: rgba(248, 244, 234, 0.55);
+      border-top: 1px solid var(--line);
+
+      color: var(--ink-soft);
     }
 
     .book-footer p {
-      margin: 7px 0;
+      margin: 5px 0;
 
       font-size: 11px;
 
@@ -676,10 +705,9 @@
       }
 
       .book-author {
-        max-width: 300px;
-
-        line-height: 1.6;
+        font-size: 10px;
       }
+
 
       .book-intro {
         padding: 90px 25px;
@@ -697,6 +725,7 @@
         padding: 25px;
       }
 
+
       .book-content {
         padding: 10px 25px 90px;
       }
@@ -713,28 +742,32 @@
         font-size: 19px;
       }
 
+
       .quote-block {
         padding: 30px 25px;
       }
 
       .quote-original {
         font-size: 25px;
+
+        line-height: 1.65;
       }
 
       .quote-pinyin {
         font-size: 12px;
-        line-height: 1.7;
       }
 
       .quote-translation {
         font-size: 21px;
       }
 
-      .simple-quote {
-        padding: 25px;
 
-        font-size: 24px;
+      .simple-quote {
+        padding: 20px 22px;
+
+        font-size: 23px;
       }
+
 
       .wisdom-box {
         padding: 30px 25px;
@@ -744,10 +777,11 @@
         font-size: 24px;
       }
 
-      .quote-highlight {
-        margin: 20px 0 60px;
 
-        padding: 65px 30px;
+      .quote-highlight {
+        margin: 20px 0 65px;
+
+        padding: 60px 30px;
       }
 
       .quote-highlight::before {
@@ -757,16 +791,17 @@
       .quote-highlight::after {
         font-size: 150px;
 
-        right: -15px;
-      }
-
-      .quote-highlight p {
-        font-size: 25px;
+        right: -20px;
       }
 
       .quote-highlight h2 {
-        font-size: 48px;
+        font-size: 52px;
       }
+
+      .quote-highlight p {
+        font-size: 23px;
+      }
+
 
       .book-ending {
         padding: 100px 30px;
@@ -786,7 +821,7 @@
         font-size: 58px;
       }
 
-      .ending-content p {
+      .ending-content > p {
         font-size: 20px;
       }
 
