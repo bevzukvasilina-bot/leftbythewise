@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,15 @@
     content="Ніхон сьокі — Хроніки Японії, завершені 720 року. Міфи, правителі, війни, дипломатія, державний порядок та народження японської історичної пам'яті."
   >
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
 
     :root {
       --paper: #f3ecdc;
@@ -37,27 +45,39 @@
     body {
       margin: 0;
       background:
-        radial-gradient(circle at top, rgba(255,255,255,.45), transparent 40%),
+        radial-gradient(
+          circle at top,
+          rgba(255, 255, 255, 0.45),
+          transparent 40%
+        ),
         var(--paper);
+
       color: var(--ink);
+
       font-family: "Cormorant Garamond", serif;
       line-height: 1.7;
     }
+
+    /* Легка текстура паперу */
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
+
       pointer-events: none;
-      opacity: .12;
+
+      opacity: 0.12;
+
       background-image:
         repeating-linear-gradient(
           0deg,
-          rgba(80,60,30,.08) 0px,
-          rgba(80,60,30,.08) 1px,
+          rgba(80, 60, 30, 0.08) 0px,
+          rgba(80, 60, 30, 0.08) 1px,
           transparent 1px,
           transparent 5px
         );
+
       z-index: 10;
     }
 
@@ -66,41 +86,62 @@
       text-decoration: none;
     }
 
+    /* =========================
+       HERO
+    ========================== */
+
     .book-header {
       min-height: 90vh;
+
       padding: 30px 7vw 60px;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       position: relative;
       overflow: hidden;
+
       border-bottom: 1px solid var(--line);
     }
 
+    /* Великий японський ієрогліф на фоні */
+
     .book-header::before {
       content: "紀";
+
       position: absolute;
+
       right: 7vw;
       top: 70px;
+
       font-family: "Noto Serif JP", serif;
+
       font-size: clamp(180px, 28vw, 420px);
-      color: rgba(36, 56, 47, .045);
+
+      color: rgba(36, 56, 47, 0.045);
+
       line-height: 1;
+
       pointer-events: none;
     }
 
     .top-nav {
       display: flex;
+
       justify-content: space-between;
       align-items: center;
+
       position: relative;
       z-index: 2;
     }
 
     .back-link {
       font-size: 16px;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
       color: var(--green);
+
+      transition: color 0.25s ease;
     }
 
     .back-link:hover {
@@ -109,69 +150,103 @@
 
     .site-name {
       font-size: 14px;
-      letter-spacing: .18em;
+
+      letter-spacing: 0.18em;
+
       text-transform: uppercase;
+
       color: var(--muted);
     }
 
     .hero-book {
       max-width: 1050px;
+
       position: relative;
       z-index: 2;
+
       margin-top: 80px;
     }
 
     .eyebrow {
       margin: 0 0 18px;
+
       font-size: 13px;
-      letter-spacing: .18em;
+
+      letter-spacing: 0.18em;
+
       text-transform: uppercase;
+
       color: var(--red);
+
       font-weight: 600;
     }
 
     .japanese-title {
       margin: 0;
+
       font-family: "Noto Serif JP", serif;
+
       font-size: clamp(50px, 9vw, 115px);
+
       line-height: 1.05;
+
       font-weight: 500;
+
       color: var(--green);
     }
 
     .roman-title {
       margin: 10px 0 0;
+
       font-size: clamp(36px, 6vw, 76px);
+
       font-weight: 500;
+
       line-height: 1;
+
       color: var(--ink);
     }
 
     .ukrainian-title {
       margin: 22px 0 35px;
+
       font-size: 24px;
+
       color: var(--muted);
     }
 
     .book-description {
       max-width: 760px;
+
       font-size: 21px;
+
       line-height: 1.65;
     }
 
+    /* =========================
+       BOOK META
+    ========================== */
+
     .book-meta {
       display: grid;
+
       grid-template-columns: repeat(4, 1fr);
+
       gap: 0;
+
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
+
       position: relative;
+
       z-index: 2;
     }
 
     .meta-item {
       padding: 22px 20px 22px 0;
+
       border-right: 1px solid var(--line);
+
       margin-right: 20px;
     }
 
@@ -181,21 +256,33 @@
 
     .meta-label {
       display: block;
+
       font-size: 12px;
-      letter-spacing: .14em;
+
+      letter-spacing: 0.14em;
+
       text-transform: uppercase;
+
       color: var(--muted);
+
       margin-bottom: 5px;
     }
 
     .meta-value {
       font-size: 18px;
+
       color: var(--green);
     }
 
+    /* =========================
+       CONTENT
+    ========================== */
+
     .content {
       max-width: 1050px;
+
       margin: 0 auto;
+
       padding: 100px 7vw;
     }
 
@@ -205,101 +292,156 @@
 
     .chapter-number {
       color: var(--gold);
+
       font-size: 14px;
-      letter-spacing: .16em;
+
+      letter-spacing: 0.16em;
+
       margin-bottom: 8px;
     }
 
     .chapter h2 {
       margin: 0 0 28px;
+
       color: var(--green);
+
       font-size: clamp(34px, 5vw, 58px);
+
       line-height: 1.05;
+
       font-weight: 600;
     }
 
     .chapter h3 {
       color: var(--red);
+
       font-size: 27px;
+
       margin-top: 45px;
       margin-bottom: 12px;
+
       font-weight: 600;
     }
 
     .chapter p {
       max-width: 780px;
+
       font-size: 20px;
+
       margin: 0 0 22px;
     }
 
     .japanese-term {
       font-family: "Noto Serif JP", serif;
+
       color: var(--green);
     }
 
+    /* =========================
+       QUOTES
+    ========================== */
+
     .quote {
       margin: 45px 0;
+
       padding: 35px 40px;
+
       border-left: 3px solid var(--gold);
-      background: rgba(255,255,255,.27);
+
+      background: rgba(255, 255, 255, 0.27);
     }
 
     .quote-japanese {
       font-family: "Noto Serif JP", serif;
+
       font-size: 25px;
+
       color: var(--green);
+
       margin-bottom: 15px;
     }
 
     .quote-text {
       font-size: 23px;
+
       font-style: italic;
+
       margin: 0;
     }
 
+    /* =========================
+       MEANING
+    ========================== */
+
     .meaning {
       margin: 45px 0;
+
       padding: 32px 36px;
+
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.18);
+
+      background: rgba(255, 255, 255, 0.18);
     }
 
     .meaning-title {
       color: var(--red);
+
       text-transform: uppercase;
-      letter-spacing: .15em;
+
+      letter-spacing: 0.15em;
+
       font-size: 12px;
+
       margin-bottom: 10px;
     }
 
     .meaning p {
       margin: 0;
+
       font-size: 21px;
     }
 
+    /* =========================
+       SYMBOLS
+    ========================== */
+
     .symbol-line {
       text-align: center;
+
       font-family: "Noto Serif JP", serif;
+
       font-size: 48px;
+
       color: var(--gold);
+
       margin: 80px 0;
     }
 
+    /* =========================
+       COMPARISON
+    ========================== */
+
     .comparison {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 25px;
+
       margin: 50px 0;
     }
 
     .comparison-card {
       padding: 32px;
+
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.18);
+
+      background: rgba(255, 255, 255, 0.18);
     }
 
     .comparison-card h3 {
       margin-top: 0;
+
       color: var(--green);
     }
 
@@ -307,23 +449,37 @@
       margin-bottom: 0;
     }
 
+    /* =========================
+       FINAL BLOCK
+    ========================== */
+
     .final-section {
       margin-top: 120px;
+
       padding: 65px 50px;
+
       background: var(--green);
+
       color: var(--paper-light);
+
       position: relative;
+
       overflow: hidden;
     }
 
     .final-section::after {
       content: "書";
+
       position: absolute;
+
       right: 25px;
       bottom: -55px;
+
       font-family: "Noto Serif JP", serif;
+
       font-size: 260px;
-      opacity: .06;
+
+      opacity: 0.06;
     }
 
     .final-section .eyebrow {
@@ -332,37 +488,59 @@
 
     .final-section h2 {
       font-size: clamp(38px, 6vw, 68px);
+
       line-height: 1;
+
       margin: 0 0 25px;
+
       font-weight: 500;
     }
 
     .final-section p {
       max-width: 760px;
+
       font-size: 21px;
+
       margin: 0 0 18px;
-      color: rgba(250,246,235,.86);
+
+      color: rgba(250, 246, 235, 0.86);
     }
+
+    /* =========================
+       FOOTER
+    ========================== */
 
     .footer {
       padding: 40px 7vw;
+
       border-top: 1px solid var(--line);
+
       display: flex;
+
       justify-content: space-between;
+
       gap: 20px;
+
       color: var(--muted);
+
       font-size: 14px;
     }
+
+    /* =========================
+       MOBILE
+    ========================== */
 
     @media (max-width: 750px) {
 
       .book-header {
         min-height: auto;
+
         padding-bottom: 60px;
       }
 
       .top-nav {
         align-items: flex-start;
+
         gap: 20px;
       }
 
@@ -376,7 +554,9 @@
 
       .meta-item {
         margin-right: 0;
+
         padding-right: 10px;
+
         border-right: none;
       }
 
@@ -402,8 +582,10 @@
         flex-direction: column;
       }
     }
+
   </style>
 </head>
+
 
 <body>
 
@@ -420,6 +602,7 @@
       </span>
 
     </div>
+
 
     <div class="hero-book">
 
@@ -447,26 +630,50 @@
 
     </div>
 
+
     <div class="book-meta">
 
       <div class="meta-item">
-        <span class="meta-label">Оригінал</span>
-        <span class="meta-value">日本書紀</span>
+        <span class="meta-label">
+          Оригінал
+        </span>
+
+        <span class="meta-value">
+          日本書紀
+        </span>
       </div>
 
-      <div class="meta-item">
-        <span class="meta-label">Читання</span>
-        <span class="meta-value">にほんしょき</span>
-      </div>
 
       <div class="meta-item">
-        <span class="meta-label">Завершено</span>
-        <span class="meta-value">720 рік</span>
+        <span class="meta-label">
+          Читання
+        </span>
+
+        <span class="meta-value">
+          にほんしょき
+        </span>
       </div>
 
+
       <div class="meta-item">
-        <span class="meta-label">Структура</span>
-        <span class="meta-value">30 томів</span>
+        <span class="meta-label">
+          Завершено
+        </span>
+
+        <span class="meta-value">
+          720 рік
+        </span>
+      </div>
+
+
+      <div class="meta-item">
+        <span class="meta-label">
+          Структура
+        </span>
+
+        <span class="meta-value">
+          30 томів
+        </span>
       </div>
 
     </div>
@@ -1026,6 +1233,7 @@
           </p>
 
         </div>
+
 
         <div class="comparison-card">
 
