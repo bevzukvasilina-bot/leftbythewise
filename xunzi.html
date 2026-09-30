@@ -12,11 +12,787 @@
     content="Сюнь-цзи — давньокитайський філософський текст про людську природу, навчання, дисципліну, ритуал, мораль і свідоме формування людини."
   >
 
-  <!-- Основний стиль сайту -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Стиль цієї книги -->
-  <link rel="stylesheet" href="xunzi.css">
+  <style>
+
+    /* =====================================================
+       ОСНОВА
+    ====================================================== */
+
+    .book-page {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .book-hero {
+      position: relative;
+      min-height: 650px;
+
+      padding: 120px 8vw 100px;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3f4a42 0%,
+          #29372f 100%
+        );
+
+      color: var(--white);
+    }
+
+    .book-hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 25px;
+
+      border: 1px solid rgba(196, 173, 122, 0.35);
+    }
+
+    .book-hero-character {
+      position: absolute;
+
+      right: 7%;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+
+      font-size: 330px;
+
+      color: rgba(196, 173, 122, 0.10);
+
+      line-height: 1;
+    }
+
+    .book-hero-content {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 900px;
+    }
+
+    .book-back {
+      display: inline-block;
+
+      margin-bottom: 50px;
+
+      font-size: 10px;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+
+      color: rgba(248, 244, 234, 0.55);
+
+      text-decoration: none;
+
+      transition: color 0.3s ease;
+    }
+
+    .book-back:hover {
+      color: var(--gold-light);
+    }
+
+    .book-original {
+      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+
+      font-size: clamp(42px, 6vw, 76px);
+
+      color: var(--gold-light);
+
+      line-height: 1;
+    }
+
+    .book-hero h1 {
+      margin-top: 20px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(60px, 8vw, 105px);
+
+      font-weight: 500;
+
+      line-height: 0.9;
+
+      letter-spacing: -0.035em;
+    }
+
+    .book-subtitle {
+      margin-top: 25px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 27px;
+
+      color: rgba(248, 244, 234, 0.75);
+
+      max-width: 750px;
+    }
+
+    .book-author {
+      margin-top: 35px;
+
+      font-size: 12px;
+
+      letter-spacing: 0.08em;
+
+      color: rgba(248, 244, 234, 0.60);
+    }
+
+
+    /* =====================================================
+       INTRO
+    ====================================================== */
+
+    .book-intro {
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      padding: 120px 40px;
+    }
+
+    .book-label {
+      font-size: 10px;
+
+      letter-spacing: 0.22em;
+
+      text-transform: uppercase;
+
+      color: var(--wine);
+    }
+
+    .book-intro h2 {
+      max-width: 850px;
+
+      margin-top: 20px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(50px, 6vw, 78px);
+
+      font-weight: 500;
+
+      line-height: 0.95;
+    }
+
+    .book-intro-text {
+      max-width: 760px;
+
+      margin-top: 35px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 22px;
+
+      line-height: 1.55;
+
+      color: var(--ink-soft);
+    }
+
+    .history-box {
+      margin-top: 65px;
+
+      padding: 35px;
+
+      border-left: 3px solid var(--wine);
+
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .history-box p {
+      margin-bottom: 10px;
+    }
+
+
+    /* =====================================================
+       ОСНОВНИЙ ТЕКСТ
+    ====================================================== */
+
+    .book-content {
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+      padding: 20px 40px 140px;
+    }
+
+    .idea-section {
+      position: relative;
+
+      padding: 90px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .idea-number {
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 18px;
+
+      color: var(--gold);
+    }
+
+    .idea-section h2 {
+      max-width: 850px;
+
+      margin: 12px 0 30px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(42px, 5vw, 65px);
+
+      font-weight: 500;
+
+      line-height: 0.98;
+    }
+
+    .idea-section p {
+      max-width: 820px;
+
+      margin-bottom: 20px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 21px;
+
+      line-height: 1.65;
+
+      color: var(--ink-soft);
+    }
+
+    .idea-section strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+
+    /* =====================================================
+       КИТАЙСЬКІ ЦИТАТИ
+    ====================================================== */
+
+    .quote-block {
+      margin: 45px 0;
+
+      padding: 45px;
+
+      background: var(--jade);
+
+      color: var(--white);
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .quote-block::after {
+      content: "";
+
+      position: absolute;
+
+      right: -40px;
+      bottom: -70px;
+
+      width: 180px;
+      height: 180px;
+
+      border: 1px solid rgba(196, 173, 122, 0.2);
+
+      border-radius: 50%;
+    }
+
+    .quote-original {
+      position: relative;
+
+      z-index: 2;
+
+      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+
+      font-size: clamp(25px, 3vw, 38px);
+
+      line-height: 1.8;
+
+      color: var(--gold-light);
+    }
+
+    .quote-pinyin {
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 22px;
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      letter-spacing: 0.03em;
+
+      color: rgba(248, 244, 234, 0.60);
+    }
+
+    .quote-reading {
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 22px;
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 13px;
+
+      letter-spacing: 0.03em;
+
+      color: rgba(248, 244, 234, 0.60);
+    }
+
+    .quote-translation {
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 25px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 24px;
+
+      line-height: 1.45;
+
+      color: var(--white);
+    }
+
+
+    /* =====================================================
+       ПРОСТА ЦИТАТА
+    ====================================================== */
+
+    .simple-quote {
+      margin: 40px 0;
+
+      padding: 30px 35px;
+
+      border-left: 3px solid var(--gold);
+
+      background: rgba(173, 148, 97, 0.07);
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 28px;
+
+      line-height: 1.4;
+
+      color: var(--ink);
+    }
+
+
+    /* =====================================================
+       ВИДІЛЕНА ДУМКА
+    ====================================================== */
+
+    .wisdom-box {
+      margin: 55px 0;
+
+      padding: 45px;
+
+      border: 1px solid var(--gold);
+
+      background: rgba(173, 148, 97, 0.07);
+    }
+
+    .wisdom-box p {
+      margin: 0;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 29px;
+
+      line-height: 1.35;
+
+      color: var(--ink);
+    }
+
+
+    /* =====================================================
+       ВЕЛИКИЙ ВИДІЛЕНИЙ БЛОК
+    ====================================================== */
+
+    .quote-highlight {
+      position: relative;
+
+      margin: 40px 0 80px;
+
+      padding: 80px 60px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3f4a42 0%,
+          #29372f 100%
+        );
+
+      color: var(--white);
+
+      overflow: hidden;
+    }
+
+    .quote-highlight::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 20px;
+
+      border: 1px solid rgba(196, 173, 122, 0.25);
+
+      pointer-events: none;
+    }
+
+    .quote-highlight::after {
+      content: "荀";
+
+      position: absolute;
+
+      right: 5%;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      font-family: "Noto Serif SC", serif;
+
+      font-size: 250px;
+
+      line-height: 1;
+
+      color: rgba(196, 173, 122, 0.07);
+    }
+
+    .quote-highlight p,
+    .quote-highlight h2,
+    .quote-highlight small {
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .quote-highlight p {
+      max-width: 760px;
+
+      margin: 0 0 22px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 30px;
+
+      line-height: 1.35;
+
+      color: rgba(248, 244, 234, 0.90);
+    }
+
+    .quote-highlight h2 {
+      max-width: 800px;
+
+      margin-bottom: 40px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(48px, 6vw, 75px);
+
+      font-weight: 500;
+
+      line-height: 0.95;
+
+      color: var(--gold-light);
+    }
+
+    .quote-highlight small {
+      display: block;
+
+      margin-top: 35px;
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 0.08em;
+
+      color: rgba(248, 244, 234, 0.45);
+    }
+
+
+    /* =====================================================
+       ФІНАЛ
+    ====================================================== */
+
+    .book-ending {
+      position: relative;
+
+      padding: 130px 8vw;
+
+      background:
+        linear-gradient(
+          135deg,
+          #71383d 0%,
+          #582d32 100%
+        );
+
+      color: var(--white);
+
+      overflow: hidden;
+    }
+
+    .book-ending::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 28px;
+
+      border: 1px solid rgba(196, 173, 122, 0.3);
+    }
+
+    .ending-character {
+      position: absolute;
+
+      right: 8%;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+
+      font-size: 260px;
+
+      color: rgba(196, 173, 122, 0.08);
+    }
+
+    .ending-content {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 850px;
+    }
+
+    .ending-content h2 {
+      margin: 20px 0 35px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(55px, 7vw, 90px);
+
+      font-weight: 500;
+
+      line-height: 0.9;
+    }
+
+    .ending-content p {
+      max-width: 720px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 23px;
+
+      line-height: 1.55;
+
+      color: rgba(248, 244, 234, 0.78);
+    }
+
+    .ending-content .quote-block {
+      margin-top: 45px;
+      margin-bottom: 45px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    .book-footer {
+      padding: 45px 30px;
+
+      text-align: center;
+
+      background: #24231f;
+
+      color: rgba(248, 244, 234, 0.55);
+    }
+
+    .book-footer p {
+      margin: 7px 0;
+
+      font-size: 11px;
+
+      letter-spacing: 0.08em;
+    }
+
+
+    /* =====================================================
+       МОБІЛЬНА ВЕРСІЯ
+    ====================================================== */
+
+    @media (max-width: 700px) {
+
+      .book-hero {
+        min-height: 600px;
+
+        padding: 90px 30px;
+      }
+
+      .book-hero::before {
+        inset: 15px;
+      }
+
+      .book-hero-character {
+        font-size: 180px;
+
+        right: -20px;
+      }
+
+      .book-hero h1 {
+        font-size: 65px;
+      }
+
+      .book-subtitle {
+        font-size: 22px;
+      }
+
+      .book-author {
+        max-width: 300px;
+
+        line-height: 1.6;
+      }
+
+      .book-intro {
+        padding: 90px 25px;
+      }
+
+      .book-intro h2 {
+        font-size: 48px;
+      }
+
+      .book-intro-text {
+        font-size: 20px;
+      }
+
+      .history-box {
+        padding: 25px;
+      }
+
+      .book-content {
+        padding: 10px 25px 90px;
+      }
+
+      .idea-section {
+        padding: 65px 0;
+      }
+
+      .idea-section h2 {
+        font-size: 43px;
+      }
+
+      .idea-section p {
+        font-size: 19px;
+      }
+
+      .quote-block {
+        padding: 30px 25px;
+      }
+
+      .quote-original {
+        font-size: 25px;
+      }
+
+      .quote-pinyin {
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .quote-translation {
+        font-size: 21px;
+      }
+
+      .simple-quote {
+        padding: 25px;
+
+        font-size: 24px;
+      }
+
+      .wisdom-box {
+        padding: 30px 25px;
+      }
+
+      .wisdom-box p {
+        font-size: 24px;
+      }
+
+      .quote-highlight {
+        margin: 20px 0 60px;
+
+        padding: 65px 30px;
+      }
+
+      .quote-highlight::before {
+        inset: 15px;
+      }
+
+      .quote-highlight::after {
+        font-size: 150px;
+
+        right: -15px;
+      }
+
+      .quote-highlight p {
+        font-size: 25px;
+      }
+
+      .quote-highlight h2 {
+        font-size: 48px;
+      }
+
+      .book-ending {
+        padding: 100px 30px;
+      }
+
+      .book-ending::before {
+        inset: 15px;
+      }
+
+      .ending-character {
+        font-size: 150px;
+
+        right: -20px;
+      }
+
+      .ending-content h2 {
+        font-size: 58px;
+      }
+
+      .ending-content p {
+        font-size: 20px;
+      }
+
+    }
+
+  </style>
 </head>
 
 
@@ -182,9 +958,7 @@
   <main class="book-content">
 
 
-    <!-- =====================================================
-         01
-    ====================================================== -->
+    <!-- 01 -->
 
     <section class="idea-section">
 
@@ -257,9 +1031,7 @@
     </section>
 
 
-    <!-- =====================================================
-         02
-    ====================================================== -->
+    <!-- 02 -->
 
     <section class="idea-section">
 
@@ -319,9 +1091,7 @@
     </section>
 
 
-    <!-- =====================================================
-         03
-    ====================================================== -->
+    <!-- 03 -->
 
     <section class="idea-section">
 
@@ -375,9 +1145,7 @@
     </section>
 
 
-    <!-- =====================================================
-         04
-    ====================================================== -->
+    <!-- 04 -->
 
     <section class="idea-section">
 
@@ -455,9 +1223,7 @@
     </section>
 
 
-    <!-- =====================================================
-         05
-    ====================================================== -->
+    <!-- 05 -->
 
     <section class="idea-section">
 
@@ -547,9 +1313,7 @@
     </section>
 
 
-    <!-- =====================================================
-         06
-    ====================================================== -->
+    <!-- 06 -->
 
     <section class="idea-section">
 
@@ -626,9 +1390,7 @@
     </section>
 
 
-    <!-- =====================================================
-         07
-    ====================================================== -->
+    <!-- 07 -->
 
     <section class="idea-section">
 
@@ -686,9 +1448,7 @@
     </section>
 
 
-    <!-- =====================================================
-         08
-    ====================================================== -->
+    <!-- 08 -->
 
     <section class="quote-highlight">
 
@@ -709,9 +1469,7 @@
     </section>
 
 
-    <!-- =====================================================
-         09
-    ====================================================== -->
+    <!-- 09 -->
 
     <section class="idea-section">
 
@@ -779,9 +1537,7 @@
     </section>
 
 
-    <!-- =====================================================
-         10
-    ====================================================== -->
+    <!-- 10 -->
 
     <section class="idea-section">
 
@@ -834,9 +1590,7 @@
     </section>
 
 
-    <!-- =====================================================
-         11
-    ====================================================== -->
+    <!-- 11 -->
 
     <section class="idea-section">
 
@@ -891,9 +1645,7 @@
     </section>
 
 
-    <!-- =====================================================
-         12
-    ====================================================== -->
+    <!-- 12 -->
 
     <section class="quote-highlight">
 
