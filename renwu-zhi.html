@@ -17,12 +17,12 @@
   <style>
 
     /* =====================================================
-       ОСНОВА КНИЖКОВОЇ СТОРІНКИ
+       ОСНОВА СТОРІНКИ
     ====================================================== */
 
     .book-page {
-      background: var(--paper);
-      color: var(--ink);
+      background: #f4efe3;
+      color: #27251f;
     }
 
 
@@ -32,7 +32,6 @@
 
     .book-hero {
       position: relative;
-
       min-height: 650px;
 
       padding: 120px 8vw 100px;
@@ -45,23 +44,38 @@
       background:
         linear-gradient(
           135deg,
-          #3f4a42 0%,
-          #29372f 100%
+          #263d39 0%,
+          #172c29 100%
         );
 
-      color: var(--white);
+      color: #f8f4ea;
     }
 
     .book-hero::before {
       content: "";
 
       position: absolute;
-
       inset: 25px;
 
       border: 1px solid rgba(196, 173, 122, 0.35);
 
       pointer-events: none;
+    }
+
+    .book-hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -180px;
+      top: -180px;
+
+      border: 1px solid rgba(196, 173, 122, 0.12);
+
+      border-radius: 50%;
     }
 
     .book-hero-character {
@@ -78,17 +92,16 @@
 
       line-height: 1;
 
-      color: rgba(196, 173, 122, 0.10);
+      color: rgba(196, 173, 122, 0.09);
 
-      pointer-events: none;
+      user-select: none;
     }
 
     .book-hero-content {
       position: relative;
-
       z-index: 2;
 
-      max-width: 850px;
+      max-width: 900px;
     }
 
     .book-back {
@@ -102,13 +115,15 @@
 
       text-transform: uppercase;
 
+      text-decoration: none;
+
       color: rgba(248, 244, 234, 0.55);
 
       transition: color 0.3s ease;
     }
 
     .book-back:hover {
-      color: var(--gold-light);
+      color: #d8c58f;
     }
 
     .book-original {
@@ -118,7 +133,7 @@
 
       line-height: 1;
 
-      color: var(--gold-light);
+      color: #d8c58f;
     }
 
     .book-hero h1 {
@@ -175,7 +190,7 @@
 
       text-transform: uppercase;
 
-      color: var(--wine);
+      color: #71383d;
     }
 
     .book-intro h2 {
@@ -203,7 +218,7 @@
 
       line-height: 1.55;
 
-      color: var(--ink-soft);
+      color: #68645b;
     }
 
     .history-box {
@@ -211,9 +226,9 @@
 
       padding: 35px;
 
-      border-left: 3px solid var(--wine);
+      border-left: 3px solid #71383d;
 
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255,255,255,0.30);
     }
 
     .history-box p {
@@ -238,7 +253,7 @@
 
       padding: 90px 0;
 
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(50, 45, 35, 0.15);
     }
 
     .idea-number {
@@ -246,7 +261,7 @@
 
       font-size: 18px;
 
-      color: var(--gold);
+      color: #ad9461;
     }
 
     .idea-section h2 {
@@ -274,26 +289,43 @@
 
       line-height: 1.65;
 
-      color: var(--ink-soft);
+      color: #68645b;
     }
 
 
     /* =====================================================
-       КИТАЙСЬКІ ЦИТАТИ
+       ЦИТАТИ
     ====================================================== */
 
     .quote-block {
+      position: relative;
+
       margin: 45px 0;
 
       padding: 45px;
 
-      background: var(--jade);
-
-      color: var(--white);
-
-      position: relative;
-
       overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #304c47 0%,
+          #203a35 100%
+        );
+
+      color: #f8f4ea;
+    }
+
+    .quote-block::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 15px;
+
+      border: 1px solid rgba(196,173,122,0.20);
+
+      pointer-events: none;
     }
 
     .quote-block::after {
@@ -307,14 +339,12 @@
       width: 180px;
       height: 180px;
 
-      border: 1px solid rgba(196, 173, 122, 0.2);
+      border: 1px solid rgba(196,173,122,0.18);
 
       border-radius: 50%;
-
-      pointer-events: none;
     }
 
-    .quote-chinese {
+    .quote-japanese {
       position: relative;
 
       z-index: 2;
@@ -325,7 +355,7 @@
 
       line-height: 1.8;
 
-      color: var(--gold-light);
+      color: #d8c58f;
     }
 
     .quote-reading {
@@ -341,7 +371,7 @@
 
       letter-spacing: 0.03em;
 
-      color: rgba(248, 244, 234, 0.6);
+      color: rgba(248,244,234,0.60);
     }
 
     .quote-translation {
@@ -357,7 +387,7 @@
 
       line-height: 1.45;
 
-      color: var(--white);
+      color: #ffffff;
     }
 
 
@@ -370,9 +400,9 @@
 
       padding: 45px;
 
-      border: 1px solid var(--gold);
+      border: 1px solid #ad9461;
 
-      background: rgba(173, 148, 97, 0.07);
+      background: rgba(173,148,97,0.07);
     }
 
     .wisdom-box p {
@@ -384,7 +414,7 @@
 
       line-height: 1.35;
 
-      color: var(--ink);
+      color: #27251f;
     }
 
     .wisdom-box .note {
@@ -392,42 +422,52 @@
 
       font-family: "Inter", sans-serif;
 
-      font-size: 14px;
+      font-size: 11px;
 
       line-height: 1.5;
 
-      color: var(--muted);
+      color: #777166;
     }
 
 
     /* =====================================================
-       СПИСОК РОЗДІЛІВ
+       РОЗДІЛИ КНИГИ
     ====================================================== */
 
     .chapters-box {
-      margin: 50px 0;
+      margin-top: 50px;
 
       padding: 40px;
 
-      background: rgba(255, 255, 255, 0.22);
+      background: rgba(255,255,255,0.30);
 
-      border: 1px solid var(--line);
+      border-top: 1px solid #ad9461;
+
+      border-bottom: 1px solid rgba(50,45,35,0.15);
     }
 
     .chapters-box p {
       max-width: none;
 
-      margin: 10px 0;
-
-      font-family: "Cormorant Garamond", serif;
+      margin-bottom: 17px;
 
       font-size: 20px;
 
-      color: var(--ink);
+      color: #4f4b43;
+    }
+
+    .chapters-box p:last-child {
+      margin-bottom: 0;
     }
 
     .chapters-box strong {
-      color: var(--green);
+      display: inline-block;
+
+      min-width: 90px;
+
+      font-family: "Noto Serif SC", "Noto Serif JP", serif;
+
+      color: #71383d;
     }
 
 
@@ -440,16 +480,16 @@
 
       padding: 130px 8vw;
 
+      overflow: hidden;
+
       background:
         linear-gradient(
           135deg,
           #71383d 0%,
-          #582d32 100%
+          #542b30 100%
         );
 
-      color: var(--white);
-
-      overflow: hidden;
+      color: #f8f4ea;
     }
 
     .book-ending::before {
@@ -459,7 +499,7 @@
 
       inset: 28px;
 
-      border: 1px solid rgba(196, 173, 122, 0.3);
+      border: 1px solid rgba(196,173,122,0.30);
 
       pointer-events: none;
     }
@@ -476,11 +516,9 @@
 
       font-size: 260px;
 
-      color: rgba(196, 173, 122, 0.08);
+      color: rgba(196,173,122,0.08);
 
-      line-height: 1;
-
-      pointer-events: none;
+      user-select: none;
     }
 
     .ending-content {
@@ -492,7 +530,7 @@
     }
 
     .ending-content .book-label {
-      color: var(--gold-light);
+      color: #d8c58f;
     }
 
     .ending-content h2 {
@@ -507,7 +545,7 @@
       line-height: 0.9;
     }
 
-    .ending-content p {
+    .ending-content > p {
       max-width: 720px;
 
       font-family: "Cormorant Garamond", serif;
@@ -516,12 +554,15 @@
 
       line-height: 1.55;
 
-      color: rgba(248, 244, 234, 0.78);
+      color: rgba(248,244,234,0.78);
     }
 
     .ending-content .quote-block {
       margin-top: 55px;
-      margin-bottom: 55px;
+
+      background: rgba(20,25,23,0.28);
+
+      border: 1px solid rgba(196,173,122,0.20);
     }
 
 
@@ -530,8 +571,9 @@
     ====================================================== */
 
     .site-footer {
-      background: var(--paper);
-      color: var(--ink);
+      background: #172c29;
+
+      color: rgba(248,244,234,0.65);
     }
 
 
@@ -601,7 +643,7 @@
         padding: 30px 25px;
       }
 
-      .quote-chinese {
+      .quote-japanese {
         font-size: 25px;
       }
 
@@ -615,10 +657,6 @@
 
       .wisdom-box p {
         font-size: 24px;
-      }
-
-      .wisdom-box .note {
-        font-size: 13px;
       }
 
       .chapters-box {
@@ -647,7 +685,7 @@
         font-size: 58px;
       }
 
-      .ending-content p {
+      .ending-content > p {
         font-size: 20px;
       }
 
@@ -821,13 +859,9 @@
   <main class="book-content">
 
 
-    <!-- 01 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        01
-      </div>
+      <div class="idea-number">01</div>
 
       <h2>
         Людина складніша
@@ -861,7 +895,7 @@
 
       <div class="quote-block">
 
-        <div class="quote-chinese">
+        <div class="quote-japanese">
           人物之本，出乎情性。
         </div>
 
@@ -893,13 +927,9 @@
     </section>
 
 
-    <!-- 02 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        02
-      </div>
+      <div class="idea-number">02</div>
 
       <h2>
         Людину не можна
@@ -928,7 +958,7 @@
 
       <div class="quote-block">
 
-        <div class="quote-chinese">
+        <div class="quote-japanese">
           材能大小，其凖不同。
         </div>
 
@@ -955,13 +985,9 @@
     </section>
 
 
-    <!-- 03 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        03
-      </div>
+      <div class="idea-number">03</div>
 
       <h2>
         Талант має відповідати
@@ -988,7 +1014,7 @@
 
       <div class="quote-block">
 
-        <div class="quote-chinese">
+        <div class="quote-japanese">
           量力而授所任，乃濟。
         </div>
 
@@ -1014,13 +1040,9 @@
     </section>
 
 
-    <!-- 04 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        04
-      </div>
+      <div class="idea-number">04</div>
 
       <h2>
         Слабкість
@@ -1038,7 +1060,7 @@
 
       <div class="quote-block">
 
-        <div class="quote-chinese">
+        <div class="quote-japanese">
           觀其所短，以知所長。
         </div>
 
@@ -1078,13 +1100,9 @@
     </section>
 
 
-    <!-- 05 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        05
-      </div>
+      <div class="idea-number">05</div>
 
       <h2>
         Прояв —
@@ -1129,13 +1147,9 @@
     </section>
 
 
-    <!-- 06 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        06
-      </div>
+      <div class="idea-number">06</div>
 
       <h2>
         Вісім спостережень
@@ -1180,13 +1194,9 @@
     </section>
 
 
-    <!-- 07 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        07
-      </div>
+      <div class="idea-number">07</div>
 
       <h2>
         Людина може
@@ -1237,13 +1247,9 @@
     </section>
 
 
-    <!-- 08 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        08
-      </div>
+      <div class="idea-number">08</div>
 
       <h2>
         Сім помилок
@@ -1288,13 +1294,9 @@
     </section>
 
 
-    <!-- 09 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        09
-      </div>
+      <div class="idea-number">09</div>
 
       <h2>
         Дванадцять розділів
@@ -1309,66 +1311,38 @@
 
       <div class="chapters-box">
 
-        <p>
-          <strong>九徵</strong> — Дев'ять ознак
-        </p>
+        <p><strong>九徵</strong> — Дев'ять ознак</p>
 
-        <p>
-          <strong>體別</strong> — Розрізнення типів
-        </p>
+        <p><strong>體別</strong> — Розрізнення типів</p>
 
-        <p>
-          <strong>流業</strong> — Типи діяльності
-        </p>
+        <p><strong>流業</strong> — Типи діяльності</p>
 
-        <p>
-          <strong>材理</strong> — Природа здібностей
-        </p>
+        <p><strong>材理</strong> — Природа здібностей</p>
 
-        <p>
-          <strong>材能</strong> — Таланти й можливості
-        </p>
+        <p><strong>材能</strong> — Таланти й можливості</p>
 
-        <p>
-          <strong>利害</strong> — Користь і шкода
-        </p>
+        <p><strong>利害</strong> — Користь і шкода</p>
 
-        <p>
-          <strong>接識</strong> — Взаємодія та розпізнавання
-        </p>
+        <p><strong>接識</strong> — Взаємодія та розпізнавання</p>
 
-        <p>
-          <strong>英雄</strong> — Герої
-        </p>
+        <p><strong>英雄</strong> — Герої</p>
 
-        <p>
-          <strong>八觀</strong> — Вісім спостережень
-        </p>
+        <p><strong>八觀</strong> — Вісім спостережень</p>
 
-        <p>
-          <strong>七繆</strong> — Сім помилок
-        </p>
+        <p><strong>七繆</strong> — Сім помилок</p>
 
-        <p>
-          <strong>效難</strong> — Труднощі оцінювання
-        </p>
+        <p><strong>效難</strong> — Труднощі оцінювання</p>
 
-        <p>
-          <strong>釋爭</strong> — Про суперечки
-        </p>
+        <p><strong>釋爭</strong> — Про суперечки</p>
 
       </div>
 
     </section>
 
 
-    <!-- 10 -->
-
     <section class="idea-section">
 
-      <div class="idea-number">
-        10
-      </div>
+      <div class="idea-number">10</div>
 
       <h2>
         Знати людину —
@@ -1385,7 +1359,7 @@
 
       <div class="quote-block">
 
-        <div class="quote-chinese">
+        <div class="quote-japanese">
           人物志
         </div>
 
