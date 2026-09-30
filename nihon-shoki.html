@@ -1,1350 +1,1634 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ніхон сьокі — 日本書紀 | WHAT THE WISE LEFT BEHIND</title>
+  <title>《日本書紀》 — Ніхон сьокі | WHAT THE WISE LEFT BEHIND</title>
 
   <meta
     name="description"
     content="Ніхон сьокі — Хроніки Японії, завершені 720 року. Міфи, правителі, війни, дипломатія, державний порядок та народження японської історичної пам'яті."
   >
 
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
 
-    :root {
-      --paper: #f3ecdc;
-      --paper-light: #faf6eb;
-
-      --green: #24382f;
-      --green-light: #52685a;
-
-      --red: #7b3030;
-      --gold: #a9864f;
-
-      --ink: #29251f;
-      --muted: #756e61;
-
-      --line: rgba(65, 54, 39, 0.22);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(
-          circle at 50% 0%,
-          rgba(255, 255, 255, 0.65),
-          transparent 38%
-        ),
-        var(--paper);
-
+    .book-page {
+      background: var(--paper);
       color: var(--ink);
-      font-family: "Cormorant Garamond", serif;
-      line-height: 1.7;
     }
 
-    /* Текстура паперу */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
+    /* =====================================================
+       HERO
+    ====================================================== */
 
-      opacity: 0.16;
-
-      background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(80, 60, 30, 0.08) 0px,
-          rgba(80, 60, 30, 0.08) 1px,
-          transparent 1px,
-          transparent 5px
-        );
-
-      z-index: 100;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .book-header {
-      min-height: 90vh;
-
-      padding: 30px 7vw 60px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
+    .book-hero {
       position: relative;
-      overflow: hidden;
+      min-height: 650px;
 
-      border-bottom: 1px solid var(--line);
-    }
+      padding: 120px 8vw 100px;
 
-    .book-header::before {
-      content: "紀";
-
-      position: absolute;
-
-      right: 7vw;
-      top: 60px;
-
-      font-family: "Noto Serif JP", serif;
-
-      font-size: clamp(180px, 28vw, 420px);
-
-      color: rgba(36, 56, 47, 0.045);
-
-      line-height: 1;
-
-      pointer-events: none;
-    }
-
-    .top-nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
 
-      position: relative;
-      z-index: 2;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3f4a42 0%,
+          #29372f 100%
+        );
+
+      color: var(--white);
     }
 
-    .back-link {
-      font-size: 16px;
-      letter-spacing: 0.08em;
-      color: var(--green);
+    .book-hero::before {
+      content: "";
 
-      transition: color 0.3s ease;
+      position: absolute;
+      inset: 25px;
+
+      border: 1px solid rgba(196, 173, 122, 0.35);
     }
 
-    .back-link:hover {
-      color: var(--red);
-    }
+    .book-hero-character {
+      position: absolute;
 
-    .site-name {
-      font-size: 14px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+      right: 7%;
+      top: 50%;
 
-    .hero-book {
-      max-width: 1050px;
-
-      position: relative;
-      z-index: 2;
-
-      margin-top: 80px;
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-
-      color: var(--red);
-
-      font-weight: 600;
-    }
-
-    .japanese-title {
-      margin: 0;
+      transform: translateY(-50%);
 
       font-family: "Noto Serif JP", serif;
 
-      font-size: clamp(50px, 9vw, 115px);
+      font-size: 330px;
 
-      line-height: 1.05;
-
-      font-weight: 500;
-
-      color: var(--green);
-    }
-
-    .roman-title {
-      margin: 10px 0 0;
-
-      font-size: clamp(36px, 6vw, 76px);
-
-      font-weight: 500;
+      color: rgba(196, 173, 122, 0.10);
 
       line-height: 1;
-
-      color: var(--ink);
     }
 
-    .ukrainian-title {
-      margin: 22px 0 35px;
+    .book-hero-content {
+      position: relative;
+      z-index: 2;
 
-      font-size: 24px;
-
-      color: var(--muted);
+      max-width: 850px;
     }
 
-    .book-description {
+    .book-back {
+      display: inline-block;
+
+      margin-bottom: 50px;
+
+      font-size: 10px;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+
+      color: rgba(248, 244, 234, 0.55);
+    }
+
+    .book-back:hover {
+      color: var(--gold-light);
+    }
+
+    .book-original {
+      font-family: "Noto Serif JP", serif;
+
+      font-size: clamp(42px, 6vw, 76px);
+
+      color: var(--gold-light);
+
+      line-height: 1;
+    }
+
+    .book-hero h1 {
+      margin-top: 20px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(60px, 8vw, 105px);
+
+      font-weight: 500;
+
+      line-height: 0.9;
+
+      letter-spacing: -0.035em;
+    }
+
+    .book-subtitle {
+      margin-top: 25px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 27px;
+
+      color: rgba(248, 244, 234, 0.75);
+    }
+
+    .book-author {
+      margin-top: 35px;
+
+      font-size: 12px;
+
+      letter-spacing: 0.08em;
+
+      color: rgba(248, 244, 234, 0.60);
+    }
+
+
+    /* =====================================================
+       INTRO
+    ====================================================== */
+
+    .book-intro {
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      padding: 120px 40px;
+    }
+
+    .book-label {
+      font-size: 10px;
+
+      letter-spacing: 0.22em;
+
+      text-transform: uppercase;
+
+      color: var(--wine);
+    }
+
+    .book-intro h2 {
+      max-width: 850px;
+
+      margin-top: 20px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(50px, 6vw, 78px);
+
+      font-weight: 500;
+
+      line-height: 0.95;
+    }
+
+    .book-intro-text {
       max-width: 760px;
+
+      margin-top: 35px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 22px;
+
+      line-height: 1.55;
+
+      color: var(--ink-soft);
+    }
+
+    .history-box {
+      margin-top: 65px;
+
+      padding: 35px;
+
+      border-left: 3px solid var(--wine);
+
+      background: rgba(255,255,255,0.25);
+    }
+
+    .history-box p {
+      margin-bottom: 10px;
+    }
+
+
+    /* =====================================================
+       ОСНОВНИЙ ТЕКСТ
+    ====================================================== */
+
+    .book-content {
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+      padding: 20px 40px 140px;
+    }
+
+    .idea-section {
+      position: relative;
+
+      padding: 90px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .idea-number {
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 18px;
+
+      color: var(--gold);
+    }
+
+    .idea-section h2 {
+      max-width: 850px;
+
+      margin: 12px 0 30px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(42px, 5vw, 65px);
+
+      font-weight: 500;
+
+      line-height: 0.98;
+    }
+
+    .idea-section p {
+      max-width: 820px;
+
+      margin-bottom: 20px;
+
+      font-family: "Cormorant Garamond", serif;
 
       font-size: 21px;
 
       line-height: 1.65;
+
+      color: var(--ink-soft);
     }
 
-    /* =========================
-       META
-    ========================= */
 
-    .book-meta {
-      display: grid;
+    /* =====================================================
+       ЯПОНСЬКІ ЦИТАТИ
+    ====================================================== */
 
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 0;
-
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-
-      position: relative;
-      z-index: 2;
-    }
-
-    .meta-item {
-      padding: 22px 20px 22px 0;
-
-      border-right: 1px solid var(--line);
-
-      margin-right: 20px;
-    }
-
-    .meta-item:last-child {
-      border-right: none;
-    }
-
-    .meta-label {
-      display: block;
-
-      font-size: 12px;
-
-      letter-spacing: 0.14em;
-
-      text-transform: uppercase;
-
-      color: var(--muted);
-
-      margin-bottom: 5px;
-    }
-
-    .meta-value {
-      font-size: 18px;
-
-      color: var(--green);
-    }
-
-    /* =========================
-       CONTENT
-    ========================= */
-
-    .content {
-      max-width: 1050px;
-
-      margin: 0 auto;
-
-      padding: 100px 7vw;
-    }
-
-    .chapter {
-      margin-bottom: 110px;
-    }
-
-    .chapter-number {
-      color: var(--gold);
-
-      font-size: 14px;
-
-      letter-spacing: 0.16em;
-
-      margin-bottom: 8px;
-    }
-
-    .chapter h2 {
-      margin: 0 0 28px;
-
-      color: var(--green);
-
-      font-size: clamp(34px, 5vw, 58px);
-
-      line-height: 1.05;
-
-      font-weight: 600;
-    }
-
-    .chapter h3 {
-      color: var(--red);
-
-      font-size: 27px;
-
-      margin-top: 45px;
-      margin-bottom: 12px;
-
-      font-weight: 600;
-    }
-
-    .chapter p {
-      max-width: 780px;
-
-      font-size: 20px;
-
-      margin: 0 0 22px;
-    }
-
-    .japanese-term {
-      font-family: "Noto Serif JP", serif;
-
-      color: var(--green);
-    }
-
-    /* =========================
-       QUOTE
-    ========================= */
-
-    .quote {
+    .quote-block {
       margin: 45px 0;
 
-      padding: 35px 40px;
+      padding: 45px;
 
-      border-left: 3px solid var(--gold);
+      background: var(--jade);
 
-      background: rgba(255, 255, 255, 0.27);
-    }
-
-    .quote-japanese {
-      font-family: "Noto Serif JP", serif;
-
-      font-size: 25px;
-
-      color: var(--green);
-
-      margin-bottom: 15px;
-    }
-
-    .quote-text {
-      font-size: 23px;
-
-      font-style: italic;
-
-      margin: 0;
-    }
-
-    /* =========================
-       MEANING
-    ========================= */
-
-    .meaning {
-      margin: 45px 0;
-
-      padding: 32px 36px;
-
-      border: 1px solid var(--line);
-
-      background: rgba(255, 255, 255, 0.18);
-    }
-
-    .meaning-title {
-      color: var(--red);
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.15em;
-
-      font-size: 12px;
-
-      margin-bottom: 10px;
-    }
-
-    .meaning p {
-      margin: 0;
-
-      font-size: 21px;
-    }
-
-    /* =========================
-       SYMBOL
-    ========================= */
-
-    .symbol-line {
-      text-align: center;
-
-      font-family: "Noto Serif JP", serif;
-
-      font-size: 48px;
-
-      color: var(--gold);
-
-      margin: 80px 0;
-    }
-
-    /* =========================
-       COMPARISON
-    ========================= */
-
-    .comparison {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 25px;
-
-      margin: 50px 0;
-    }
-
-    .comparison-card {
-      padding: 32px;
-
-      border: 1px solid var(--line);
-
-      background: rgba(255, 255, 255, 0.18);
-
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-    }
-
-    .comparison-card:hover {
-      transform: translateY(-4px);
-
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    .comparison-card h3 {
-      margin-top: 0;
-
-      color: var(--green);
-    }
-
-    .comparison-card p {
-      margin-bottom: 0;
-    }
-
-    /* =========================
-       FINAL SECTION
-    ========================= */
-
-    .final-section {
-      margin-top: 120px;
-
-      padding: 65px 50px;
-
-      background: var(--green);
-
-      color: var(--paper-light);
+      color: var(--white);
 
       position: relative;
 
       overflow: hidden;
     }
 
-    .final-section::after {
-      content: "書";
+    .quote-block::after {
+      content: "";
 
       position: absolute;
 
-      right: 25px;
-      bottom: -55px;
+      right: -40px;
+      bottom: -70px;
+
+      width: 180px;
+      height: 180px;
+
+      border: 1px solid rgba(196,173,122,0.2);
+
+      border-radius: 50%;
+    }
+
+    .quote-japanese {
+      position: relative;
+
+      z-index: 2;
+
+      font-family: "Noto Serif JP", serif;
+
+      font-size: clamp(25px, 3vw, 38px);
+
+      line-height: 1.8;
+
+      color: var(--gold-light);
+    }
+
+    .quote-reading {
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 25px;
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 13px;
+
+      letter-spacing: 0.03em;
+
+      color: rgba(248,244,234,0.6);
+    }
+
+    .quote-translation {
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 25px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 24px;
+
+      line-height: 1.45;
+
+      color: var(--white);
+    }
+
+
+    /* =====================================================
+       ВИДІЛЕНА ДУМКА
+    ====================================================== */
+
+    .wisdom-box {
+      margin: 55px 0;
+
+      padding: 45px;
+
+      border: 1px solid var(--gold);
+
+      background: rgba(173,148,97,0.07);
+    }
+
+    .wisdom-box p {
+      margin: 0;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 29px;
+
+      line-height: 1.35;
+
+      color: var(--ink);
+    }
+
+
+    /* =====================================================
+       ФІНАЛ
+    ====================================================== */
+
+    .book-ending {
+      position: relative;
+
+      padding: 130px 8vw;
+
+      background:
+        linear-gradient(
+          135deg,
+          #71383d 0%,
+          #582d32 100%
+        );
+
+      color: var(--white);
+
+      overflow: hidden;
+    }
+
+    .book-ending::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 28px;
+
+      border: 1px solid rgba(196,173,122,0.3);
+    }
+
+    .ending-character {
+      position: absolute;
+
+      right: 8%;
+      top: 50%;
+
+      transform: translateY(-50%);
 
       font-family: "Noto Serif JP", serif;
 
       font-size: 260px;
 
-      opacity: 0.06;
+      color: rgba(196,173,122,0.08);
     }
 
-    .final-section .eyebrow {
-      color: #d0b477;
+    .ending-content {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 850px;
     }
 
-    .final-section h2 {
-      font-size: clamp(38px, 6vw, 68px);
+    .ending-content h2 {
+      margin: 20px 0 35px;
 
-      line-height: 1;
+      font-family: "Cormorant Garamond", serif;
 
-      margin: 0 0 25px;
+      font-size: clamp(55px, 7vw, 90px);
 
       font-weight: 500;
+
+      line-height: 0.9;
     }
 
-    .final-section p {
-      max-width: 760px;
+    .ending-content p {
+      max-width: 720px;
 
-      font-size: 21px;
+      font-family: "Cormorant Garamond", serif;
 
-      margin: 0 0 18px;
+      font-size: 23px;
 
-      color: rgba(250, 246, 235, 0.86);
+      line-height: 1.55;
+
+      color: rgba(248,244,234,0.78);
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
 
-    .footer {
-      padding: 40px 7vw;
+    /* =====================================================
+       МОБІЛЬНА ВЕРСІЯ
+    ====================================================== */
 
-      border-top: 1px solid var(--line);
+    @media (max-width: 700px) {
 
-      display: flex;
+      .book-hero {
+        min-height: 600px;
 
-      justify-content: space-between;
-
-      gap: 20px;
-
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 750px) {
-
-      .book-header {
-        min-height: auto;
-
-        padding-bottom: 60px;
+        padding: 90px 30px;
       }
 
-      .top-nav {
-        align-items: flex-start;
-
-        gap: 20px;
+      .book-hero::before {
+        inset: 15px;
       }
 
-      .site-name {
-        text-align: right;
-
-        font-size: 11px;
+      .book-hero-character {
+        font-size: 180px;
+        right: -20px;
       }
 
-      .hero-book {
-        margin-top: 60px;
+      .book-hero h1 {
+        font-size: 65px;
       }
 
-      .book-meta {
-        grid-template-columns: 1fr 1fr;
+      .book-subtitle {
+        font-size: 22px;
       }
 
-      .meta-item {
-        margin-right: 0;
-
-        padding-right: 10px;
-
-        border-right: none;
+      .book-intro {
+        padding: 90px 25px;
       }
 
-      .content {
-        padding-top: 70px;
+      .book-intro h2 {
+        font-size: 48px;
       }
 
-      .chapter {
-        margin-bottom: 75px;
+      .book-intro-text {
+        font-size: 20px;
       }
 
-      .quote,
-      .meaning,
-      .final-section {
+      .history-box {
         padding: 25px;
       }
 
-      .comparison {
-        grid-template-columns: 1fr;
+      .book-content {
+        padding: 10px 25px 90px;
       }
 
-      .symbol-line {
-        font-size: 34px;
+      .idea-section {
+        padding: 65px 0;
       }
 
-      .footer {
-        flex-direction: column;
+      .idea-section h2 {
+        font-size: 43px;
       }
+
+      .idea-section p {
+        font-size: 19px;
+      }
+
+      .quote-block {
+        padding: 30px 25px;
+      }
+
+      .quote-japanese {
+        font-size: 25px;
+      }
+
+      .quote-translation {
+        font-size: 21px;
+      }
+
+      .wisdom-box {
+        padding: 30px 25px;
+      }
+
+      .wisdom-box p {
+        font-size: 24px;
+      }
+
+      .book-ending {
+        padding: 100px 30px;
+      }
+
+      .book-ending::before {
+        inset: 15px;
+      }
+
+      .ending-character {
+        font-size: 150px;
+        right: -20px;
+      }
+
+      .ending-content h2 {
+        font-size: 58px;
+      }
+
+      .ending-content p {
+        font-size: 20px;
+      }
+
     }
+
   </style>
 </head>
 
-<body>
 
-<header class="book-header">
-
-  <div class="top-nav">
-
-    <a href="index.html" class="back-link">
-      ← Бібліотека
-    </a>
-
-    <span class="site-name">
-      WHAT THE WISE LEFT BEHIND
-    </span>
-
-  </div>
+<body class="book-page">
 
 
-  <div class="hero-book">
+  <!-- HEADER -->
 
-    <p class="eyebrow">
-      ЯПОНІЯ · ХРОНІКА · 720 РІК
-    </p>
+  <header class="site-header">
 
-    <h1 class="japanese-title">
-      日本書紀
-    </h1>
+    <div class="header-inner">
 
-    <p class="roman-title">
-      Nihon Shoki
-    </p>
+      <a href="index.html" class="logo">
+        WHAT THE WISE LEFT BEHIND
+      </a>
 
-    <p class="ukrainian-title">
-      «Ніхон сьокі» · «Хроніки Японії»
-    </p>
+      <nav class="main-nav">
 
-    <p class="book-description">
-      Велика хроніка, що простежує шлях Японії
-      від міфічного віку богів до історичного світу
-      імператорів, війни, дипломатії та державного порядку.
-    </p>
+        <a href="index.html">
+          Головна
+        </a>
 
-  </div>
+        <a href="index.html#china">
+          Китай
+        </a>
 
+        <a href="index.html#japan">
+          Японія
+        </a>
 
-  <div class="book-meta">
+        <a href="index.html#stories">
+          Тексти та історії
+        </a>
 
-    <div class="meta-item">
-      <span class="meta-label">Оригінал</span>
-      <span class="meta-value">日本書紀</span>
+        <a href="index.html#about">
+          Про проєкт
+        </a>
+
+      </nav>
+
     </div>
 
-    <div class="meta-item">
-      <span class="meta-label">Читання</span>
-      <span class="meta-value">にほんしょき</span>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="book-hero">
+
+    <div class="book-hero-character">
+      紀
     </div>
 
-    <div class="meta-item">
-      <span class="meta-label">Завершено</span>
-      <span class="meta-value">720 рік</span>
-    </div>
+    <div class="book-hero-content">
 
-    <div class="meta-item">
-      <span class="meta-label">Структура</span>
-      <span class="meta-value">30 томів</span>
-    </div>
+      <a href="index.html#japan" class="book-back">
+        ← Повернутися до японських текстів
+      </a>
 
-  </div>
+      <div class="book-original">
+        《日本書紀》
+      </div>
 
-</header>
+      <h1>
+        Ніхон сьокі
+      </h1>
 
+      <p class="book-subtitle">
+        «Хроніки Японії» · історія богів, правителів і народження держави
+      </p>
 
-<main class="content">
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    01 · ПОЧАТОК
-  </div>
-
-  <h2>
-    Коли неба й землі ще не було
-  </h2>
-
-  <p>
-    «Ніхон сьокі», як і «Кодзікі», починається
-    із самого початку світу.
-  </p>
-
-  <p>
-    Не з імператора.
-    Не з війни.
-    Не з народу.
-    Не з Японії.
-  </p>
-
-  <p>
-    А з неба і землі.
-  </p>
-
-  <p>
-    У найперший момент світ ще не розділений
-    так, як ми його знаємо. Перші божества
-    поступово виникають із первісного стану,
-    а світ переходить від невизначеності до форми.
-  </p>
-
-  <div class="meaning">
-
-    <div class="meaning-title">
-      Основна ідея
-    </div>
-
-    <p>
-      Спочатку виникає світ.
-      Потім земля.
-      Потім боги.
-      Потім люди.
-      І лише після цього — влада.
-    </p>
-
-  </div>
-
-</section>
-
-
-<div class="symbol-line">
-  天 · 地 · 神
-</div>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    02 · ІЗАНАҐІ ТА ІЗАНАМІ
-  </div>
-
-  <h2>
-    Створення землі
-  </h2>
-
-  <p>
-    伊弉諾尊 — <strong>Izanagi-no-Mikoto</strong>
-  </p>
-
-  <p>
-    伊弉冉尊 — <strong>Izanami-no-Mikoto</strong>
-  </p>
-
-  <p>
-    Їм доручено створити та впорядкувати
-    земний світ.
-  </p>
-
-  <p>
-    Вони стоять на небесному мосту
-    й дивляться вниз, на первісне море.
-  </p>
-
-  <p>
-    Ідзанаґі занурює небесний спис у воду.
-    Коли він витягує його, солона вода
-    стікає зі списа, а з крапель формується земля.
-  </p>
-
-  <div class="meaning">
-
-    <div class="meaning-title">
-      Образ
-    </div>
-
-    <p>
-      Японія не просто «знайдена».
-      У міфологічній традиції вона створюється —
-      формується з первісного хаосу.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    03 · СМЕРТЬ
-  </div>
-
-  <h2>
-    Ідзанаґі та світ мертвих
-  </h2>
-
-  <p>
-    Ідзанаґі та Ідзанамі народжують богів і землі.
-    Але Ідзанамі помирає після народження бога вогню.
-  </p>
-
-  <p>
-    Ідзанаґі не може прийняти її смерть
-    і вирушає за нею у світ мертвих.
-  </p>
-
-  <p>
-    Він просить її повернутися.
-    Але Ідзанамі вже не може просто повернутися
-    до світу живих.
-  </p>
-
-  <p>
-    Ідзанаґі бачить те, що залишилося
-    від її тіла, жахається, і між ними
-    виникає остаточний розрив.
-  </p>
-
-  <p>
-    Після повернення до світу живих
-    Ідзанаґі очищується.
-  </p>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    04 · АМАТЕРАСУ
-  </div>
-
-  <h2>
-    Світло, яке зникло
-  </h2>
-
-  <p>
-    天照大神 — <strong>Amaterasu Ōmikami</strong>
-  </p>
-
-  <p>
-    Аматерасу стає однією з центральних
-    фігур японської міфології.
-  </p>
-
-  <p>
-    Сусаноо вступає з нею в конфлікт,
-    і Аматерасу ховається в небесній печері.
-  </p>
-
-  <p>
-    Світ занурюється в темряву.
-  </p>
-
-  <p>
-    Боги намагаються повернути її.
-    Вони влаштовують біля печери веселощі.
-    Аматерасу чує сміх, визирає назовні
-    й бачить своє відображення в дзеркалі.
-  </p>
-
-  <p>
-    Вона виходить — і світло повертається.
-  </p>
-
-  <div class="meaning">
-
-    <div class="meaning-title">
-      Образ
-    </div>
-
-    <p>
-      Коли світ втрачає орієнтир,
-      недостатньо просто чекати.
-      Щоб повернути світло, потрібно діяти.
-    </p>
-
-  </div>
-
-</section>
-
-
-<div class="symbol-line">
-  天照 · 月読 · 素戔嗚
-</div>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    05 · СУСАНОО
-  </div>
-
-  <h2>
-    Сила, яку важко контролювати
-  </h2>
-
-  <p>
-    素戔嗚尊 — <strong>Susanoo-no-Mikoto</strong>
-  </p>
-
-  <p>
-    Сусаноо — складний образ.
-    Він пов'язаний із морем, бурями,
-    дикою природою та руйнівною силою.
-  </p>
-
-  <p>
-    Море може годувати, але може вбити.
-    Дощ може дати врожай, але може знищити поле.
-    Вогонь може зігріти, але може спалити будинок.
-  </p>
-
-  <p>
-    Сила сама по собі не обов'язково є доброю
-    або злою. Важливо те, що вона робить у світі.
-  </p>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    06 · ЯМАТА НО ОРОТІ
-  </div>
-
-  <h2>
-    Вісім голів темряви
-  </h2>
-
-  <p>
-    八岐大蛇 — <strong>Yamata no Orochi</strong>
-  </p>
-
-  <p>
-    Восьмиголовий і восьмихвостий змій —
-    один із найвідоміших образів японської міфології.
-  </p>
-
-  <p>
-    Чудовисько щороку забирає одну дівчину.
-    Залишається остання — Кусінада-хіме.
-  </p>
-
-  <p>
-    Сусаноо вирішує її врятувати.
-    Але він не перемагає чудовисько
-    просто силою.
-  </p>
-
-  <p>
-    Він використовує хитрість:
-    вісім воріт, вісім посудин саке.
-    Змій випиває, втрачає пильність,
-    і Сусаноо атакує.
-  </p>
-
-  <p>
-    Усередині чудовиська він знаходить
-    меч Кусанагі.
-  </p>
-
-  <div class="meaning">
-
-    <div class="meaning-title">
-      Сенс образу
-    </div>
-
-    <p>
-      Величезну силу не завжди треба перемагати
-      ще більшою силою. Іноді потрібно знайти
-      момент, коли вона сама втрачає контроль.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    07 · ОДНА ПОДІЯ — КІЛЬКА ПАМ'ЯТЕЙ
-  </div>
-
-  <h2>
-    «В одному записі сказано…»
-  </h2>
-
-  <p>
-    Однією з особливостей «Ніхон сьокі» є те,
-    що в ранніх частинах тексту іноді подаються
-    різні версії однієї події.
-  </p>
-
-  <div class="quote">
-
-    <p class="quote-japanese">
-      一書曰
-    </p>
-
-    <p class="quote-text">
-      «В одному записі сказано…»
-    </p>
-
-  </div>
-
-  <p>
-    Укладачі зберігають альтернативні традиції,
-    не завжди зводячи їх до однієї версії.
-  </p>
-
-  <p>
-    Одна історія могла звучати так.
-    Інша — трохи інакше.
-    Третя — ще інакше.
-  </p>
-
-  <p>
-    Це показує, що історична пам'ять не є фотографією.
-    Вона складається з різних голосів,
-    традицій і способів бачити минуле.
-  </p>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    08 · ВЛАДА
-  </div>
-
-  <h2>
-    Від богів до правителів
-  </h2>
-
-  <p>
-    Поступово «Ніхон сьокі» переходить
-    від міфічного світу до історії правителів.
-  </p>
-
-  <p>
-    Небесні божества → Нініґі →
-    його нащадки → Джімму →
-    імператорська лінія.
-  </p>
-
-  <p>
-    Таким чином міфологічний світ і політична
-    історія з'єднуються в одну безперервну розповідь.
-  </p>
-
-  <div class="meaning">
-
-    <div class="meaning-title">
-      Важливий контекст
-    </div>
-
-    <p>
-      Текст можна читати одночасно як міфологічну
-      традицію та як державний історичний текст,
-      який пояснює походження влади.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    09 · ДЖІММУ
-  </div>
-
-  <h2>
-    Від міфу до царської хроніки
-  </h2>
-
-  <p>
-    神武天皇 — <strong>Джімму</strong>,
-    традиційно вважається першим імператором Японії.
-  </p>
-
-  <p>
-    У традиційній розповіді він вирушає
-    зі своїм військом на схід, проходить
-    випробування та зрештою засновує центр влади.
-  </p>
-
-  <p>
-    Традиційна хронологія відносить його правління
-    до дуже давньої епохи.
-  </p>
-
-  <div class="meaning">
-
-    <div class="meaning-title">
-      Важливо
-    </div>
-
-    <p>
-      Традиційна хронологія не означає,
-      що кожна наведена дата є сучасно
-      підтвердженою історичною датою.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    10 · МОВА
-  </div>
-
-  <h2>
-    Чому «Ніхон сьокі» написана китайською?
-  </h2>
-
-  <p>
-    Оригінальний текст написаний класичною
-    китайською мовою — канбун.
-  </p>
-
-  <p>
-    Китайська писемна культура мала великий
-    престиж у Східній Азії, а китайські історичні
-    хроніки були важливою моделлю державної історіографії.
-  </p>
-
-  <p>
-    Тому японські укладачі використовували форму,
-    яка відповідала тогочасній східноазійській
-    традиції написання історії держави.
-  </p>
-
-  <div class="meaning">
-
-    <div class="meaning-title">
-      Парадокс
-    </div>
-
-    <p>
-      Японія записує власну історію мовою,
-      яка прийшла з іншої цивілізаційної традиції,
-      водночас формуючи власний образ окремого світу.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    11 · ІСТОРИЧНА ПАМ'ЯТЬ
-  </div>
-
-  <h2>
-    Хто має право сказати: «Ось що було»?
-  </h2>
-
-  <p>
-    Той, хто записує історію, отримує величезну силу.
-  </p>
-
-  <p>
-    Він вирішує, кого назвати предком,
-    кого — героєм, кого — ворогом,
-    який міф залишити та яку версію події
-    поставити першою.
-  </p>
-
-  <p>
-    Тому «Ніхон сьокі» цікаво читати не лише
-    з питанням «Що тут написано?».
-  </p>
-
-  <p>
-    Варто також запитувати:
-  </p>
-
-  <div class="quote">
-
-    <p class="quote-text">
-      «Навіщо саме так це було записано?»
-    </p>
-
-  </div>
-
-  <p>
-    Це вже інший рівень читання історії.
-  </p>
-
-</section>
-
-
-<section class="chapter">
-
-  <div class="chapter-number">
-    12 · КОДЗІКІ І НІХОН СЬОКІ
-  </div>
-
-  <h2>
-    Одне минуле — два погляди
-  </h2>
-
-  <div class="comparison">
-
-    <div class="comparison-card">
-
-      <h3>
-        古事記 · Кодзікі
-      </h3>
-
-      <p>
-        Пам'ять, міф, родовід,
-        сакральна історія.
+      <p class="book-author">
+        日本書紀 · Nihon Shoki · 720 рік · епоха Нара
       </p>
 
     </div>
 
-    <div class="comparison-card">
+  </section>
 
-      <h3>
-        日本書紀 · Ніхон сьокі
-      </h3>
+
+  <!-- INTRO -->
+
+  <section class="book-intro">
+
+    <p class="book-label">
+      ПРО ТЕКСТ
+    </p>
+
+    <h2>
+      Книга, яка
+      перетворює пам'ять
+      на історію
+    </h2>
+
+    <p class="book-intro-text">
+      «Ніхон сьокі» — одна з найважливіших ранніх
+      японських історичних хронік. Її завершили
+      720 року за наказом двору держави Ямато,
+      у період формування централізованої японської держави.
+    </p>
+
+    <p class="book-intro-text">
+      Текст починається з міфічного походження світу,
+      богів та предків імператорської лінії,
+      а поступово переходить до правителів,
+      воєн, дипломатії, законів, державного устрою
+      та подій, які укладачі представляли як історію Японії.
+    </p>
+
+    <div class="history-box">
 
       <p>
-        Хроніка, порядок,
-        держава, політична пам'ять.
+        <strong>Японська назва:</strong>
+        日本書紀
+      </p>
+
+      <p>
+        <strong>Читання:</strong>
+        にほんしょき — Nihon Shoki
+      </p>
+
+      <p>
+        <strong>Українською:</strong>
+        «Хроніки Японії»
+      </p>
+
+      <p>
+        <strong>Завершено:</strong>
+        720 рік
+      </p>
+
+      <p>
+        <strong>Епоха:</strong>
+        Нара
+      </p>
+
+      <p>
+        <strong>Структура:</strong>
+        30 томів
+      </p>
+
+      <p>
+        <strong>Мова тексту:</strong>
+        класична китайська — канбун
+      </p>
+
+      <p>
+        <strong>Особливість:</strong>
+        у ранніх міфологічних частинах
+        часто зберігаються альтернативні версії
+        одних і тих самих подій.
       </p>
 
     </div>
 
-  </div>
-
-  <p>
-    Їх краще не сприймати як дві однакові книги.
-    Вони дивляться на одне минуле з різних боків.
-  </p>
-
-  <p>
-    «Кодзікі» запитує:
-    «Звідки ми прийшли?»
-  </p>
-
-  <p>
-    «Ніхон сьокі» вже починає питати:
-    «Як ми стали тим, ким ми є?»
-  </p>
-
-</section>
+  </section>
 
 
-<div class="symbol-line">
-  神 → 人 → 王 → 国
-</div>
+  <!-- ОСНОВНИЙ ТЕКСТ -->
+
+  <main class="book-content">
 
 
-<section class="chapter">
+    <section class="idea-section">
 
-  <div class="chapter-number">
-    13 · ГОЛОВНА ДУМКА
-  </div>
+      <div class="idea-number">
+        01
+      </div>
 
-  <h2>
-    Історія — це пам'ять, яку хтось вирішив зберегти
-  </h2>
+      <h2>
+        Спочатку
+        не було Японії
+      </h2>
 
-  <p>
-    Люди часто думають, що історія — це те,
-    що вже сталося.
-  </p>
+      <p>
+        «Ніхон сьокі» починається не з імператора,
+        не з війни й навіть не з людського суспільства.
+      </p>
 
-  <p>
-    Але історія, яку ми читаємо, —
-    це те, що хтось вирішив зберегти.
-  </p>
+      <p>
+        Перед читачем постає первісний світ —
+        небо і земля ще не мають тієї форми,
+        яку люди знають згодом.
+      </p>
 
-  <p>
-    Десятки людей могли щось бачити.
-    Сотні могли пам'ятати.
-    Різні роди могли розповідати різні версії.
-  </p>
+      <p>
+        Поступово з'являються перші божества.
+        Світ починає розділятися,
+        отримувати порядок і форму.
+      </p>
 
-  <p>
-    А потім приходить час, коли хтось сідає
-    і каже: «Запишемо».
-  </p>
+      <p>
+        Тільки після цього розповідь переходить
+        до створення островів Японії,
+        богів, предків та майбутньої імператорської лінії.
+      </p>
 
-  <p>
-    І з цього моменту пам'ять стає документом.
-    А документ починає формувати майбутнє.
-  </p>
+      <div class="wisdom-box">
 
-</section>
+        <p>
+          У цій книзі держава починається
+          задовго до появи держави.
+          Вона починається з самого уявлення
+          про порядок світу.
+        </p>
 
+      </div>
 
-<section class="final-section">
-
-  <p class="eyebrow">
-    日本書紀 · NIHON SHOKI
-  </p>
-
-  <h2>
-    Як ми стали тим, ким ми є?
-  </h2>
-
-  <p>
-    «Ніхон сьокі» — не просто книга
-    про стародавню Японію.
-  </p>
-
-  <p>
-    Це книга про народження історичної пам'яті,
-    про те, як хаос минулого перетворюють
-    на послідовну розповідь.
-  </p>
-
-  <p>
-    Від хаосу — до богів.
-    Від богів — до предків.
-    Від предків — до правителів.
-    Від правителів — до держави.
-    Від держави — до історії.
-  </p>
-
-  <p>
-    «Кодзікі» запитує:
-    «Звідки ми прийшли?»
-  </p>
-
-  <p>
-    А «Ніхон сьокі»:
-    «Як ми стали тим, ким ми є?»
-  </p>
-
-</section>
-
-</main>
+    </section>
 
 
-<footer class="footer">
+    <section class="idea-section">
 
-  <span>
-    WHAT THE WISE LEFT BEHIND
-  </span>
+      <div class="idea-number">
+        02
+      </div>
 
-  <span>
-    日本書紀 · NIHON SHOKI
-  </span>
+      <h2>
+        Ідзанаґі
+        та Ідзанамі
+      </h2>
 
-</footer>
+      <p>
+        Одними з центральних постатей
+        ранньої міфологічної частини є
+        伊弉諾尊 — Ідзанаґі-но-Мікото
+        та 伊弉冉尊 — Ідзанамі-но-Мікото.
+      </p>
+
+      <p>
+        Їм доручено впорядкувати первісну землю.
+        Вони стоять на небесному мосту
+        й дивляться на первісне море.
+      </p>
+
+      <p>
+        Ідзанаґі занурює небесний спис у воду.
+        Краплі, що стікають зі списа,
+        пов'язані з формуванням островів.
+      </p>
+
+      <p>
+        Так виникає міфологічний образ Японії
+        як землі, яка не просто існує,
+        а поступово формується з первісного хаосу.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          伊弉諾尊 · 伊弉冉尊
+        </div>
+
+        <div class="quote-reading">
+          Izanagi-no-Mikoto · Izanami-no-Mikoto
+        </div>
+
+        <div class="quote-translation">
+          Ті, кому доручено впорядкувати
+          первісний світ і створити земну форму.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        03
+      </div>
+
+      <h2>
+        Смерть,
+        яку неможливо скасувати
+      </h2>
+
+      <p>
+        Ідзанамі народжує богів, але після народження
+        бога вогню отримує смертельні опіки
+        й залишає світ живих.
+      </p>
+
+      <p>
+        Ідзанаґі не приймає її смерть.
+        Він вирушає за нею у світ мертвих,
+        сподіваючись повернути дружину.
+      </p>
+
+      <p>
+        Але повернення вже неможливе.
+        Ідзанамі належить іншому світу.
+      </p>
+
+      <p>
+        Ідзанаґі бачить її вже в страшному стані
+        й тікає від світу мертвих.
+      </p>
+
+      <p>
+        Після цього він здійснює очищення.
+        І саме під час очищення з'являються
+        нові важливі божества.
+      </p>
+
+      <div class="wisdom-box">
+
+        <p>
+          Світ живих і світ мертвих
+          у «Ніхон сьокі» мають межу.
+          Її можна перетнути,
+          але не можна просто скасувати.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        04
+      </div>
+
+      <h2>
+        Аматерасу —
+        світло небес
+      </h2>
+
+      <p>
+        天照大神 — Аматерасу Омікамі —
+        одна з центральних богинь японської
+        міфологічної традиції.
+      </p>
+
+      <p>
+        Вона пов'язана зі світлом
+        і небесним порядком.
+      </p>
+
+      <p>
+        Коли між Аматерасу та Сусаноо
+        виникає конфлікт, вона ховається
+        в небесній печері.
+      </p>
+
+      <p>
+        Світ залишається без світла.
+        Інші божества намагаються
+        повернути її назад.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          天照大神
+        </div>
+
+        <div class="quote-reading">
+          Amaterasu Ōmikami
+        </div>
+
+        <div class="quote-translation">
+          Світло, навколо якого будується
+          один із найважливіших міфів
+          японської традиції.
+        </div>
+
+      </div>
+
+      <p>
+        Цей епізод показує, наскільки важливим
+        для міфологічного порядку є повернення світла,
+        гармонії та небесного ладу.
+      </p>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        05
+      </div>
+
+      <h2>
+        Сусаноо —
+        сила, яка виходить за межі
+      </h2>
+
+      <p>
+        素戔嗚尊 — Сусаноо-но-Мікото —
+        один із найбільш суперечливих персонажів
+        ранньої японської міфології.
+      </p>
+
+      <p>
+        Він пов'язаний із морем, бурями,
+        дикою силою та руйнуванням.
+      </p>
+
+      <p>
+        Його поведінка створює конфлікт
+        із небесним порядком.
+      </p>
+
+      <p>
+        Але Сусаноо не залишається
+        лише руйнівником.
+        Саме він згодом стає героєм
+        історії про Ямату но Ороті.
+      </p>
+
+      <div class="wisdom-box">
+
+        <p>
+          Міфологічний герой не завжди
+          починається як герой.
+          Іноді шлях до подвигу проходить
+          через конфлікт і втрату.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        06
+      </div>
+
+      <h2>
+        Ямату но Ороті
+        та меч Кусанагі
+      </h2>
+
+      <p>
+        八岐大蛇 — Ямату но Ороті —
+        восьмиголовий і восьмихвостий змій,
+        один із найвідоміших образів
+        японської міфології.
+      </p>
+
+      <p>
+        Чудовисько щороку забирає одну
+        з дочок старого подружжя.
+        Останньою залишається Кусінада-хіме.
+      </p>
+
+      <p>
+        Сусаноо погоджується її врятувати.
+      </p>
+
+      <p>
+        Він використовує не лише силу,
+        а й хитрість: готує вісім посудин
+        саке та вісім входів.
+      </p>
+
+      <p>
+        Коли змій втрачає пильність,
+        Сусаноо атакує його.
+      </p>
+
+      <p>
+        Усередині хвоста він знаходить
+        знаменитий меч Кусанагі.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          八岐大蛇
+        </div>
+
+        <div class="quote-reading">
+          Yamata no Orochi
+        </div>
+
+        <div class="quote-translation">
+          Восьмиголовий змій —
+          чудовисько, перемога над яким
+          приводить до появи священного меча.
+        </div>
+
+      </div>
+
+      <div class="wisdom-box">
+
+        <p>
+          Іноді сила перемагається
+          не більшою силою,
+          а правильним моментом.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        07
+      </div>
+
+      <h2>
+        «В одному записі сказано…»
+      </h2>
+
+      <p>
+        Одна з найцікавіших особливостей
+        «Ніхон сьокі» — збереження альтернативних
+        версій міфів та подій.
+      </p>
+
+      <p>
+        У тексті неодноразово зустрічається
+        формула:
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          一書曰
+        </div>
+
+        <div class="quote-reading">
+          Issho iwaku
+        </div>
+
+        <div class="quote-translation">
+          «В одному записі сказано…»
+        </div>
+
+      </div>
+
+      <p>
+        Після цього може подаватися інша
+        версія тієї самої події.
+      </p>
+
+      <p>
+        Це надзвичайно цікаво для розуміння
+        того, як укладачі працювали з пам'яттю.
+        Вони не завжди знищували різні традиції,
+        щоб залишити лише одну.
+      </p>
+
+      <p>
+        Частину альтернатив вони зберігали
+        всередині самої хроніки.
+      </p>
+
+      <div class="wisdom-box">
+
+        <p>
+          Минуле іноді має не одну пам'ять,
+          а кілька пам'ятей,
+          які існують поруч.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        08
+      </div>
+
+      <h2>
+        Від богів
+        до правителів
+      </h2>
+
+      <p>
+        Поступово «Ніхон сьокі» переходить
+        від міфологічного світу до розповіді
+        про правителів.
+      </p>
+
+      <p>
+        Небесні божества.
+        Нініґі.
+        Його нащадки.
+        Джімму.
+        Імператорська лінія.
+      </p>
+
+      <p>
+        Міфологія таким чином переходить
+        у розповідь про походження влади.
+      </p>
+
+      <p>
+        Імператорська влада подається
+        не як випадкова політична конструкція,
+        а як частина набагато давнішого
+        космічного та родового порядку.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          天 → 人 → 王 → 国
+        </div>
+
+        <div class="quote-reading">
+          Небо → людина → правитель → держава
+        </div>
+
+        <div class="quote-translation">
+          Міфологічний порядок поступово
+          переходить у політичний порядок.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        09
+      </div>
+
+      <h2>
+        Джімму —
+        перший імператор традиції
+      </h2>
+
+      <p>
+        神武天皇 — Джімму-тенно —
+        традиційно вважається першим імператором Японії.
+      </p>
+
+      <p>
+        У розповіді він вирушає зі своїми людьми
+        на схід, проходить через низку випробувань
+        і зрештою встановлює центр влади.
+      </p>
+
+      <p>
+        Його історія є важливим переходом
+        від міфологічного минулого
+        до імператорської хроніки.
+      </p>
+
+      <p>
+        Водночас традиційні дати його правління
+        належать до дуже давньої епохи
+        і не повинні автоматично сприйматися
+        як сучасно підтверджена хронологія.
+      </p>
+
+      <div class="wisdom-box">
+
+        <p>
+          Традиція може зберігати пам'ять
+          навіть там, де сучасна історична
+          реконструкція не може підтвердити
+          кожну деталь.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        10
+      </div>
+
+      <h2>
+        Чому японці
+        писали китайською?
+      </h2>
+
+      <p>
+        «Ніхон сьокі» написана переважно
+        класичною китайською мовою —
+        канбун.
+      </p>
+
+      <p>
+        Для Східної Азії того часу китайська
+        писемна культура була важливою мовою
+        державної адміністрації, дипломатії
+        та історіографії.
+      </p>
+
+      <p>
+        Японські укладачі використовували
+        цю писемну традицію, щоб створити
+        офіційну історичну хроніку держави.
+      </p>
+
+      <p>
+        І тут виникає цікавий парадокс:
+        японська держава записує власне
+        походження за допомогою писемної
+        традиції, яка прийшла з іншого
+        культурного середовища.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          日本書紀
+        </div>
+
+        <div class="quote-reading">
+          Nihon Shoki
+        </div>
+
+        <div class="quote-translation">
+          «Хроніки Японії» —
+          японська історія, записана
+          у східноазійській традиції історіографії.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        11
+      </div>
+
+      <h2>
+        Хто вирішує,
+        що стане історією?
+      </h2>
+
+      <p>
+        Коли минуле записують,
+        воно перестає бути лише пам'яттю.
+      </p>
+
+      <p>
+        Воно стає текстом.
+      </p>
+
+      <p>
+        А текст уже можна передавати
+        наступним поколінням.
+      </p>
+
+      <p>
+        Той, хто укладає історію,
+        визначає послідовність подій,
+        імена предків, образи героїв,
+        ворогів та походження влади.
+      </p>
+
+      <p>
+        Саме тому «Ніхон сьокі» цікаво читати
+        не тільки з питанням:
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-translation">
+          «Що тут написано?»
+        </div>
+
+        <div class="quote-translation">
+          Але й:
+          «Чому саме це було збережено
+          і саме так розказано?»
+        </div>
+
+      </div>
+
+      <div class="wisdom-box">
+
+        <p>
+          Історія — це не тільки пам'ять про минуле.
+          Це ще й спосіб пояснити сучасність.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        12
+      </div>
+
+      <h2>
+        Кодзікі
+        та Ніхон сьокі
+      </h2>
+
+      <p>
+        «Ніхон сьокі» часто читають поруч
+        із «Кодзікі» — «Записами про давні справи»,
+        завершеними 712 року.
+      </p>
+
+      <p>
+        Обидві книги містять міфи про походження
+        японських островів, богів та імператорської
+        лінії, але мають різний характер.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          古事記
+        </div>
+
+        <div class="quote-reading">
+          Kojiki
+        </div>
+
+        <div class="quote-translation">
+          Пам'ять, міф, родовід,
+          сакральна розповідь.
+        </div>
+
+      </div>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          日本書紀
+        </div>
+
+        <div class="quote-reading">
+          Nihon Shoki
+        </div>
+
+        <div class="quote-translation">
+          Хроніка, правителі,
+          держава, політична пам'ять.
+        </div>
+
+      </div>
+
+      <p>
+        Це не означає, що одна книга просто
+        «правильніша» за іншу.
+        Вони створюють різні способи
+        розповісти про давнє минуле.
+      </p>
+
+      <div class="wisdom-box">
+
+        <p>
+          Одне минуле може мати
+          кілька способів бути розказаним.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="idea-section">
+
+      <div class="idea-number">
+        13
+      </div>
+
+      <h2>
+        Від міфу
+        до держави
+      </h2>
+
+      <p>
+        Якщо пройти через усю структуру
+        «Ніхон сьокі», можна побачити
+        величезний рух.
+      </p>
+
+      <p>
+        Спочатку — первісний світ.
+      </p>
+
+      <p>
+        Потім — боги.
+      </p>
+
+      <p>
+        Потім — створення островів.
+      </p>
+
+      <p>
+        Потім — небесні предки.
+      </p>
+
+      <p>
+        Потім — Джімму.
+      </p>
+
+      <p>
+        Потім — правителі,
+        війни, дипломатія,
+        закони та державний порядок.
+      </p>
+
+      <p>
+        Міфологічний час поступово
+        перетворюється на історичний час.
+      </p>
+
+      <div class="wisdom-box">
+
+        <p>
+          Одна з головних ліній книги —
+          перетворення космічного порядку
+          на порядок людського суспільства.
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ФІНАЛ -->
+
+  <section class="book-ending">
+
+    <div class="ending-character">
+      紀
+    </div>
+
+    <div class="ending-content">
+
+      <p class="book-label">
+        ГОЛОВНА ДУМКА
+      </p>
+
+      <h2>
+        Як пам'ять
+        стає історією
+      </h2>
+
+      <p>
+        «Ніхон сьокі» — це не просто розповідь
+        про дуже давню Японію.
+      </p>
+
+      <p>
+        Це спроба зібрати величезний простір
+        міфів, родоводів, переказів,
+        правителів та подій в одну
+        послідовну історію.
+      </p>
+
+      <p>
+        Від хаосу — до богів.
+        Від богів — до предків.
+        Від предків — до правителів.
+        Від правителів — до держави.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-japanese">
+          日本書紀
+        </div>
+
+        <div class="quote-reading">
+          Nihon Shoki
+        </div>
+
+        <div class="quote-translation">
+          «Хроніки Японії».
+        </div>
+
+      </div>
+
+      <p>
+        Але найцікавіше питання книги
+        може бути не тільки:
+        «Що сталося?»
+      </p>
+
+      <p>
+        А:
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-translation">
+          «Як ми вирішили,
+          що саме треба пам'ятати?»
+        </div>
+
+      </div>
+
+      <p>
+        Саме тут «Ніхон сьокі» виходить
+        за межі простої давньої хроніки.
+      </p>
+
+      <p>
+        Вона стає книгою про пам'ять,
+        владу, походження,
+        порядок і те, як суспільство
+        розповідає самому собі,
+        звідки воно прийшло.
+      </p>
+
+      <p>
+        Міф стає родоводом.
+        Родовід стає історією.
+        Історія стає пам'яттю держави.
+      </p>
+
+      <div class="quote-block">
+
+        <div class="quote-translation">
+          Минуле не просто залишається
+          після нас.
+          Його хтось має зберегти,
+          записати й передати далі.
+        </div>
+
+      </div>
+
+      <p>
+        І саме тому через століття
+        ми все ще можемо відкрити
+        «Ніхон сьокі» —
+        і почути, як стародавня Японія
+        розповідала сама про себе.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <p>
+        WHAT THE WISE LEFT BEHIND
+      </p>
+
+      <p>
+        Давні тексти · Японія · Китай
+      </p>
+
+    </div>
+
+  </footer>
+
 
 </body>
 </html>
